@@ -8,7 +8,6 @@ This repository contains a complete verification environment for an APB Slave Re
 
 - **PyUVM-based Components**: Implements UVM-like constructs in Python using PyUVM.
 - **Constrained Random Verification**: Leverages the `cocotb-coverage` library for constrained random generation.
-- **Coverage Support**: Ensures thorough testing through coverage metrics.
 - **Custom APB RAL Model**: (Currently under development; APB RAL tests disabled).
 - **Cocotb Integration**: Python-based testing for hardware design simulation.
 
