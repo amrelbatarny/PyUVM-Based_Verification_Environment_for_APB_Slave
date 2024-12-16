@@ -133,6 +133,7 @@ The Register Abstraction Layer (RAL) is under development. As such, the `APB_reg
 ## Contribution
 
 We welcome contributions to this educational project. Feel free to submit pull requests for improvements or additional features.
+
 ---
 ## Contact
 
