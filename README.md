@@ -4,6 +4,9 @@
 
 This repository contains a complete verification environment for an APB Slave Register File using the PyUVM library. The environment leverages Cocotb and PyUVM for high-level testbench development and includes constrained random verification and coverage using the `cocotb-coverage` library. The design under test (DUT) is described in SystemVerilog and simulates using QuestaSim.
 
+### APB_Wrapper
+![APB_Wrapper](Documentation/APB_Wrapper.png)
+
 ### Features
 
 - **PyUVM-based Components**: Implements UVM-like constructs in Python using PyUVM.
