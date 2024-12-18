@@ -1,0 +1,1 @@
+bind APB_Wrapper APB_SVA APB_SVA_inst (.*);
