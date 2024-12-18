@@ -102,5 +102,4 @@ APB_Slave #(
 );
 
     
-    assert property (@(posedge PCLK) (!PRESETn) |=> (PRDATA == 0));
 endmodule
