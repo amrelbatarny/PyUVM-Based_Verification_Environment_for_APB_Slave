@@ -21,7 +21,13 @@ TOPLEVEL = APB_Wrapper
  
 # MODULE is the basename of the Python test file
 MODULE = APB_test
+
+# Additional vsim arguments
+SIM_ARGS += -do setup.tcl
  
+# Additional vlog arguments
+# VLOG_ARGS += -mfcu -cuname
+
 # SCRIPT_FILE := setup.tcl
  
 include $(shell cocotb-config --makefiles)/Makefile.sim

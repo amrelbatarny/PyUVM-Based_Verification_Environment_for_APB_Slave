@@ -1,3 +1,4 @@
+# APB Signals Waveforms
 add wave -position insertpoint  \
 sim:/APB_Wrapper/PCLK \
 sim:/APB_Wrapper/PRESETn \
@@ -15,10 +16,25 @@ sim:/APB_Wrapper/RegWDATA \
 sim:/APB_Wrapper/RegRDATA \
 sim:/APB_Wrapper/RegREADY
 
+# Current and Next States Waveforms
 add wave -position insertpoint  \
 -color cyan sim:/APB_Wrapper/apb_slave/NextState \
 -color cyan sim:/APB_Wrapper/apb_slave/CurrentState
 
+# Assertions
+add wave -position insertpoint \
+sim:/APB_Wrapper/APB_SVA_inst/PWRITE_never_X \
+sim:/APB_Wrapper/APB_SVA_inst/PENABLE_never_X \
+sim:/APB_Wrapper/APB_SVA_inst/PREADY_never_X \
+sim:/APB_Wrapper/APB_SVA_inst/PADDR_never_X \
+sim:/APB_Wrapper/APB_SVA_inst/PWDATA_never_X \
+sim:/APB_Wrapper/APB_SVA_inst/PADDR_stable_in_transfer \
+sim:/APB_Wrapper/APB_SVA_inst/PWRITE_stable_in_transfer \
+sim:/APB_Wrapper/APB_SVA_inst/PENABLE_stable_in_transfer \
+sim:/APB_Wrapper/APB_SVA_inst/PWDATA_stable_in_wr_transfer \
+sim:/APB_Wrapper/APB_SVA_inst/PSLVERR_stable_in_transfer
+
+# Registers Waveform
 add wave -position insertpoint  \
 -color gold sim:/APB_Wrapper/reg_file/SYS_STATUS_REG \
 -color gold sim:/APB_Wrapper/reg_file/INT_CTRL_REG \

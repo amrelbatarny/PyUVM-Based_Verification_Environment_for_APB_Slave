@@ -1,0 +1,39 @@
+APB:
+  cover_percentage: 100.0
+  coverage: 18
+  size: 18
+  type: <class 'cocotb_coverage.coverage.CoverItem'>
+APB.PADDR:
+  at_least: 1
+  bins:_hits:
+    0: 4
+    4: 3
+    8: 4
+    12: 5
+    16: 5
+    20: 5
+    24: 5
+    28: 5
+    32: 3
+    36: 4
+    40: 5
+    44: 3
+    48: 7
+    52: 2
+    56: 6
+    60: 7
+  cover_percentage: 100.0
+  coverage: 16
+  size: 16
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+APB.PWRITE:
+  at_least: 1
+  bins:_hits:
+    0: 37
+    1: 36
+  cover_percentage: 100.0
+  coverage: 2
+  size: 2
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1

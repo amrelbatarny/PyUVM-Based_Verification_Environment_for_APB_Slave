@@ -23,45 +23,42 @@ class APB_base_sequence(uvm_sequence, uvm_report_object):
     async def body(self):
         raise UVMNotImplemented  
 
+
+##############################################################################
+# Specialized APB Test Sequences
+##############################################################################
+
 class APB_TestAll_sequence(APB_base_sequence):
 
     async def body(self):
-        def pwrite_dist(PWRITE):
-            return 5
 
-        # Create seq_item
         for _ in range(100):
             item = APB_seq_item.create("item")
             await self.start_item(item)
-            # item.del_constraint(pwrite_dist)
-            item.randomize_with(pwrite_dist)
-            # item.populate()
+            item.del_constraint(item.pwrite_dist)
+            item.randomize()
             await self.finish_item(item)
 
 class APB_write_sequence(APB_base_sequence):
 
     async def body(self):
 
-        # Create seq_item
         for _ in range(100):
             item = APB_seq_item.create("item")
             await self.start_item(item)
             item.randomize()
-            # item.populate()
             await self.finish_item(item)
 
 class APB_read_sequence(APB_base_sequence):
 
     async def body(self):
-        def pwrite_dist(PWRITE):
-            return 9 if PWRITE == 0 else 2
+        def my_pwrite_dist(PWRITE):
+            return 9 if PWRITE == 0 else 1
 
-        # Create seq_item
         for _ in range(100):
             item = APB_seq_item.create("item")
             await self.start_item(item)
-            item.randomize_with(pwrite_dist)
-            # item.populate()
+            item.randomize_with(my_pwrite_dist)
             await self.finish_item(item)
 
 class APB_reg_sequence(APB_base_sequence):

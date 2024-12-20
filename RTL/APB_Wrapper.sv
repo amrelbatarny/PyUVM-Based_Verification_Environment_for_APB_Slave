@@ -12,9 +12,6 @@ module APB_Wrapper #(
     input 						 	PCLK     ,  
     input 						 	PRESETn  ,  
 
-// PSI => Previous System IN
-// PSO => Previous System OUT
-
 // Slave FROM Master
     input [ADDR_WIDTH-1 : 0]     	PADDR    ,
     input                        	PWRITE   ,

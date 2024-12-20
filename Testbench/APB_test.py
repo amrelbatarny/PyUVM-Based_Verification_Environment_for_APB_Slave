@@ -25,6 +25,9 @@ class APB_TestAll_test(uvm_test):
 
 		self.drop_objection()
 
+	def final_phase(self):
+		uvm_factory().print(0)
+
 @pyuvm.test()
 class APB_write_test(APB_TestAll_test):
 

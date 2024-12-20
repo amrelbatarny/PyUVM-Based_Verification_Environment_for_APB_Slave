@@ -21,4 +21,5 @@ from cocotb.triggers import *
 
 # CRV imports
 from cocotb_coverage.crv import *
+from cocotb_coverage.coverage import *
 import random
