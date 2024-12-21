@@ -125,6 +125,12 @@ The Register Abstraction Layer (RAL) is under development. As such, the `APB_reg
 
 ---
 
+## Acknowledgements
+
+This project incorporates assertions from the [APB protocol checker interface](https://github.com/Mihaelfug/apb) by Mihael Fugenfirov, used under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+---
+
 ## Future Work
 
 - Enable and validate RAL-based tests.
