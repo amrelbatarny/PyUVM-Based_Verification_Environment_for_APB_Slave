@@ -1,4 +1,3 @@
-from cocotb_coverage.coverage import CoverPoint, coverage_db
 from common_imports import *
 from APB_seq_item import *
 
