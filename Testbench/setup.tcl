@@ -56,3 +56,9 @@ add wave -position insertpoint  \
 .vcop Action toggleleafnames
 
 run -all
+
+# Generate a TXT Coverage Report
+vcover report apb_coverage.ucdb -details -annotate -all -output coverage_report.txt
+
+# Generate an HTML Coverage Report
+vcover report -html -output coverage_report -details -annotate apb_coverage.ucdb

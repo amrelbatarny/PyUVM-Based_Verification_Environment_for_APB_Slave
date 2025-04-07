@@ -1,33 +1,31 @@
 # Makefile
 
-# defaults
-GUI=1
-WAVES=1
+# Force GUI mode and export variables
+GUI = 1
+WAVES = 1
 SIM ?= questa
 TOPLEVEL_LANG ?= verilog
 
 # RTL Files 
-VERILOG_SOURCES += $(PWD)/../RTL//shared_pkg.sv $(PWD)/../RTL//APB_Wrapper.sv $(PWD)/../RTL//APB_Slave.sv $(PWD)/../RTL//RegisterFile.sv
-# use VHDL_SOURCES for VHDL files
+VERILOG_SOURCES += ../RTL/shared_pkg.sv ../RTL/APB_Wrapper.sv ../RTL/APB_Slave.sv ../RTL/RegisterFile.sv
+VERILOG_SOURCES += APB_SVA.sv SVA_bind.sv
 
-# SVA module
-VERILOG_SOURCES += $(PWD)/APB_SVA.sv
-
-# SVA binding module
-VERILOG_SOURCES += $(PWD)/SVA_bind.sv
-
-# TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
+# Top-level and module
 TOPLEVEL = APB_Wrapper
- 
+
 # MODULE is the basename of the Python test file
 MODULE = APB_test
 
-# Additional vsim arguments
-SIM_ARGS += -do setup.tcl
- 
-# Additional vlog arguments
-# VLOG_ARGS += -mfcu -cuname
+# Compilation arguments
+VLOG_ARGS += -mfcu -cuname -timescale=1ns/1ps
 
-# SCRIPT_FILE := setup.tcl
- 
+# Use setup.tcl for waveform configuration
+SIM_ARGS += -do setup.tcl
+
+# Include Cocotb's Makefile AFTER variable exports
 include $(shell cocotb-config --makefiles)/Makefile.sim
+
+# Clean target
+.PHONY: clean
+clean::
+	rm -rf __pycache__ modelsim.ini transcript vsim.wlf

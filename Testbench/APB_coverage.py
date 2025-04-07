@@ -1,63 +1,83 @@
 from common_imports import *
-from APB_seq_item import *
+from APB_seq_item_vsc import *
+
+@vsc.covergroup
+class APBCoverGroup(object):
+    def __init__(self):
+        self.with_sample(
+            PRESETn=vsc.bit_t(1),
+            PWRITE=vsc.bit_t(1),
+            PENABLE=vsc.bit_t(1),
+            PREADY=vsc.bit_t(1),
+            PADDR=vsc.uint32_t(),
+            PWDATA=vsc.uint32_t(),
+            PRDATA=vsc.uint32_t()
+        )
+
+        # Reset state coverage
+        self.cp_preset = vsc.coverpoint(self.PRESETn, bins=dict(
+            reset_active=vsc.bin(0),
+            reset_inactive=vsc.bin(1)
+        ))
+
+        # Transfer type coverage
+        self.cp_pwrite = vsc.coverpoint(self.PWRITE, bins=dict(
+            read=vsc.bin(0),
+            write=vsc.bin(1)
+        ))
+
+        # Enable signal coverage
+        self.cp_penable = vsc.coverpoint(self.PENABLE, bins=dict(
+            enabled=vsc.bin(1),
+            disabled=vsc.bin(0)
+        ))
+
+        # Address coverage - 16 possible addresses (0x0 to 0x3C in steps of 4)
+        addr_values = [i*4 for i in range(16)]
+        self.cp_paddr = vsc.coverpoint(self.PADDR, bins=dict(
+            [(f"addr_{hex(addr)}", vsc.bin(addr)) for addr in addr_values]
+        ))
+
+        # Write data coverage (corrected range specification)
+        self.cp_pwdata = vsc.coverpoint(self.PWDATA, bins=dict(
+            zero=vsc.bin(0),
+            all_ones=vsc.bin(0xFFFFFFFF)
+        ))
+
+        # Cross coverage between key signals
+        self.cross_rw_addr  = vsc.cross([self.cp_pwrite, self.cp_paddr])
+        self.cross_rw_wdata = vsc.cross([self.cp_pwrite, self.cp_pwdata])
 
 class APB_coverage(uvm_component):
     def build_phase(self):
         self.cov_fifo = uvm_tlm_analysis_fifo("cov_fifo", self)
         self.cov_get_port = uvm_get_port("cov_get_port", self)
         self.cov_export = self.cov_fifo.analysis_export
+        self.cg = APBCoverGroup()
 
     def connect_phase(self):
         self.cov_get_port.connect(self.cov_fifo.get_export)
 
-    @CoverPoint(
-        "APB.PADDR",
-        vname="PADDR",
-        xf=lambda PADDR, PWRITE: PADDR,
-        bins=[x for x in range(0x3C + 1) if x % 4 == 0]
-    )
-
-    @CoverPoint(
-        "APB.PWRITE",
-        vname="PADDR",
-        xf=lambda PADDR, PWRITE: PWRITE,
-        bins=[0, 1]
-    )
-
-    def sample_coverage(self, PADDR, PWRITE):
-        """Function to sample coverage."""
-        pass
-
     async def run_phase(self):
         while True:
-            await RisingEdge(cocotb.top.PCLK)
             try:
-                # Wait for an item from the FIFO
                 item = await self.cov_get_port.get()
-
-                # Extract and convert attributes
-                PADDR = int(getattr(item, "PADDR", 0))
-                PWRITE = int(getattr(item, "PWRITE", 0))
-
-                # Log sampling details
-                self.logger.info(f"Sampling coverage: PADDR={PADDR}, PWRITE={PWRITE}")
-
-                # Perform coverage sampling
-                self.sample_coverage(PADDR, PWRITE)
-
+                self.cg.sample(
+                    item.PRESETn,
+                    item.PWRITE,
+                    item.PENABLE,
+                    item.PREADY,
+                    item.PADDR,
+                    item.PWDATA,
+                    item.PRDATA
+                )
+                self.logger.debug(f"{self.get_type_name()}: SAMPLED {item}")
+                self.logger.debug(f"Instance Coverage = {self.cg.get_inst_coverage()}")
             except Exception as e:
-                self.logger.error(f"Error during coverage sampling: {e}")
+                pass
 
     def report_phase(self):
-        # Define the desired export path
-        export_path = "../Reports"
-
-        # Make sure the directory exists, if not create it
-        os.makedirs(export_path, exist_ok=True)
-
-        # print coverage report
-        coverage_db.report_coverage(self.logger.info, bins=False)
-
-        # Export to XML and YAML at the specified path
-        coverage_db.export_to_xml(filename=os.path.join(export_path, "coverage_apb.xml"))
-        coverage_db.export_to_yaml(filename=os.path.join(export_path, "coverage_apb.yml"))
+        self.logger.info("cg total coverage=%f" % (self.cg.get_coverage()))
+        vsc.report_coverage(details=False)
+        vsc.write_coverage_db(filename="apb_coverage.xml",  fmt='xml',      libucis=None)
+        vsc.write_coverage_db(filename="apb_coverage.ucdb", fmt='libucis',  libucis="/home/amrelbatarny/QuestaSim/questasim/linux_x86_64/libucis.so")

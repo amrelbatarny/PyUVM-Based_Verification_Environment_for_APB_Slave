@@ -1,0 +1,25 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/amrelbatarny/PyUVM-Based_Verification_Environment_for_APB_Slave/Testbench'
+rm -f results.xml
+set -o pipefail; MODULE=APB_test TESTCASE= TOPLEVEL="work.APB_Wrapper" \
+GPI_EXTRA= TOPLEVEL_LANG=verilog \
+ /home/amrelbatarny/QuestaSim/questasim/linux_x86_64/vsim -gui -64  -do sim_build/runsim.do  
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/field_scalar_model.py:93: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  self.val.v = int(val)
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/variable_bound_in_propagator.py:31: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  in_r_l_t = list(map(lambda e:[int(e.lhs.val()),int(e.rhs.val())] if isinstance(e, ExprRangeModel)
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/visitors/dist_constraint_builder.py:102: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  weight = int(w.weight.val())
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/variable_bound_in_propagator.py:32: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  else [int(e.val()),int(e.val())], self.in_e.rl))
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/expr_literal_model.py:42: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  return btor.Const(int(self.val()), ctx_width)
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/value_scalar.py:80: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  v = int(rhs)
+/home/amrelbatarny/.local/lib/python3.12/site-packages/vsc/model/expr_partselect_model.py:40: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+  return btor.Slice(
+ERROR: results.xml was not written by the simulation!
+make[1]: *** [/home/amrelbatarny/.local/lib/python3.12/site-packages/cocotb/share/makefiles/simulators/Makefile.questa:164: results.xml] Error 1
+make[1]: Leaving directory '/home/amrelbatarny/PyUVM-Based_Verification_Environment_for_APB_Slave/Testbench'
+make: *** [/home/amrelbatarny/.local/lib/python3.12/site-packages/cocotb/share/makefiles/Makefile.inc:40: sim] Error 2

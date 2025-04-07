@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1743694201" />
+    <testcase name="APB_write_test" classname="APB_test" file="/home/amrelbatarny/.local/lib/python3.12/site-packages/pyuvm/extension_classes.py" lineno="36" time="3.355104923248291" sim_time_ns="1475.0" ratio_time="439.62857607801976" />
+    <testcase name="APB_read_test" classname="APB_test" file="/home/amrelbatarny/.local/lib/python3.12/site-packages/pyuvm/extension_classes.py" lineno="43" time="3.0916178226470947" sim_time_ns="1587.0" ratio_time="513.3234736760522" />
+    <testcase name="APB_TestAll_test" classname="APB_test" file="/home/amrelbatarny/.local/lib/python3.12/site-packages/pyuvm/extension_classes.py" lineno="50" time="3.698782444000244" sim_time_ns="1551.0" ratio_time="419.3271768432503" />
+  </testsuite>
+</testsuites>

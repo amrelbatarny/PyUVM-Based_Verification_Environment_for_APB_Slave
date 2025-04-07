@@ -77,6 +77,7 @@ APB_Slave #(
     .PRESETn(PRESETn)       ,
 
 // input Slave FROM Master
+    .PSELx(PSELx)           ,
     .PADDR(PADDR)           ,
     .PWRITE(PWRITE)         ,
     .PWDATA(PWDATA)         ,

@@ -6,6 +6,7 @@ import pyuvm
 import logging
 import sys
 import os
+import vsc
 
 # Add the RAL directory to sys.path
 directory_path = "../RAL"
@@ -23,3 +24,7 @@ from cocotb.triggers import *
 from cocotb_coverage.crv import *
 from cocotb_coverage.coverage import *
 import random
+
+# pytest and cocotb-test imports
+import pytest
+from cocotb_test import run

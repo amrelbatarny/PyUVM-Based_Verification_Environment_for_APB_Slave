@@ -1,5 +1,5 @@
 from common_imports import *
-from APB_seq_item import *
+from APB_seq_item_vsc import *
 
 class APB_monitor(uvm_monitor):
 
@@ -11,10 +11,10 @@ class APB_monitor(uvm_monitor):
 		while True:
 
 			await RisingEdge(self.dut.PCLK)
-			await First(RisingEdge(self.dut.PENABLE), RisingEdge(self.dut.PREADY)) # Either at SETUP phase or ACCESS phase or at end of transfer
-			await Combine(FallingEdge(self.dut.PENABLE), FallingEdge(self.dut.PREADY)) # Wait for end of transfer
+			# await First(RisingEdge(self.dut.PENABLE), RisingEdge(self.dut.PREADY)) # Either at SETUP phase or ACCESS phase or at end of transfer
+			# await Combine(FallingEdge(self.dut.PENABLE), FallingEdge(self.dut.PREADY)) # Wait for end of transfer
 
-			rsp_seq_item = APB_seq_item.create("rsp_seq_item")
+			rsp_seq_item = APB_seq_item_vsc.create("rsp_seq_item")
 
 			rsp_seq_item.PRESETn	=	self.dut.PRESETn.value
 			rsp_seq_item.PWDATA		=	self.dut.PWDATA.value
@@ -25,4 +25,4 @@ class APB_monitor(uvm_monitor):
 			rsp_seq_item.PREADY		=	self.dut.PREADY.value
 			
 			self.mon_ap.write(rsp_seq_item)
-			self.logger.debug(f"{self.get_type_name()}: MONITORED {rsp_seq_item.__str__()}")
+			self.logger.debug(f"{self.get_type_name()}: MONITORED {rsp_seq_item}")
