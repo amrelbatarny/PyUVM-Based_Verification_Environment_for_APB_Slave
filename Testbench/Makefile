@@ -29,3 +29,8 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 .PHONY: clean
 clean::
 	rm -rf __pycache__ modelsim.ini transcript vsim.wlf
+
+# PyUCIS-Viewer target
+.PHONY: pyucis
+pyucis::
+	pyucis-viewer ../Coverage_Reports/Exported_by_PyVSC/apb_coverage.xml

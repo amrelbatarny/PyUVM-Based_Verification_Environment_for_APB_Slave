@@ -58,7 +58,7 @@ add wave -position insertpoint  \
 run -all
 
 # Generate a TXT Coverage Report
-vcover report apb_coverage.ucdb -details -annotate -all -output coverage_report.txt
+vcover report apb_coverage.ucdb -details -annotate -all -output ../Coverage_Reports/Exported_by_PyVSC/coverage_report.txt
 
 # Generate an HTML Coverage Report
-vcover report -html -output coverage_report -details -annotate apb_coverage.ucdb
+vcover report -html -output ../Coverage_Reports/Exported_by_PyVSC/coverage_report_by_questasim -details -annotate ../Coverage_Reports/Exported_by_PyVSC/apb_coverage.ucdb

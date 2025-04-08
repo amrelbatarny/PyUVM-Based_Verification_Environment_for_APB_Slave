@@ -79,5 +79,5 @@ class APB_coverage(uvm_component):
     def report_phase(self):
         self.logger.info("cg total coverage=%f" % (self.cg.get_coverage()))
         vsc.report_coverage(details=False)
-        vsc.write_coverage_db(filename="apb_coverage.xml",  fmt='xml',      libucis=None)
-        vsc.write_coverage_db(filename="apb_coverage.ucdb", fmt='libucis',  libucis="/home/amrelbatarny/QuestaSim/questasim/linux_x86_64/libucis.so")
+        vsc.write_coverage_db(filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.xml",  fmt='xml',      libucis=None)
+        vsc.write_coverage_db(filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.ucdb", fmt='libucis',  libucis="/home/amrelbatarny/QuestaSim/questasim/linux_x86_64/libucis.so")
