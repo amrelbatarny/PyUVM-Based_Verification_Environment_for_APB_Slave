@@ -1,0 +1,778 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /cg_inst
+=== Design Unit: du
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    96.42%
+        Coverpoints/Crosses          7        na        na        na
+            Covergroup Bins         60        59         1    98.33%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /cg_inst/APBCoverGroup                           96.42%        100          -    Uncovered            
+    covered/total bins:                                    59         60          -                      
+    missing/total bins:                                     1         60          -                      
+    % Hit:                                             98.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                   29          1          -    Covered              
+        bin reset_inactive                               2276          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          699          1          -    Covered              
+        bin write                                        1606          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                      1434          1          -    Covered              
+        bin disabled                                      871          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                      176          1          -    Covered              
+        bin addr_0x4                                      164          1          -    Covered              
+        bin addr_0x8                                      187          1          -    Covered              
+        bin addr_0xc                                      155          1          -    Covered              
+        bin addr_0x10                                     149          1          -    Covered              
+        bin addr_0x14                                     175          1          -    Covered              
+        bin addr_0x18                                     131          1          -    Covered              
+        bin addr_0x1c                                     138          1          -    Covered              
+        bin addr_0x20                                     144          1          -    Covered              
+        bin addr_0x24                                     160          1          -    Covered              
+        bin addr_0x28                                     174          1          -    Covered              
+        bin addr_0x2c                                     149          1          -    Covered              
+        bin addr_0x30                                     126          1          -    Covered              
+        bin addr_0x34                                     102          1          -    Covered              
+        bin addr_0x38                                     128          1          -    Covered              
+        bin addr_0x3c                                      47          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          894          1          -    Covered              
+        bin all_ones                                      350          1          -    Covered              
+    Cross cross_rw_addr                               100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            50          1          -    Covered              
+            bin <read,addr_0x4>                            36          1          -    Covered              
+            bin <read,addr_0x8>                            91          1          -    Covered              
+            bin <read,addr_0xc>                            27          1          -    Covered              
+            bin <read,addr_0x10>                           62          1          -    Covered              
+            bin <read,addr_0x14>                           36          1          -    Covered              
+            bin <read,addr_0x18>                           18          1          -    Covered              
+            bin <read,addr_0x1c>                           55          1          -    Covered              
+            bin <read,addr_0x20>                           49          1          -    Covered              
+            bin <read,addr_0x24>                           54          1          -    Covered              
+            bin <read,addr_0x28>                           68          1          -    Covered              
+            bin <read,addr_0x2c>                           36          1          -    Covered              
+            bin <read,addr_0x30>                           55          1          -    Covered              
+            bin <read,addr_0x34>                           22          1          -    Covered              
+            bin <read,addr_0x38>                           31          1          -    Covered              
+            bin <read,addr_0x3c>                            9          1          -    Covered              
+            bin <write,addr_0x0>                          126          1          -    Covered              
+            bin <write,addr_0x4>                          128          1          -    Covered              
+            bin <write,addr_0x8>                           96          1          -    Covered              
+            bin <write,addr_0xc>                          128          1          -    Covered              
+            bin <write,addr_0x10>                          87          1          -    Covered              
+            bin <write,addr_0x14>                         139          1          -    Covered              
+            bin <write,addr_0x18>                         113          1          -    Covered              
+            bin <write,addr_0x1c>                          83          1          -    Covered              
+            bin <write,addr_0x20>                          95          1          -    Covered              
+            bin <write,addr_0x24>                         106          1          -    Covered              
+            bin <write,addr_0x28>                         106          1          -    Covered              
+            bin <write,addr_0x2c>                         113          1          -    Covered              
+            bin <write,addr_0x30>                          71          1          -    Covered              
+            bin <write,addr_0x34>                          80          1          -    Covered              
+            bin <write,addr_0x38>                          97          1          -    Covered              
+            bin <write,addr_0x3c>                          38          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               699          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                              195          1          -    Covered              
+            bin <write,all_ones>                          350          1          -    Covered              
+ Covergroup instance APBCoverGroup                     91.07%        100          -    Uncovered            
+    covered/total bins:                                    47         60          -                      
+    missing/total bins:                                    13         60          -                      
+    % Hit:                                             78.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                   14          1          -    Covered              
+        bin reset_inactive                                723          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                           30          1          -    Covered              
+        bin write                                         707          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       456          1          -    Covered              
+        bin disabled                                      281          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       56          1          -    Covered              
+        bin addr_0x4                                       45          1          -    Covered              
+        bin addr_0x8                                       56          1          -    Covered              
+        bin addr_0xc                                       48          1          -    Covered              
+        bin addr_0x10                                      35          1          -    Covered              
+        bin addr_0x14                                      63          1          -    Covered              
+        bin addr_0x18                                      85          1          -    Covered              
+        bin addr_0x1c                                      26          1          -    Covered              
+        bin addr_0x20                                      55          1          -    Covered              
+        bin addr_0x24                                      38          1          -    Covered              
+        bin addr_0x28                                      75          1          -    Covered              
+        bin addr_0x2c                                      27          1          -    Covered              
+        bin addr_0x30                                      40          1          -    Covered              
+        bin addr_0x34                                      31          1          -    Covered              
+        bin addr_0x38                                      47          1          -    Covered              
+        bin addr_0x3c                                      10          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          167          1          -    Covered              
+        bin all_ones                                      128          1          -    Covered              
+    Cross cross_rw_addr                                62.50%        100          -    Uncovered            
+        covered/total bins:                                20         32          -                      
+        missing/total bins:                                12         32          -                      
+        % Hit:                                         62.50%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                             2          1          -    Covered              
+            bin <read,addr_0x4>                             0          1          -    ZERO                 
+            bin <read,addr_0x8>                            10          1          -    Covered              
+            bin <read,addr_0xc>                             0          1          -    ZERO                 
+            bin <read,addr_0x10>                            0          1          -    ZERO                 
+            bin <read,addr_0x14>                            0          1          -    ZERO                 
+            bin <read,addr_0x18>                            0          1          -    ZERO                 
+            bin <read,addr_0x1c>                            0          1          -    ZERO                 
+            bin <read,addr_0x20>                            9          1          -    Covered              
+            bin <read,addr_0x24>                            0          1          -    ZERO                 
+            bin <read,addr_0x28>                            0          1          -    ZERO                 
+            bin <read,addr_0x2c>                            0          1          -    ZERO                 
+            bin <read,addr_0x30>                            0          1          -    ZERO                 
+            bin <read,addr_0x34>                            9          1          -    Covered              
+            bin <read,addr_0x38>                            0          1          -    ZERO                 
+            bin <read,addr_0x3c>                            0          1          -    ZERO                 
+            bin <write,addr_0x0>                           54          1          -    Covered              
+            bin <write,addr_0x4>                           45          1          -    Covered              
+            bin <write,addr_0x8>                           46          1          -    Covered              
+            bin <write,addr_0xc>                           48          1          -    Covered              
+            bin <write,addr_0x10>                          35          1          -    Covered              
+            bin <write,addr_0x14>                          63          1          -    Covered              
+            bin <write,addr_0x18>                          85          1          -    Covered              
+            bin <write,addr_0x1c>                          26          1          -    Covered              
+            bin <write,addr_0x20>                          46          1          -    Covered              
+            bin <write,addr_0x24>                          38          1          -    Covered              
+            bin <write,addr_0x28>                          75          1          -    Covered              
+            bin <write,addr_0x2c>                          27          1          -    Covered              
+            bin <write,addr_0x30>                          40          1          -    Covered              
+            bin <write,addr_0x34>                          22          1          -    Covered              
+            bin <write,addr_0x38>                          47          1          -    Covered              
+            bin <write,addr_0x3c>                          10          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                                30          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                              137          1          -    Covered              
+            bin <write,all_ones>                          128          1          -    Covered              
+ Covergroup instance APBCoverGroup_1                   95.53%        100          -    Uncovered            
+    covered/total bins:                                    57         60          -                      
+    missing/total bins:                                     3         60          -                      
+    % Hit:                                             95.00%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                    7          1          -    Covered              
+        bin reset_inactive                                786          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          459          1          -    Covered              
+        bin write                                         334          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       498          1          -    Covered              
+        bin disabled                                      295          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       74          1          -    Covered              
+        bin addr_0x4                                       92          1          -    Covered              
+        bin addr_0x8                                       71          1          -    Covered              
+        bin addr_0xc                                       62          1          -    Covered              
+        bin addr_0x10                                      62          1          -    Covered              
+        bin addr_0x14                                      45          1          -    Covered              
+        bin addr_0x18                                      18          1          -    Covered              
+        bin addr_0x1c                                      35          1          -    Covered              
+        bin addr_0x20                                      49          1          -    Covered              
+        bin addr_0x24                                      54          1          -    Covered              
+        bin addr_0x28                                      59          1          -    Covered              
+        bin addr_0x2c                                      45          1          -    Covered              
+        bin addr_0x30                                      37          1          -    Covered              
+        bin addr_0x34                                      13          1          -    Covered              
+        bin addr_0x38                                      59          1          -    Covered              
+        bin addr_0x3c                                      18          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          468          1          -    Covered              
+        bin all_ones                                       91          1          -    Covered              
+    Cross cross_rw_addr                                93.75%        100          -    Uncovered            
+        covered/total bins:                                30         32          -                      
+        missing/total bins:                                 2         32          -                      
+        % Hit:                                         93.75%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            38          1          -    Covered              
+            bin <read,addr_0x4>                            36          1          -    Covered              
+            bin <read,addr_0x8>                            53          1          -    Covered              
+            bin <read,addr_0xc>                             9          1          -    Covered              
+            bin <read,addr_0x10>                           35          1          -    Covered              
+            bin <read,addr_0x14>                           27          1          -    Covered              
+            bin <read,addr_0x18>                            9          1          -    Covered              
+            bin <read,addr_0x1c>                           27          1          -    Covered              
+            bin <read,addr_0x20>                           31          1          -    Covered              
+            bin <read,addr_0x24>                           27          1          -    Covered              
+            bin <read,addr_0x28>                           59          1          -    Covered              
+            bin <read,addr_0x2c>                           27          1          -    Covered              
+            bin <read,addr_0x30>                           37          1          -    Covered              
+            bin <read,addr_0x34>                            4          1          -    Covered              
+            bin <read,addr_0x38>                           31          1          -    Covered              
+            bin <read,addr_0x3c>                            9          1          -    Covered              
+            bin <write,addr_0x0>                           36          1          -    Covered              
+            bin <write,addr_0x4>                           56          1          -    Covered              
+            bin <write,addr_0x8>                           18          1          -    Covered              
+            bin <write,addr_0xc>                           53          1          -    Covered              
+            bin <write,addr_0x10>                          27          1          -    Covered              
+            bin <write,addr_0x14>                          18          1          -    Covered              
+            bin <write,addr_0x18>                           9          1          -    Covered              
+            bin <write,addr_0x1c>                           8          1          -    Covered              
+            bin <write,addr_0x20>                          18          1          -    Covered              
+            bin <write,addr_0x24>                          27          1          -    Covered              
+            bin <write,addr_0x28>                           0          1          -    ZERO                 
+            bin <write,addr_0x2c>                          18          1          -    Covered              
+            bin <write,addr_0x30>                           0          1          -    ZERO                 
+            bin <write,addr_0x34>                           9          1          -    Covered              
+            bin <write,addr_0x38>                          28          1          -    Covered              
+            bin <write,addr_0x3c>                           9          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               459          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                                9          1          -    Covered              
+            bin <write,all_ones>                           91          1          -    Covered              
+ Covergroup instance APBCoverGroup_2                   95.08%        100          -    Uncovered            
+    covered/total bins:                                    56         60          -                      
+    missing/total bins:                                     4         60          -                      
+    % Hit:                                             93.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                    8          1          -    Covered              
+        bin reset_inactive                                767          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          210          1          -    Covered              
+        bin write                                         565          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       480          1          -    Covered              
+        bin disabled                                      295          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       46          1          -    Covered              
+        bin addr_0x4                                       27          1          -    Covered              
+        bin addr_0x8                                       60          1          -    Covered              
+        bin addr_0xc                                       45          1          -    Covered              
+        bin addr_0x10                                      52          1          -    Covered              
+        bin addr_0x14                                      67          1          -    Covered              
+        bin addr_0x18                                      28          1          -    Covered              
+        bin addr_0x1c                                      77          1          -    Covered              
+        bin addr_0x20                                      40          1          -    Covered              
+        bin addr_0x24                                      68          1          -    Covered              
+        bin addr_0x28                                      40          1          -    Covered              
+        bin addr_0x2c                                      77          1          -    Covered              
+        bin addr_0x30                                      49          1          -    Covered              
+        bin addr_0x34                                      58          1          -    Covered              
+        bin addr_0x38                                      22          1          -    Covered              
+        bin addr_0x3c                                      19          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          259          1          -    Covered              
+        bin all_ones                                      131          1          -    Covered              
+    Cross cross_rw_addr                                90.62%        100          -    Uncovered            
+        covered/total bins:                                29         32          -                      
+        missing/total bins:                                 3         32          -                      
+        % Hit:                                         90.62%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            10          1          -    Covered              
+            bin <read,addr_0x4>                             0          1          -    ZERO                 
+            bin <read,addr_0x8>                            28          1          -    Covered              
+            bin <read,addr_0xc>                            18          1          -    Covered              
+            bin <read,addr_0x10>                           27          1          -    Covered              
+            bin <read,addr_0x14>                            9          1          -    Covered              
+            bin <read,addr_0x18>                            9          1          -    Covered              
+            bin <read,addr_0x1c>                           28          1          -    Covered              
+            bin <read,addr_0x20>                            9          1          -    Covered              
+            bin <read,addr_0x24>                           27          1          -    Covered              
+            bin <read,addr_0x28>                            9          1          -    Covered              
+            bin <read,addr_0x2c>                            9          1          -    Covered              
+            bin <read,addr_0x30>                           18          1          -    Covered              
+            bin <read,addr_0x34>                            9          1          -    Covered              
+            bin <read,addr_0x38>                            0          1          -    ZERO                 
+            bin <read,addr_0x3c>                            0          1          -    ZERO                 
+            bin <write,addr_0x0>                           36          1          -    Covered              
+            bin <write,addr_0x4>                           27          1          -    Covered              
+            bin <write,addr_0x8>                           32          1          -    Covered              
+            bin <write,addr_0xc>                           27          1          -    Covered              
+            bin <write,addr_0x10>                          25          1          -    Covered              
+            bin <write,addr_0x14>                          58          1          -    Covered              
+            bin <write,addr_0x18>                          19          1          -    Covered              
+            bin <write,addr_0x1c>                          49          1          -    Covered              
+            bin <write,addr_0x20>                          31          1          -    Covered              
+            bin <write,addr_0x24>                          41          1          -    Covered              
+            bin <write,addr_0x28>                          31          1          -    Covered              
+            bin <write,addr_0x2c>                          68          1          -    Covered              
+            bin <write,addr_0x30>                          31          1          -    Covered              
+            bin <write,addr_0x34>                          49          1          -    Covered              
+            bin <write,addr_0x38>                          22          1          -    Covered              
+            bin <write,addr_0x3c>                          19          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               210          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                               49          1          -    Covered              
+            bin <write,all_ones>                          131          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /cg_inst/APBCoverGroup                           96.42%        100          -    Uncovered            
+    covered/total bins:                                    59         60          -                      
+    missing/total bins:                                     1         60          -                      
+    % Hit:                                             98.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                   29          1          -    Covered              
+        bin reset_inactive                               2276          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          699          1          -    Covered              
+        bin write                                        1606          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                      1434          1          -    Covered              
+        bin disabled                                      871          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                      176          1          -    Covered              
+        bin addr_0x4                                      164          1          -    Covered              
+        bin addr_0x8                                      187          1          -    Covered              
+        bin addr_0xc                                      155          1          -    Covered              
+        bin addr_0x10                                     149          1          -    Covered              
+        bin addr_0x14                                     175          1          -    Covered              
+        bin addr_0x18                                     131          1          -    Covered              
+        bin addr_0x1c                                     138          1          -    Covered              
+        bin addr_0x20                                     144          1          -    Covered              
+        bin addr_0x24                                     160          1          -    Covered              
+        bin addr_0x28                                     174          1          -    Covered              
+        bin addr_0x2c                                     149          1          -    Covered              
+        bin addr_0x30                                     126          1          -    Covered              
+        bin addr_0x34                                     102          1          -    Covered              
+        bin addr_0x38                                     128          1          -    Covered              
+        bin addr_0x3c                                      47          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          894          1          -    Covered              
+        bin all_ones                                      350          1          -    Covered              
+    Cross cross_rw_addr                               100.00%        100          -    Covered              
+        covered/total bins:                                32         32          -                      
+        missing/total bins:                                 0         32          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            50          1          -    Covered              
+            bin <read,addr_0x4>                            36          1          -    Covered              
+            bin <read,addr_0x8>                            91          1          -    Covered              
+            bin <read,addr_0xc>                            27          1          -    Covered              
+            bin <read,addr_0x10>                           62          1          -    Covered              
+            bin <read,addr_0x14>                           36          1          -    Covered              
+            bin <read,addr_0x18>                           18          1          -    Covered              
+            bin <read,addr_0x1c>                           55          1          -    Covered              
+            bin <read,addr_0x20>                           49          1          -    Covered              
+            bin <read,addr_0x24>                           54          1          -    Covered              
+            bin <read,addr_0x28>                           68          1          -    Covered              
+            bin <read,addr_0x2c>                           36          1          -    Covered              
+            bin <read,addr_0x30>                           55          1          -    Covered              
+            bin <read,addr_0x34>                           22          1          -    Covered              
+            bin <read,addr_0x38>                           31          1          -    Covered              
+            bin <read,addr_0x3c>                            9          1          -    Covered              
+            bin <write,addr_0x0>                          126          1          -    Covered              
+            bin <write,addr_0x4>                          128          1          -    Covered              
+            bin <write,addr_0x8>                           96          1          -    Covered              
+            bin <write,addr_0xc>                          128          1          -    Covered              
+            bin <write,addr_0x10>                          87          1          -    Covered              
+            bin <write,addr_0x14>                         139          1          -    Covered              
+            bin <write,addr_0x18>                         113          1          -    Covered              
+            bin <write,addr_0x1c>                          83          1          -    Covered              
+            bin <write,addr_0x20>                          95          1          -    Covered              
+            bin <write,addr_0x24>                         106          1          -    Covered              
+            bin <write,addr_0x28>                         106          1          -    Covered              
+            bin <write,addr_0x2c>                         113          1          -    Covered              
+            bin <write,addr_0x30>                          71          1          -    Covered              
+            bin <write,addr_0x34>                          80          1          -    Covered              
+            bin <write,addr_0x38>                          97          1          -    Covered              
+            bin <write,addr_0x3c>                          38          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               699          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                              195          1          -    Covered              
+            bin <write,all_ones>                          350          1          -    Covered              
+ Covergroup instance APBCoverGroup                     91.07%        100          -    Uncovered            
+    covered/total bins:                                    47         60          -                      
+    missing/total bins:                                    13         60          -                      
+    % Hit:                                             78.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                   14          1          -    Covered              
+        bin reset_inactive                                723          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                           30          1          -    Covered              
+        bin write                                         707          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       456          1          -    Covered              
+        bin disabled                                      281          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       56          1          -    Covered              
+        bin addr_0x4                                       45          1          -    Covered              
+        bin addr_0x8                                       56          1          -    Covered              
+        bin addr_0xc                                       48          1          -    Covered              
+        bin addr_0x10                                      35          1          -    Covered              
+        bin addr_0x14                                      63          1          -    Covered              
+        bin addr_0x18                                      85          1          -    Covered              
+        bin addr_0x1c                                      26          1          -    Covered              
+        bin addr_0x20                                      55          1          -    Covered              
+        bin addr_0x24                                      38          1          -    Covered              
+        bin addr_0x28                                      75          1          -    Covered              
+        bin addr_0x2c                                      27          1          -    Covered              
+        bin addr_0x30                                      40          1          -    Covered              
+        bin addr_0x34                                      31          1          -    Covered              
+        bin addr_0x38                                      47          1          -    Covered              
+        bin addr_0x3c                                      10          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          167          1          -    Covered              
+        bin all_ones                                      128          1          -    Covered              
+    Cross cross_rw_addr                                62.50%        100          -    Uncovered            
+        covered/total bins:                                20         32          -                      
+        missing/total bins:                                12         32          -                      
+        % Hit:                                         62.50%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                             2          1          -    Covered              
+            bin <read,addr_0x4>                             0          1          -    ZERO                 
+            bin <read,addr_0x8>                            10          1          -    Covered              
+            bin <read,addr_0xc>                             0          1          -    ZERO                 
+            bin <read,addr_0x10>                            0          1          -    ZERO                 
+            bin <read,addr_0x14>                            0          1          -    ZERO                 
+            bin <read,addr_0x18>                            0          1          -    ZERO                 
+            bin <read,addr_0x1c>                            0          1          -    ZERO                 
+            bin <read,addr_0x20>                            9          1          -    Covered              
+            bin <read,addr_0x24>                            0          1          -    ZERO                 
+            bin <read,addr_0x28>                            0          1          -    ZERO                 
+            bin <read,addr_0x2c>                            0          1          -    ZERO                 
+            bin <read,addr_0x30>                            0          1          -    ZERO                 
+            bin <read,addr_0x34>                            9          1          -    Covered              
+            bin <read,addr_0x38>                            0          1          -    ZERO                 
+            bin <read,addr_0x3c>                            0          1          -    ZERO                 
+            bin <write,addr_0x0>                           54          1          -    Covered              
+            bin <write,addr_0x4>                           45          1          -    Covered              
+            bin <write,addr_0x8>                           46          1          -    Covered              
+            bin <write,addr_0xc>                           48          1          -    Covered              
+            bin <write,addr_0x10>                          35          1          -    Covered              
+            bin <write,addr_0x14>                          63          1          -    Covered              
+            bin <write,addr_0x18>                          85          1          -    Covered              
+            bin <write,addr_0x1c>                          26          1          -    Covered              
+            bin <write,addr_0x20>                          46          1          -    Covered              
+            bin <write,addr_0x24>                          38          1          -    Covered              
+            bin <write,addr_0x28>                          75          1          -    Covered              
+            bin <write,addr_0x2c>                          27          1          -    Covered              
+            bin <write,addr_0x30>                          40          1          -    Covered              
+            bin <write,addr_0x34>                          22          1          -    Covered              
+            bin <write,addr_0x38>                          47          1          -    Covered              
+            bin <write,addr_0x3c>                          10          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                                30          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                              137          1          -    Covered              
+            bin <write,all_ones>                          128          1          -    Covered              
+ Covergroup instance APBCoverGroup_1                   95.53%        100          -    Uncovered            
+    covered/total bins:                                    57         60          -                      
+    missing/total bins:                                     3         60          -                      
+    % Hit:                                             95.00%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                    7          1          -    Covered              
+        bin reset_inactive                                786          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          459          1          -    Covered              
+        bin write                                         334          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       498          1          -    Covered              
+        bin disabled                                      295          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       74          1          -    Covered              
+        bin addr_0x4                                       92          1          -    Covered              
+        bin addr_0x8                                       71          1          -    Covered              
+        bin addr_0xc                                       62          1          -    Covered              
+        bin addr_0x10                                      62          1          -    Covered              
+        bin addr_0x14                                      45          1          -    Covered              
+        bin addr_0x18                                      18          1          -    Covered              
+        bin addr_0x1c                                      35          1          -    Covered              
+        bin addr_0x20                                      49          1          -    Covered              
+        bin addr_0x24                                      54          1          -    Covered              
+        bin addr_0x28                                      59          1          -    Covered              
+        bin addr_0x2c                                      45          1          -    Covered              
+        bin addr_0x30                                      37          1          -    Covered              
+        bin addr_0x34                                      13          1          -    Covered              
+        bin addr_0x38                                      59          1          -    Covered              
+        bin addr_0x3c                                      18          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          468          1          -    Covered              
+        bin all_ones                                       91          1          -    Covered              
+    Cross cross_rw_addr                                93.75%        100          -    Uncovered            
+        covered/total bins:                                30         32          -                      
+        missing/total bins:                                 2         32          -                      
+        % Hit:                                         93.75%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            38          1          -    Covered              
+            bin <read,addr_0x4>                            36          1          -    Covered              
+            bin <read,addr_0x8>                            53          1          -    Covered              
+            bin <read,addr_0xc>                             9          1          -    Covered              
+            bin <read,addr_0x10>                           35          1          -    Covered              
+            bin <read,addr_0x14>                           27          1          -    Covered              
+            bin <read,addr_0x18>                            9          1          -    Covered              
+            bin <read,addr_0x1c>                           27          1          -    Covered              
+            bin <read,addr_0x20>                           31          1          -    Covered              
+            bin <read,addr_0x24>                           27          1          -    Covered              
+            bin <read,addr_0x28>                           59          1          -    Covered              
+            bin <read,addr_0x2c>                           27          1          -    Covered              
+            bin <read,addr_0x30>                           37          1          -    Covered              
+            bin <read,addr_0x34>                            4          1          -    Covered              
+            bin <read,addr_0x38>                           31          1          -    Covered              
+            bin <read,addr_0x3c>                            9          1          -    Covered              
+            bin <write,addr_0x0>                           36          1          -    Covered              
+            bin <write,addr_0x4>                           56          1          -    Covered              
+            bin <write,addr_0x8>                           18          1          -    Covered              
+            bin <write,addr_0xc>                           53          1          -    Covered              
+            bin <write,addr_0x10>                          27          1          -    Covered              
+            bin <write,addr_0x14>                          18          1          -    Covered              
+            bin <write,addr_0x18>                           9          1          -    Covered              
+            bin <write,addr_0x1c>                           8          1          -    Covered              
+            bin <write,addr_0x20>                          18          1          -    Covered              
+            bin <write,addr_0x24>                          27          1          -    Covered              
+            bin <write,addr_0x28>                           0          1          -    ZERO                 
+            bin <write,addr_0x2c>                          18          1          -    Covered              
+            bin <write,addr_0x30>                           0          1          -    ZERO                 
+            bin <write,addr_0x34>                           9          1          -    Covered              
+            bin <write,addr_0x38>                          28          1          -    Covered              
+            bin <write,addr_0x3c>                           9          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               459          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                                9          1          -    Covered              
+            bin <write,all_ones>                           91          1          -    Covered              
+ Covergroup instance APBCoverGroup_2                   95.08%        100          -    Uncovered            
+    covered/total bins:                                    56         60          -                      
+    missing/total bins:                                     4         60          -                      
+    % Hit:                                             93.33%        100          -                      
+    Coverpoint cp_preset                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin reset_active                                    8          1          -    Covered              
+        bin reset_inactive                                767          1          -    Covered              
+    Coverpoint cp_pwrite                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin read                                          210          1          -    Covered              
+        bin write                                         565          1          -    Covered              
+    Coverpoint cp_penable                             100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin enabled                                       480          1          -    Covered              
+        bin disabled                                      295          1          -    Covered              
+    Coverpoint cp_paddr                               100.00%        100          -    Covered              
+        covered/total bins:                                16         16          -                      
+        missing/total bins:                                 0         16          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addr_0x0                                       46          1          -    Covered              
+        bin addr_0x4                                       27          1          -    Covered              
+        bin addr_0x8                                       60          1          -    Covered              
+        bin addr_0xc                                       45          1          -    Covered              
+        bin addr_0x10                                      52          1          -    Covered              
+        bin addr_0x14                                      67          1          -    Covered              
+        bin addr_0x18                                      28          1          -    Covered              
+        bin addr_0x1c                                      77          1          -    Covered              
+        bin addr_0x20                                      40          1          -    Covered              
+        bin addr_0x24                                      68          1          -    Covered              
+        bin addr_0x28                                      40          1          -    Covered              
+        bin addr_0x2c                                      77          1          -    Covered              
+        bin addr_0x30                                      49          1          -    Covered              
+        bin addr_0x34                                      58          1          -    Covered              
+        bin addr_0x38                                      22          1          -    Covered              
+        bin addr_0x3c                                      19          1          -    Covered              
+    Coverpoint cp_pwdata                              100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          259          1          -    Covered              
+        bin all_ones                                      131          1          -    Covered              
+    Cross cross_rw_addr                                90.62%        100          -    Uncovered            
+        covered/total bins:                                29         32          -                      
+        missing/total bins:                                 3         32          -                      
+        % Hit:                                         90.62%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,addr_0x0>                            10          1          -    Covered              
+            bin <read,addr_0x4>                             0          1          -    ZERO                 
+            bin <read,addr_0x8>                            28          1          -    Covered              
+            bin <read,addr_0xc>                            18          1          -    Covered              
+            bin <read,addr_0x10>                           27          1          -    Covered              
+            bin <read,addr_0x14>                            9          1          -    Covered              
+            bin <read,addr_0x18>                            9          1          -    Covered              
+            bin <read,addr_0x1c>                           28          1          -    Covered              
+            bin <read,addr_0x20>                            9          1          -    Covered              
+            bin <read,addr_0x24>                           27          1          -    Covered              
+            bin <read,addr_0x28>                            9          1          -    Covered              
+            bin <read,addr_0x2c>                            9          1          -    Covered              
+            bin <read,addr_0x30>                           18          1          -    Covered              
+            bin <read,addr_0x34>                            9          1          -    Covered              
+            bin <read,addr_0x38>                            0          1          -    ZERO                 
+            bin <read,addr_0x3c>                            0          1          -    ZERO                 
+            bin <write,addr_0x0>                           36          1          -    Covered              
+            bin <write,addr_0x4>                           27          1          -    Covered              
+            bin <write,addr_0x8>                           32          1          -    Covered              
+            bin <write,addr_0xc>                           27          1          -    Covered              
+            bin <write,addr_0x10>                          25          1          -    Covered              
+            bin <write,addr_0x14>                          58          1          -    Covered              
+            bin <write,addr_0x18>                          19          1          -    Covered              
+            bin <write,addr_0x1c>                          49          1          -    Covered              
+            bin <write,addr_0x20>                          31          1          -    Covered              
+            bin <write,addr_0x24>                          41          1          -    Covered              
+            bin <write,addr_0x28>                          31          1          -    Covered              
+            bin <write,addr_0x2c>                          68          1          -    Covered              
+            bin <write,addr_0x30>                          31          1          -    Covered              
+            bin <write,addr_0x34>                          49          1          -    Covered              
+            bin <write,addr_0x38>                          22          1          -    Covered              
+            bin <write,addr_0x3c>                          19          1          -    Covered              
+    Cross cross_rw_wdata                               75.00%        100          -    Uncovered            
+        covered/total bins:                                 3          4          -                      
+        missing/total bins:                                 1          4          -                      
+        % Hit:                                         75.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                               210          1          -    Covered              
+            bin <read,all_ones>                             0          1          -    ZERO                 
+            bin <write,zero>                               49          1          -    Covered              
+            bin <write,all_ones>                          131          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 96.42%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 96.42%
+
