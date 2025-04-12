@@ -11,8 +11,8 @@ class APB_seq_item_vsc(uvm_sequence_item):
         self.PWRITE  = vsc.rand_bit_t(1)
         self.PADDR   = vsc.rand_bit_t(32)
         
-        self.PREADY  = 0;
-        self.PDATA   = 0;
+        self.PREADY  = 0
+        self.PDATA   = 0
 
         self.pwrite_weight = 90
 

@@ -1,8 +1,8 @@
-<UCIS xmlns:ucis="http://www.w3.org/2001/XMLSchema-instance" writtenBy="amrelbatarny" writtenTime="2025-04-08T00:00:00" ucisVersion="1.0">
+<UCIS xmlns:ucis="http://www.w3.org/2001/XMLSchema-instance" writtenBy="amrelbatarny" writtenTime="2025-04-12T00:00:00" ucisVersion="1.0">
   <sourceFiles fileName="__null__file__" id="1"/>
   <sourceFiles fileName="&lt;unknown&gt;" id="2"/>
   <sourceFiles fileName="/home/amrelbatarny/PyUVM-Based_Verification_Environment_for_APB_Slave/Testbench/APB_coverage.py" id="3"/>
-  <historyNodes historyNodeId="0" logicalName="logicalName" physicalName="foo.ucis" kind="1" testStatus="true" simtime="0.0" timeunit="ns" runCwd="." cpuTime="0.0" seed="0" cmd="" args="" compulsory="0" date="2025-04-08T02:22:52" userName="user" cost="0.0" toolCategory="UCIS:simulator" ucisVersion="1.0" vendorId="unknown" vendorTool="unknown" vendorToolVersion="unknown"/>
+  <historyNodes historyNodeId="0" logicalName="logicalName" physicalName="foo.ucis" kind="HistoryNodeKind.TEST" testStatus="true" simtime="0.0" timeunit="ns" runCwd="." cpuTime="0.0" seed="0" cmd="" args="" compulsory="0" date="2025-04-12T04:15:22" userName="user" cost="0.0" toolCategory="UCIS:simulator" ucisVersion="1.0" vendorId="unknown" vendorTool="unknown" vendorToolVersion="unknown"/>
   <instanceCoverages name="cg_inst" key="0">
     <id file="1" line="1" inlineCount="1"/>
     <covergroupCoverage>
@@ -16,12 +16,12 @@
           <options/>
           <coverpointBin name="reset_active" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="11"/>
+              <contents coverageCount="8"/>
             </range>
           </coverpointBin>
           <coverpointBin name="reset_inactive" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="658"/>
+              <contents coverageCount="797"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -29,12 +29,12 @@
           <options/>
           <coverpointBin name="read" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="36"/>
+              <contents coverageCount="37"/>
             </range>
           </coverpointBin>
           <coverpointBin name="write" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="633"/>
+              <contents coverageCount="768"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -42,12 +42,12 @@
           <options/>
           <coverpointBin name="enabled" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="410"/>
+              <contents coverageCount="516"/>
             </range>
           </coverpointBin>
           <coverpointBin name="disabled" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="259"/>
+              <contents coverageCount="289"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -55,82 +55,82 @@
           <options/>
           <coverpointBin name="addr_0x0" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="24"/>
+              <contents coverageCount="37"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x4" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="65"/>
+              <contents coverageCount="22"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x8" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="46"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0xc" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="57"/>
+              <contents coverageCount="65"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x10" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="59"/>
+              <contents coverageCount="49"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x14" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="63"/>
+              <contents coverageCount="111"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x18" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="18"/>
+              <contents coverageCount="45"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x1c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="18"/>
+              <contents coverageCount="38"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x20" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="63"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x24" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="31"/>
+              <contents coverageCount="15"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x28" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="36"/>
+              <contents coverageCount="63"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x2c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="42"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x30" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="45"/>
+              <contents coverageCount="118"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x34" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="40"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x38" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="25"/>
+              <contents coverageCount="76"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x3c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="37"/>
+              <contents coverageCount="22"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -138,12 +138,12 @@
           <options/>
           <coverpointBin name="zero" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="185"/>
+              <contents coverageCount="212"/>
             </range>
           </coverpointBin>
           <coverpointBin name="all_ones" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="133"/>
+              <contents coverageCount="140"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -153,7 +153,7 @@
           <crossExpr>cp_paddr</crossExpr>
           <crossBin name="&lt;read,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="6"/>
+            <contents coverageCount="1"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
@@ -165,7 +165,7 @@
           </crossBin>
           <crossBin name="&lt;read,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="4"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
@@ -173,7 +173,7 @@
           </crossBin>
           <crossBin name="&lt;read,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
@@ -193,7 +193,7 @@
           </crossBin>
           <crossBin name="&lt;read,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
@@ -201,83 +201,83 @@
           </crossBin>
           <crossBin name="&lt;read,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="11"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="5"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="10"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="65"/>
+            <contents coverageCount="22"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x8&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="46"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="53"/>
+            <contents coverageCount="65"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="59"/>
+            <contents coverageCount="49"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="63"/>
+            <contents coverageCount="102"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="45"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x1c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="38"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x20&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="63"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x24&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="31"/>
+            <contents coverageCount="15"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="54"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="42"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="45"/>
+            <contents coverageCount="109"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="29"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="20"/>
+            <contents coverageCount="67"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="22"/>
           </crossBin>
         </cross>
         <cross name="cross_rw_wdata" key="0">
@@ -286,7 +286,7 @@
           <crossExpr>cp_pwdata</crossExpr>
           <crossBin name="&lt;read,zero&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="37"/>
           </crossBin>
           <crossBin name="&lt;read,all_ones&gt;" key="0" type="default">
             <index>-1</index>
@@ -294,11 +294,11 @@
           </crossBin>
           <crossBin name="&lt;write,zero&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="149"/>
+            <contents coverageCount="175"/>
           </crossBin>
           <crossBin name="&lt;write,all_ones&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="133"/>
+            <contents coverageCount="140"/>
           </crossBin>
         </cross>
       </cgInstance>
@@ -312,12 +312,12 @@
           <options/>
           <coverpointBin name="reset_active" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="6"/>
+              <contents coverageCount="12"/>
             </range>
           </coverpointBin>
           <coverpointBin name="reset_inactive" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="780"/>
+              <contents coverageCount="736"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -325,12 +325,12 @@
           <options/>
           <coverpointBin name="read" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="476"/>
+              <contents coverageCount="466"/>
             </range>
           </coverpointBin>
           <coverpointBin name="write" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="310"/>
+              <contents coverageCount="282"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -338,12 +338,12 @@
           <options/>
           <coverpointBin name="enabled" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="486"/>
+              <contents coverageCount="462"/>
             </range>
           </coverpointBin>
           <coverpointBin name="disabled" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="300"/>
+              <contents coverageCount="286"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -351,82 +351,82 @@
           <options/>
           <coverpointBin name="addr_0x0" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="74"/>
+              <contents coverageCount="68"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x4" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="31"/>
+              <contents coverageCount="60"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x8" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="27"/>
+              <contents coverageCount="31"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0xc" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="77"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x10" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="31"/>
+              <contents coverageCount="50"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x14" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="48"/>
+              <contents coverageCount="45"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x18" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="55"/>
+              <contents coverageCount="47"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x1c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="47"/>
+              <contents coverageCount="63"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x20" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="67"/>
+              <contents coverageCount="37"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x24" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="23"/>
+              <contents coverageCount="58"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x28" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="36"/>
+              <contents coverageCount="63"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x2c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="40"/>
+              <contents coverageCount="39"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x30" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="90"/>
+              <contents coverageCount="49"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x34" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="31"/>
+              <contents coverageCount="56"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x38" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="81"/>
+              <contents coverageCount="46"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x3c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="28"/>
+              <contents coverageCount="0"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -434,12 +434,12 @@
           <options/>
           <coverpointBin name="zero" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="476"/>
+              <contents coverageCount="466"/>
             </range>
           </coverpointBin>
           <coverpointBin name="all_ones" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="53"/>
+              <contents coverageCount="81"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -449,75 +449,75 @@
           <crossExpr>cp_paddr</crossExpr>
           <crossBin name="&lt;read,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="52"/>
+            <contents coverageCount="37"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="31"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x8&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="31"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="22"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="4"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="31"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="37"/>
+            <contents coverageCount="27"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x1c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="45"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x20&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="45"/>
+            <contents coverageCount="23"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x24&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="19"/>
+            <contents coverageCount="45"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="32"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="23"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="63"/>
+            <contents coverageCount="31"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="28"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="45"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="28"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="22"/>
+            <contents coverageCount="31"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="24"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x8&gt;" key="0" type="default">
             <index>-1</index>
@@ -525,51 +525,51 @@
           </crossBin>
           <crossBin name="&lt;write,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="55"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="14"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="17"/>
+            <contents coverageCount="27"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="20"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x1c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="20"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x20&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="22"/>
+            <contents coverageCount="14"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x24&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="4"/>
+            <contents coverageCount="13"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="31"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="13"/>
+            <contents coverageCount="16"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="31"/>
+            <contents coverageCount="28"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="28"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
@@ -582,7 +582,7 @@
           <crossExpr>cp_pwdata</crossExpr>
           <crossBin name="&lt;read,zero&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="476"/>
+            <contents coverageCount="466"/>
           </crossBin>
           <crossBin name="&lt;read,all_ones&gt;" key="0" type="default">
             <index>-1</index>
@@ -594,7 +594,7 @@
           </crossBin>
           <crossBin name="&lt;write,all_ones&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="53"/>
+            <contents coverageCount="81"/>
           </crossBin>
         </cross>
       </cgInstance>
@@ -621,12 +621,12 @@
           <options/>
           <coverpointBin name="read" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="305"/>
+              <contents coverageCount="236"/>
             </range>
           </coverpointBin>
           <coverpointBin name="write" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="482"/>
+              <contents coverageCount="551"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -647,82 +647,82 @@
           <options/>
           <coverpointBin name="addr_0x0" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="54"/>
+              <contents coverageCount="47"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x4" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="59"/>
+              <contents coverageCount="27"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x8" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="54"/>
+              <contents coverageCount="31"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0xc" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="55"/>
+              <contents coverageCount="53"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x10" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="72"/>
+              <contents coverageCount="73"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x14" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="31"/>
+              <contents coverageCount="68"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x18" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="40"/>
+              <contents coverageCount="27"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x1c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="50"/>
+              <contents coverageCount="35"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x20" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="49"/>
+              <contents coverageCount="65"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x24" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="90"/>
+              <contents coverageCount="18"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x28" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="54"/>
+              <contents coverageCount="67"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x2c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="18"/>
+              <contents coverageCount="45"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x30" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="54"/>
+              <contents coverageCount="64"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x34" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="35"/>
+              <contents coverageCount="50"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x38" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="54"/>
+              <contents coverageCount="81"/>
             </range>
           </coverpointBin>
           <coverpointBin name="addr_0x3c" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="18"/>
+              <contents coverageCount="36"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -730,12 +730,12 @@
           <options/>
           <coverpointBin name="zero" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="348"/>
+              <contents coverageCount="295"/>
             </range>
           </coverpointBin>
           <coverpointBin name="all_ones" type="bins" key="0">
             <range from="-1" to="-1">
-              <contents coverageCount="92"/>
+              <contents coverageCount="138"/>
             </range>
           </coverpointBin>
         </coverpoint>
@@ -745,67 +745,67 @@
           <crossExpr>cp_paddr</crossExpr>
           <crossBin name="&lt;read,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="20"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="13"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x8&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="13"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="36"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="23"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="13"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x1c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x20&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x24&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="13"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="0"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="13"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="0"/>
+            <contents coverageCount="19"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="27"/>
           </crossBin>
           <crossBin name="&lt;read,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x0&gt;" key="0" type="default">
             <index>-1</index>
@@ -813,23 +813,23 @@
           </crossBin>
           <crossBin name="&lt;write,addr_0x4&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="46"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x8&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="45"/>
+            <contents coverageCount="18"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0xc&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="28"/>
+            <contents coverageCount="35"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x10&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="45"/>
+            <contents coverageCount="37"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x14&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="13"/>
+            <contents coverageCount="45"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x18&gt;" key="0" type="default">
             <index>-1</index>
@@ -837,39 +837,39 @@
           </crossBin>
           <crossBin name="&lt;write,addr_0x1c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="41"/>
+            <contents coverageCount="35"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x20&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="22"/>
+            <contents coverageCount="47"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x24&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="54"/>
+            <contents coverageCount="9"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x28&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="27"/>
+            <contents coverageCount="54"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x2c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="45"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x30&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="36"/>
+            <contents coverageCount="51"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x34&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="35"/>
+            <contents coverageCount="31"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x38&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="18"/>
+            <contents coverageCount="54"/>
           </crossBin>
           <crossBin name="&lt;write,addr_0x3c&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="9"/>
+            <contents coverageCount="18"/>
           </crossBin>
         </cross>
         <cross name="cross_rw_wdata" key="0">
@@ -878,7 +878,7 @@
           <crossExpr>cp_pwdata</crossExpr>
           <crossBin name="&lt;read,zero&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="305"/>
+            <contents coverageCount="236"/>
           </crossBin>
           <crossBin name="&lt;read,all_ones&gt;" key="0" type="default">
             <index>-1</index>
@@ -886,11 +886,11 @@
           </crossBin>
           <crossBin name="&lt;write,zero&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="43"/>
+            <contents coverageCount="59"/>
           </crossBin>
           <crossBin name="&lt;write,all_ones&gt;" key="0" type="default">
             <index>-1</index>
-            <contents coverageCount="92"/>
+            <contents coverageCount="138"/>
           </crossBin>
         </cross>
       </cgInstance>

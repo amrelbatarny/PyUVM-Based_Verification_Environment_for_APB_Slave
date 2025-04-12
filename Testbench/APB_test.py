@@ -33,25 +33,32 @@ class APB_base_test(uvm_test):
 		self.logger.info(f"End of {self.get_type_name()}")
 		self.logger.info("----------------------------------------------------------------------")
 
-@pyuvm.test()
+# @pyuvm.test()
 class APB_write_test(APB_base_test):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(APB_base_sequence, APB_write_sequence)
 		super().build_phase()
 
-@pyuvm.test()
+# @pyuvm.test()
 class APB_read_test(APB_base_test):
 	
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(APB_base_sequence, APB_read_sequence)
 		super().build_phase()
 
-@pyuvm.test()
+# @pyuvm.test()
 class APB_TestAll_test(APB_base_test):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(APB_base_sequence, APB_TestAll_sequence)
+		super().build_phase()
+
+@pyuvm.test()
+class APB_pyquesta_test(APB_base_test):
+
+	def build_phase(self):
+		uvm_factory().set_type_override_by_type(APB_base_sequence, APB_pyquesta_sequence)
 		super().build_phase()
 
 # @pyuvm.test()

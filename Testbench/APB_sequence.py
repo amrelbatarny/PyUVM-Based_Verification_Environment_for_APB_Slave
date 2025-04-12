@@ -1,6 +1,8 @@
 from common_imports import *
-from APB_seq_item import *
+# from APB_seq_item import *
 from APB_seq_item_vsc import *
+from APB_seq_itemMod import APB_seq_item
+from pyquesta import SVConduit
 
 class APB_base_sequence(uvm_sequence, uvm_report_object):
     
@@ -55,6 +57,20 @@ class APB_read_sequence(APB_base_sequence):
             await self.start_item(item)
             with item.randomize_with() as it:
                 vsc.dist(it.PWRITE,  [vsc.weight(1, 1), vsc.weight(0, 99)])
+            await self.finish_item(item)
+
+class APB_pyquesta_sequence(APB_base_sequence):
+
+    async def body(self):
+        for _ in range(100):
+            item = APB_seq_item_vsc.create("item")
+            item_vsc = SVConduit.get(APB_seq_item)
+            await self.start_item(item)
+            item.PRESETn = item_vsc.PRESETn
+            item.PWDATA = item_vsc.PWDATA
+            item.PENABLE = item_vsc.PENABLE
+            item.PWRITE = item_vsc.PWRITE
+            item.PADDR = item_vsc.PADDR
             await self.finish_item(item)
 
 # class APB_reg_sequence(APB_base_sequence):
