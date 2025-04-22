@@ -7,12 +7,10 @@ SIM ?= questa
 TOPLEVEL_LANG ?= verilog
 
 # RTL Files 
+VERILOG_SOURCES += APB_seq_item_pkg.sv
 VERILOG_SOURCES += ../RTL/shared_pkg.sv ../RTL/APB_Wrapper.sv ../RTL/APB_Slave.sv ../RTL/RegisterFile.sv
+VERILOG_SOURCES += dummy_dpi_initializer.sv
 VERILOG_SOURCES += APB_SVA.sv SVA_bind.sv
-VERILOG_SOURCES += APB_seq_item_pkg.sv APB_seq_item.svh
-
-# Ensure Questa finds all files
-VLOG_ARGS += +incdir+$(PWD)
 
 # Top-level and module
 TOPLEVEL = APB_Wrapper
@@ -22,12 +20,15 @@ MODULE = APB_test
 
 # Compilation arguments
 VLOG_ARGS += -mfcu -cuname -timescale=1ns/1ps
-
-# Tell Questa to look in this dir for libsv_conduit.so
-VSIM_ARGS += -sv_lib /home/amrelbatarny/myenv/lib/python3.9/site-packages/pyquesta/makefiles/sv_conduit
+VLOG_ARGS += +cover
+# VLOG_ARGS += +define+DEBUG_SVCONDUIT
 
 # Use setup.tcl for waveform configuration
 VSIM_ARGS += -do setup.tcl
+VSIM_ARGS += -dpioutoftheblue 1
+VSIM_ARGS += -classdebug
+VSIM_ARGS += -coverage
+VSIM_ARGS += -cover
 
 # Include Cocotb's Makefile AFTER variable exports
 include $(shell cocotb-config --makefiles)/Makefile.sim

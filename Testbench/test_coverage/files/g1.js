@@ -1,0 +1,2 @@
+var g_data = {"16":{"pr":"/APB_seq_item_pkg","ty":2,"dui":6,"dun":"work.APB_seq_item_pkg","cvgs":[{"h":["\\/APB_seq_item_pkg::cov_inst ",2,1,25,17],"sc":[7,62],"cov":[62,62,100.00],"opts":{"goal":"100"}},{"h":["/APB_seq_item_pkg/APB_cg",1,1,17],"sc":[7,34],"cov":[62,62,100.00],"opts":{"goal":"100"}}]}};
+processCovergroupsData(g_data);

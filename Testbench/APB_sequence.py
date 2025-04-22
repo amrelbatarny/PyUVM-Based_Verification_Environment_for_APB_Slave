@@ -62,7 +62,7 @@ class APB_read_sequence(APB_base_sequence):
 class APB_pyquesta_sequence(APB_base_sequence):
 
     async def body(self):
-        for _ in range(100):
+        for _ in range(200):
             item = APB_seq_item_vsc.create("item")
             item_vsc = SVConduit.get(APB_seq_item)
             await self.start_item(item)

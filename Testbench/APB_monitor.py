@@ -1,5 +1,7 @@
 from common_imports import *
 from APB_seq_item_vsc import *
+from APB_seq_itemMod import APB_seq_item
+from pyquesta import SVConduit
 
 class APB_monitor(uvm_monitor):
 
@@ -24,5 +26,20 @@ class APB_monitor(uvm_monitor):
 			rsp_seq_item.PWRITE		=	self.dut.PWRITE.value
 			rsp_seq_item.PREADY		=	self.dut.PREADY.value
 			
-			self.mon_ap.write(rsp_seq_item)
 			self.logger.debug(f"{self.get_type_name()}: MONITORED {rsp_seq_item}")
+
+			self.mon_ap.write(rsp_seq_item)
+			
+			item_sv = APB_seq_item()
+
+			item_sv.PRESETn		=	rsp_seq_item.PRESETn
+			item_sv.PWDATA		=	rsp_seq_item.PWDATA
+			item_sv.PRDATA		=	rsp_seq_item.PRDATA
+			item_sv.PADDR		=	rsp_seq_item.PADDR
+			item_sv.PENABLE		=	rsp_seq_item.PENABLE
+			item_sv.PWRITE		=	rsp_seq_item.PWRITE
+			item_sv.PREADY		=	rsp_seq_item.PREADY
+
+			self.logger.debug(f"{self.get_type_name()}: Monitor sent to SVConduit's put: {item_sv}")
+			
+			SVConduit.put(item_sv)

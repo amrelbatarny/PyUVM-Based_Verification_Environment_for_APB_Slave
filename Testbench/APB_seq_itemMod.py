@@ -26,3 +26,7 @@ class APB_seq_item(CStruct, SVStruct):
             and self.PADDR == other.PADDR \
             and True
         return same
+
+    # User Defined
+    def serialize(self):
+        return f"{self.PRESETn}{self.PWDATA:08x}{self.PENABLE}{self.PWRITE}{self.PADDR:08x}".encode("utf-8")

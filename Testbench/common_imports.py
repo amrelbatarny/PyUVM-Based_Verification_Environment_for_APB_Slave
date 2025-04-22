@@ -4,6 +4,7 @@
 import cocotb
 import pyuvm
 import logging
+import enum
 import sys
 import os
 import vsc

@@ -29,10 +29,8 @@ class APB_base_test(uvm_test):
 
 	def final_phase(self):
 		uvm_factory().print(0)
-		self.logger.info("----------------------------------------------------------------------")
-		self.logger.info(f"End of {self.get_type_name()}")
-		self.logger.info("----------------------------------------------------------------------")
-
+		self.logger.info(f"==================== End of {self.get_type_name()} ====================")
+		
 # @pyuvm.test()
 class APB_write_test(APB_base_test):
 

@@ -1,7 +1,7 @@
 package APB_seq_item_pkg;
-    export "DPI-C" function sv_get;
-    export "DPI-C" function sv_put;
-    export "DPI-C" function sv_transport;
+export "DPI-C" function sv_get;
+export "DPI-C" function sv_put;
+export "DPI-C" function sv_transport;
 
 
 // *** APB_seq_item ***
@@ -30,45 +30,29 @@ package APB_seq_item_pkg;
             buffer = $sformatf("%08h%08h%08h%08h%08h",PRESETn,PWDATA,PENABLE,PWRITE,PADDR);
             return buffer;
         endfunction
+
+        // User Defined
+        function void deserialize(string str);
+            // Extract fields from the packed string format:
+            // Format: PRESETn (1 char) + PWDATA (8-char hex) + PENABLE (1 char) + PWRITE (1 char) + PADDR (8-char hex)
+            
+            // PRESETn (1 character)
+            PRESETn = str.substr(0, 0).atoi();
+            
+            // PWDATA (characters 1-8, 8-digit hex)
+            PWDATA = str.substr(1, 8).atohex();
+            
+            // PENABLE (character 9)
+            PENABLE = str.substr(9, 9).atoi();
+            
+            // PWRITE (character 10)
+            PWRITE = str.substr(10, 10).atoi();
+            
+            // PADDR (characters 11-18, 8-digit hex)
+            PADDR = str.substr(11, 18).atohex();
+        endfunction
+
     endclass
 
-    function string sv_get;
-    APB_seq_item obj;
-    string obj_str;
-    obj = new();
-    
-    void'(obj.randomize() with {
-        // Constraints must use class member syntax
-        PRESETn dist { 1 :/ 90, 0 :/ 10 };
-        PENABLE dist { 1 :/ 90, 0 :/ 10 };
-        PWDATA dist {
-            32'h00000000 :/ 20,
-            [32'h00000001:32'hFFFFFFFE] :/ 60,  // Fixed range syntax
-            32'hFFFFFFFF :/ 20
-        };
-        
-        // Conditional constraints
-        if (PWRITE == 0) {
-            PWDATA == 0;
-        }
-        
-        // Address constraints
-        PADDR inside { [32'h00000000:32'h0000003C] };
-        (PADDR % 4) == 0;
-    });
-    
-    obj_str = obj.serialize();
-    return obj_str;
-endfunction
-
-function void sv_put(input string data_buf);
-    // Optional implementation
-endfunction
-
-function string sv_transport(input string data_buf);
-    // Optional implementation
-    return "";
-endfunction
-
-// `include "APB_seq_item.svh"
+    `include "APB_seq_item.svh"
 endpackage

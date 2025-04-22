@@ -98,6 +98,5 @@ APB_Slave #(
     .RegWDATA(RegWDATA)     ,
     .RegWRITE(RegWRITE)
 );
-
-    
+dummy_dpi_initializer dummy_dpi_initializer_inst();    
 endmodule
