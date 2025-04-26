@@ -1,4 +1,4 @@
-from common_imports import *
+from pyuvm import uvm_reg, uvm_reg_field, predict_t
 
 class SYS_STATUS_REG(uvm_reg):
     def __init__(self, name="SYS_STATUS_REG", reg_width=32):
