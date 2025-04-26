@@ -16,7 +16,7 @@ VERILOG_SOURCES += APB_SVA.sv SVA_bind.sv
 TOPLEVEL = APB_Wrapper
 
 # MODULE is the basename of the Python test file
-MODULE = APB_test
+MODULE = Tests
 
 # Compilation arguments
 VLOG_ARGS += -mfcu -cuname -timescale=1ns/1ps
@@ -36,7 +36,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 # Clean target
 .PHONY: clean
 clean::
-	rm -rf __pycache__ modelsim.ini transcript vsim.wlf
+	rm -rf __pycache__ modelsim.ini transcript vsim.wlf ../RAL/__pycache__
 
 # PyUCIS-Viewer target
 .PHONY: pyucis

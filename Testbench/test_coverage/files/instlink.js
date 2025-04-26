@@ -1,2 +1,0 @@
-var g_data = {"10":[9,"reg_file",1],"11":[9,"apb_slave",1],"12":[9,"dummy_dpi_initializer_inst",1],"13":[9,"APB_SVA_inst",1],"9":[-1,"APB_Wrapper",1],"16":[-1,"APB_seq_item_pkg",1]};
-processInstLinks(g_data);

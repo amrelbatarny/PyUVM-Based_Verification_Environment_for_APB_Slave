@@ -24,6 +24,7 @@ function string sv_get;
         if (PWRITE == 0) { PWDATA == 0; }
         PADDR inside { [32'h00000000:32'h0000003C] };
         (PADDR % 4) == 0;
+        PSTRB dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90};
     });
 
     // Serialize the object and return the string

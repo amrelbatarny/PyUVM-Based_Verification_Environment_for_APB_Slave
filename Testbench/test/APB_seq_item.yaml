@@ -1,6 +1,0 @@
-APB_seq_item:
-  PRESETn: uint     # will be constrained to 0 or 1
-  PWDATA:   uint    # 32‑bit data
-  PENABLE:  uint    # will be constrained to 0 or 1
-  PWRITE:   uint    # will be constrained to 0 or 1
-  PADDR:    uint    # 32‑bit address

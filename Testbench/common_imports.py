@@ -1,5 +1,7 @@
 # common_imports.py
 
+from APB_utils import *
+
 # General imports
 import cocotb
 import pyuvm

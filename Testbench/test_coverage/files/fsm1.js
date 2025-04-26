@@ -1,2 +1,0 @@
-var g_data = {"11":{"pr":"/APB_Wrapper/apb_slave","fsms":[["CurrentState",5,48,[["IDLE",0,5,48,336,"                 1"],["SETUP",0,5,56,477,"                 2"],["ACCESS",0,5,59,477,"                 4"],["IDLE -> SETUP",1,5,50,159,0],["SETUP -> ACCESS",1,5,57,477,1],["SETUP -> IDLE",1,5,81,0,2],["ACCESS -> IDLE",1,5,68,158,3],["ACCESS -> SETUP",1,5,65,318,4]],100.00,80.00]]}};
-processFsmData(g_data);

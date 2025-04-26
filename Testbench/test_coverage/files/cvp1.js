@@ -1,2 +1,0 @@
-var g_data = {"26":["reset_active","reset_inactive"],"27":["enabled","disabled"],"28":["write","read"],"29":["aligned_addr[0]","aligned_addr[4]","aligned_addr[8]","aligned_addr[12]","aligned_addr[16]","aligned_addr[20]","aligned_addr[24]","aligned_addr[28]","aligned_addr[32]","aligned_addr[36]","aligned_addr[40]","aligned_addr[44]","aligned_addr[48]","aligned_addr[52]","aligned_addr[56]","aligned_addr[60]"],"30":["zero","max","typical"]};
-processCoverpointsMapData(g_data);

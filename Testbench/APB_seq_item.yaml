@@ -4,3 +4,4 @@ APB_seq_item:
   PENABLE:  uint    # will be constrained to 0 or 1
   PWRITE:   uint    # will be constrained to 0 or 1
   PADDR:    uint    # 32‑bit address
+  PSTRB:    uint    # Byte Strobe

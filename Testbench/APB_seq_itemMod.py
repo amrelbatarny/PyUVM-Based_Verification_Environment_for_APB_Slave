@@ -8,6 +8,7 @@ class APB_seq_item(CStruct, SVStruct):
     PENABLE = CUInt(default=0)
     PWRITE = CUInt(default=0)
     PADDR = CUInt(default=0)
+    PSTRB = CUInt(default=0)
 
     def load_sv_str(self, byte_str):
         byte_data = self.unpack_byte_data(byte_str)
@@ -16,6 +17,7 @@ class APB_seq_item(CStruct, SVStruct):
         self.PENABLE = int.from_bytes(byte_data[8:12], byteorder='big', signed=False)
         self.PWRITE = int.from_bytes(byte_data[12:16], byteorder='big', signed=False)
         self.PADDR = int.from_bytes(byte_data[16:20], byteorder='big', signed=False)
+        self.PSTRB = int.from_bytes(byte_data[20:24], byteorder='big', signed=False)
 
     def __eq__(self, other):
         same = True \
@@ -24,9 +26,10 @@ class APB_seq_item(CStruct, SVStruct):
             and self.PENABLE == other.PENABLE \
             and self.PWRITE == other.PWRITE \
             and self.PADDR == other.PADDR \
+            and self.PSTRB == other.PSTRB \
             and True
         return same
 
     # User Defined
     def serialize(self):
-        return f"{self.PRESETn}{self.PWDATA:08x}{self.PENABLE}{self.PWRITE}{self.PADDR:08x}".encode("utf-8")
+        return f"{self.PRESETn}{self.PWDATA:08x}{self.PENABLE}{self.PWRITE}{self.PADDR:08x}{self.PSTRB:01x}".encode("utf-8")
