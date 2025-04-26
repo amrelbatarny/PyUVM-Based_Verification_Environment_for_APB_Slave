@@ -14,7 +14,7 @@ from SequenceLibrary	import (
 from BFM				import ApbBfm
 
 
-class APB_base_test(uvm_test):
+class ApbBaseTest(uvm_test):
 	def build_phase(self):
 		vsc.vsc_solvefail_debug(1)
 		self.env = ApbEnv.create("env", self)
@@ -44,35 +44,35 @@ class APB_base_test(uvm_test):
 		self.logger.info(f"==================== End of {self.get_type_name()} ====================")
 		
 # @pyuvm.test()
-class APB_write_test(APB_base_test):
+class ApbWriteTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbWriteSequence)
 		super().build_phase()
 
 # @pyuvm.test()
-class APB_read_test(APB_base_test):
+class ApbReadTest(ApbBaseTest):
 	
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbReadSequence)
 		super().build_phase()
 
 # @pyuvm.test()
-class APB_TestAll_test(APB_base_test):
+class ApbTestAllTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbTestAllSequence)
 		super().build_phase()
 
 # @pyuvm.test()
-class APB_pyquesta_test(APB_base_test):
+class ApbPyquestaTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbPyquestaSequence)
 		super().build_phase()
 
 @pyuvm.test()
-class APB_reg_test(APB_base_test):
+class ApbRegTest(ApbBaseTest):
 	
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbRegSequence)
