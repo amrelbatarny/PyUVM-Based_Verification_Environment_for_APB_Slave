@@ -64,14 +64,14 @@ class ApbTestAllTest(ApbBaseTest):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbTestAllSequence)
 		super().build_phase()
 
-# @pyuvm.test()
+@pyuvm.test(stage=2)
 class ApbPyquestaTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbPyquestaSequence)
 		super().build_phase()
 
-@pyuvm.test()
+@pyuvm.test(stage=1)
 class ApbRegTest(ApbBaseTest):
 	
 	def build_phase(self):

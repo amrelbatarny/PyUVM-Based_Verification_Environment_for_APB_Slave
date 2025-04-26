@@ -14,49 +14,45 @@ function string sv_get;
 
     // Randomize the object with constraints
     void'(obj.randomize() with {
-        PRESETn dist { 1 :/ 90, 0 :/ 10 };
-        PENABLE dist { 1 :/ 90, 0 :/ 10 };
-        PWDATA dist {
-            32'h00000000 :/ 20,
-            [32'h00000001:32'hFFFFFFFE] :/ 60,
-            32'hFFFFFFFF :/ 20
-        };
-        if (PWRITE == 0) { PWDATA == 0; }
-        PADDR inside { [32'h00000000:32'h0000003C] };
-        (PADDR % 4) == 0;
-        PSTRB dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90};
+        type_sv inside { 0, 1 }; // 0=READ, 1=WRITE per Python APBType
+        if (type_sv) {
+            data dist {
+                32'h00000000 :/ 20,
+                [32'h00000001:32'hFFFFFFFE] :/ 60,
+                32'hFFFFFFFF :/ 20
+            };
+            strobe dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90};
+        }
+        else {
+            data == 0;
+            strobe == 0;
+        }
+        addr inside { [32'h00000000:32'h0000003C] };
+        (addr % 4) == 0;
     });
-
+    $display("%h",obj.type_sv);
     // Serialize the object and return the string
     obj_str = obj.serialize();
     return obj_str;
 endfunction
 
 covergroup APB_cg with function sample(APB_seq_item item);
-    PRESETn_cp: coverpoint item.PRESETn {
-        bins reset_active   = {1};
-        bins reset_inactive = {0};
-    }
-    PENABLE_cp: coverpoint item.PENABLE {
-        bins enabled   = {1};
-        bins disabled  = {0};
-    }
-    PWRITE_cp:  coverpoint item.PWRITE  {
+    type_cp:  coverpoint item.type_sv  {
         bins write = {1};
         bins read  = {0};
     }
-    PADDR_cp:   coverpoint item.PADDR   {
+    addr_cp:   coverpoint item.addr   {
         bins aligned_addr[] = {0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60};
     }
-    PWDATA_cp:  coverpoint item.PWDATA  {
+    data_cp:  coverpoint item.data  {
         bins zero     = {32'h0};
         bins max      = {32'hFFFFFFFF};
         bins typical  = {[32'h1:32'hFFFFFFFE]};
     }
-    WRITE_x_DATA: cross PWRITE_cp, PWDATA_cp {
-        ignore_bins read_nonzero = binsof(PWRITE_cp.read) && binsof(PWDATA_cp.typical); // Ensures read transactions have PWDATA=0 (as per the constraint)
+    write_x_data: cross type_cp, data_cp {
+        ignore_bins read_nonzero = binsof(type_cp.read) && binsof(data_cp.typical); // Ensures read transactions have data=0 (as per the constraint)
     }
-    WRITE_x_ADDR: cross PWRITE_cp, PADDR_cp;
+    write_x_addr: cross type_cp, addr_cp;
 endgroup
 
 // Global coverage instance
@@ -72,11 +68,10 @@ function void sv_put(input string data_buf);
         $display("=============================================");
         $display("[SV] Received: %s", data_buf);
         $display("[SV] Deserialized Item:");
-        $display("  PRESETn = %0d", obj.PRESETn);
-        $display("  PWDATA  = 0x%8h", obj.PWDATA);
-        $display("  PENABLE = %0d", obj.PENABLE);
-        $display("  PWRITE  = %0d", obj.PWRITE);
-        $display("  PADDR   = 0x%8h", obj.PADDR);
+        $display("  addr    = 0x%8h", obj.addr);
+        $display("  data    = 0x%8h", obj.data);
+        $display("  strobe  = 0x%2h", obj.strobe);
+        $display("  type_sv    = 0x%2h", obj.type_sv);
         $display("=============================================");
     `endif
     // ========================

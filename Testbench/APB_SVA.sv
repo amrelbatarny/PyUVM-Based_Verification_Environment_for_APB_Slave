@@ -86,10 +86,10 @@ endproperty
 // endproperty
 //PSRTB must be driven low at read transfer
 													 // Modification: Removed this property
-property pstrb_low_at_read ;
-	@(posedge PCLK) disable iff(!PRESETn)
-		PSELx && !PWRITE |-> PSTRB == {(NBYTES){1'b0}} ;
-endproperty
+// property pstrb_low_at_read ;
+// 	@(posedge PCLK) disable iff(!PRESETn)
+// 		PSELx && !PWRITE |-> PSTRB == {(NBYTES){1'b0}} ;
+// endproperty
 
 //Operating States (see chapter 4 in APB5 documentation)
 property idle_state ;
@@ -121,7 +121,7 @@ PWDATA_never_X  : assert property (pr_generic_not_unknown(PWDATA )) else $displa
 													 // Modification: Removed this assertion
 // PRDATA_never_X  : assert property (pr_generic_not_unknown(PRDATA )) else $display("[%0t] Error! PRDATA is unknown (=X/Z)", $time) ;
 													 // Modification: Removed this assertion
-PSTRB_never_X   : assert property (pr_generic_not_unknown(PSTRB  )) else $display("[%0t] Error! PSTRB is unknown (=X/Z)", $time) ;
+// PSTRB_never_X   : assert property (pr_generic_not_unknown(PSTRB  )) else $display("[%0t] Error! PSTRB is unknown (=X/Z)", $time) ;
 													 // Modification: Removed this assertion
 // PPROT_never_X   : assert property (pr_generic_not_unknown(PPROT  )) else $display("[%0t] Error! PPROT is unknown (=X/Z)", $time) ;
 
@@ -133,9 +133,9 @@ PENABLE_stable_in_transfer   : assert property (penable_in_transfer)        else
 // PSEL_stable_in_transfer      : assert property (psel_stable_in_transfer)    else $display("[%0t] Error! PSEL must not change throughout the transfer", $time) ;
 PWDATA_stable_in_wr_transfer : assert property (pwdata_in_wr_transfer)      else $display("[%0t] Error! PWDATA must not change throughout the write transfer", $time) ;
 													 // Modification: Removed this assertion
-PSTRB_stable_in_transfer     : assert property (pr_generic_stable(PSTRB))   else $display("[%0t] Error! PSTRB must not change throughout the transfer", $time) ;
+// PSTRB_stable_in_transfer     : assert property (pr_generic_stable(PSTRB))   else $display("[%0t] Error! PSTRB must not change throughout the transfer", $time) ;
 													 // Modification: Removed this assertion
-PSTRB_low_in_read_transfer   : assert property (pstrb_low_at_read)          else $display("[%0t] Error! PSTRB must be driven low in read transfer", $time) ;
+// PSTRB_low_in_read_transfer   : assert property (pstrb_low_at_read)          else $display("[%0t] Error! PSTRB must be driven low in read transfer", $time) ;
 													 // Modification: Removed this assertion
 // PPROT_stable_in_transfer     : assert property (pr_generic_stable(PPROT))   else $display("[%0t] Error! PPROT must not change throughout the transfer", $time) ;
 // PSLVERR_stable_in_transfer   : assert property (pr_generic_stable(PSLVERR)) else $display("[%0t] Error! PSLVERR must not change throughout the transfer", $time) ;

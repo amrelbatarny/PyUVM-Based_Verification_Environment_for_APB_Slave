@@ -1,7 +1,5 @@
 APB_seq_item:
-  PRESETn: uint     # will be constrained to 0 or 1
-  PWDATA:   uint    # 32‑bit data
-  PENABLE:  uint    # will be constrained to 0 or 1
-  PWRITE:   uint    # will be constrained to 0 or 1
-  PADDR:    uint    # 32‑bit address
-  PSTRB:    uint    # Byte Strobe
+  addr:   uint   # 32-bit address
+  data:   uint   # 32-bit data
+  strobe: uchar  # 8-bit byte strobe (only low 4 bits used)
+  type_sv:   uchar  # 8-bit transaction type_sv (enum encoded)

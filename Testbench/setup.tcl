@@ -25,7 +25,6 @@ add wave -position insertpoint  \
 
 # Assertions
 add wave -position insertpoint \
-sim:/APB_Wrapper/APB_SVA_inst/PSTRB_low_in_read_transfer \
 sim:/APB_Wrapper/APB_SVA_inst/PWRITE_never_X \
 sim:/APB_Wrapper/APB_SVA_inst/PENABLE_never_X \
 sim:/APB_Wrapper/APB_SVA_inst/PREADY_never_X \

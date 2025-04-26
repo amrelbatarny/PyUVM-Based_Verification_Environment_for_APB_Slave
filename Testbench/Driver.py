@@ -25,6 +25,6 @@ class ApbDriver(uvm_driver):
 	async def drive(self, item):
 		self.logger.debug("Driving...")
 		if(item.type == APBType.WRITE):
-			await self.bfm.write(item.addr, item.data)
+			await self.bfm.write(item.addr, item.data, item.strobe)
 		else:
 			item.data = await self.bfm.read(item.addr)

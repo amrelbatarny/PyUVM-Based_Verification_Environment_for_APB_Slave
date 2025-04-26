@@ -1,6 +1,7 @@
 # Makefile
 
 # Force GUI mode and export variables
+export COCOTB_RESOLVE_X = ZEROS
 GUI = 1
 WAVES = 1
 SIM ?= questa

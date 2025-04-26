@@ -3,33 +3,38 @@ from pyquesta import SVStruct
 
 
 class APB_seq_item(CStruct, SVStruct):
-    PRESETn = CUInt(default=0)
-    PWDATA = CUInt(default=0)
-    PENABLE = CUInt(default=0)
-    PWRITE = CUInt(default=0)
-    PADDR = CUInt(default=0)
-    PSTRB = CUInt(default=0)
+    addr = CUInt(default=0)
+    data = CUInt(default=0)
+    strobe = CUChar(default=0)
+    type_sv = CUChar(default=0)
 
     def load_sv_str(self, byte_str):
         byte_data = self.unpack_byte_data(byte_str)
-        self.PRESETn = int.from_bytes(byte_data[0:4], byteorder='big', signed=False)
-        self.PWDATA = int.from_bytes(byte_data[4:8], byteorder='big', signed=False)
-        self.PENABLE = int.from_bytes(byte_data[8:12], byteorder='big', signed=False)
-        self.PWRITE = int.from_bytes(byte_data[12:16], byteorder='big', signed=False)
-        self.PADDR = int.from_bytes(byte_data[16:20], byteorder='big', signed=False)
-        self.PSTRB = int.from_bytes(byte_data[20:24], byteorder='big', signed=False)
+        self.addr = int.from_bytes(byte_data[0:4], byteorder='big', signed=False)
+        self.data = int.from_bytes(byte_data[4:8], byteorder='big', signed=False)
+        self.strobe = int.from_bytes(byte_data[8:9], byteorder='big', signed=False)
+        self.type_sv = int.from_bytes(byte_data[9:10], byteorder='big', signed=False)
 
     def __eq__(self, other):
         same = True \
-            and self.PRESETn == other.PRESETn \
-            and self.PWDATA == other.PWDATA \
-            and self.PENABLE == other.PENABLE \
-            and self.PWRITE == other.PWRITE \
-            and self.PADDR == other.PADDR \
-            and self.PSTRB == other.PSTRB \
+            and self.addr == other.addr \
+            and self.data == other.data \
+            and self.strobe == other.strobe \
+            and self.type_sv == other.type_sv \
             and True
         return same
 
-    # User Defined
     def serialize(self):
-        return f"{self.PRESETn}{self.PWDATA:08x}{self.PENABLE}{self.PWRITE}{self.PADDR:08x}{self.PSTRB:01x}".encode("utf-8")
+        # 4+4+1+1 = 10 bytes; format each field as hex:
+        #   addr   → 8 digits
+        #   data   → 8 digits
+        #   strobe → 2 digits
+        #   type_sv   → 2 digits
+        s = (
+            f"{self.addr:08x}"
+            f"{self.data:08x}"
+            f"{self.strobe:02x}"
+            f"{self.type_sv:02x}"
+        )
+        return s.encode('utf-8')
+

@@ -1,4 +1,5 @@
 import cocotb
+import vsc
 from cocotb.triggers import RisingEdge, FallingEdge
 from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, check_t
 from SequenceItem import ApbSeqItem
@@ -15,15 +16,11 @@ class ApbBaseSequence(uvm_sequence, uvm_report_object):
 		super().__init__(name)
 		self.ral = ConfigDB().get(None, "", "regsiter_model")
 		self.map = self.ral.def_map
-
-	# async def reg_write(self, reg_addr: int, write_data: int):
-	#     target_reg = self.map.get_reg_by_offset(reg_addr)
-	#     status = await target_reg.write(write_data,
-	#                                     self.map,
-	#                                     path_t.FRONTDOOR,
-	#                                     check_t.NO_CHECK)
-	#     return status
 	
+	async def pre_body(self):
+		print("Entered pre_body")
+		self.item = ApbSeqItem.create("item")
+
 	async def body(self):
 		raise UVMNotImplemented  
 
@@ -36,49 +33,45 @@ class ApbTestAllSequence(ApbBaseSequence):
 
 	async def body(self):
 		for _ in range(100):
-			item = APB_seq_item_vsc.create("item")
-			await self.start_item(item)
-			item.randomize()
-			await self.finish_item(item)
+			await self.start_item(self.item)
+			self.item.randomize()
+			await self.finish_item(self.item)
 
 class ApbWriteSequence(ApbBaseSequence):
 
 	async def body(self):
 		for _ in range(100):
-			item = ApbSeqItem.create("item")
-			await self.start_item(item)
-			with item.randomize_with() as it:
+			await self.start_item(self.item)
+			with self.item.randomize_with() as it:
 				vsc.dist(it.type, [
 					vsc.weight(APBType.WRITE, 95),
 					vsc.weight(APBType.READ, 5)
 					])
-			await self.finish_item(item)
+			await self.finish_item(self.item)
 
 class ApbReadSequence(ApbBaseSequence):
 
 	async def body(self):
 		for _ in range(100):
-			item = ApbSeqItem.create("item")
-			await self.start_item(item)
-			with item.randomize_with() as it:
+			await self.start_item(self.item)
+			with self.item.randomize_with() as it:
 				vsc.dist(it.type, [
 					vsc.weight(APBType.WRITE, 5),
 					vsc.weight(APBType.READ, 95)
 					])
-			await self.finish_item(item)
+			await self.finish_item(self.item)
 
 class ApbPyquestaSequence(ApbBaseSequence):
 
 	async def body(self):
 		for _ in range(300):
-			item = ApbSeqItem.create("item")
 			item_sv = SVConduit.get(APB_seq_item)
-			await self.start_item(item)
-			item.data = item_sv.PWDATA if item_sv.PWRITE else item_sv.PRDATA
-			item.type = APBType.WRITE if item_sv.PWRITE else APBType.READ
-			item.addr = item_sv.PADDR
-			item.strobe = item_sv.PSTRB
-			await self.finish_item(item)
+			await self.start_item(self.item)
+			self.item.data = item_sv.data
+			self.item.type = APBType.WRITE if item_sv.type_sv else APBType.READ
+			self.item.addr = item_sv.addr
+			self.item.strobe = item_sv.strobe
+			await self.finish_item(self.item)
 
 class ApbRegSequence(ApbBaseSequence):
 

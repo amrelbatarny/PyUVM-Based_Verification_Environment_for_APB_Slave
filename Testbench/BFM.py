@@ -22,12 +22,12 @@ class ApbBfm(metaclass=utility_classes.Singleton):
 		await FallingEdge(self.dut.PCLK)	# Hold reset for some cycles
 		self.dut.PRESETn.value  = 1			# Deassert reset
 
-	async def write(self, addr, data):
+	async def write(self, addr, data, strobe):
 		self.dut.PADDR.value	= addr
 		self.dut.PWDATA.value	= data
 		self.dut.PWRITE.value	= 1
 		self.dut.PSELx.value	= 1
-		self.dut.PSTRB.value	= 15
+		self.dut.PSTRB.value	= strobe
 		await RisingEdge(self.dut.PCLK)
 		self.dut.PENABLE.value	= 1
 		await RisingEdge(self.dut.PREADY)

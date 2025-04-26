@@ -31,16 +31,13 @@ class ApbMonitor(uvm_monitor):
 			self.logger.debug(f"{self.get_type_name()}: MONITORED {item}")
 			
 			# Populating SystemVerilog's item
-			# item_sv = APB_seq_item()
+			item_sv = APB_seq_item()
 
-			# item_sv.PRESETn		=	item.PRESETn
-			# item_sv.PWDATA		=	item.PWDATA
-			# item_sv.PRDATA		=	item.PRDATA
-			# item_sv.PADDR		=	item.PADDR
-			# item_sv.PENABLE		=	item.PENABLE
-			# item_sv.PWRITE		=	item.PWRITE
-			# item_sv.PREADY		=	item.PREADY
+			item_sv.addr		=	item.addr
+			item_sv.data		=	item.data
+			item_sv.strobe		=	item.strobe
+			item_sv.type_sv		=	1 if item.type == APBType.WRITE else 0
 
-			# self.logger.debug(f"{self.get_type_name()}: Monitor sent to SVConduit's put: {item_sv}")
+			self.logger.debug(f"{self.get_type_name()}: Monitor sent to SVConduit's put: {item_sv}")
 			
-			# SVConduit.put(item_sv)
+			SVConduit.put(item_sv)
