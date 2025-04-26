@@ -30,14 +30,14 @@ module APB_Slave #(
 	// State Memory
 	always @(posedge PCLK or negedge PRESETn) begin
         if (~PRESETn) begin
-            current_state = IDLE;
+            current_state <= IDLE;
         end else begin
-            current_state = next_state;
+            current_state <= next_state;
         end
     end
 
     // Next State Logic
-    always @* begin
+    always_comb begin
     	case(current_state)
     		IDLE:
     			if(PENABLE && PSELx)
@@ -53,20 +53,20 @@ module APB_Slave #(
     	endcase
     end
 
-    //Output Logic
+    // Output Logic
 	always @* begin
 		if(~PRESETn) begin
-			PREADY <= 1'b0;
+			PREADY = 1'b0;
 		end else begin
 			if(current_state == IDLE)
-				PREADY <= 1'b0;
+				PREADY = 1'b0;
 			else if(current_state == ACCESS) begin
-				addr 		<= PADDR;
-				write_en	<= (PWRITE == 1'b1)? 1'b1 : 1'b0;
-				read_en		<= ~write_en;
-				byte_strobe	<= PSTRB;
-				wdata		<= PWDATA;
-				PREADY		<= 1'b1;
+				addr 		= PADDR;
+				write_en	= (PWRITE == 1'b1)? 1'b1 : 1'b0;
+				read_en		= ~write_en;
+				byte_strobe	= PSTRB;
+				wdata		= PWDATA;
+				PREADY		= 1'b1;
 			end
 		end
 	end
