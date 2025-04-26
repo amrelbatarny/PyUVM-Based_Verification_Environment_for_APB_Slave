@@ -1,102 +1,68 @@
 module APB_Wrapper #(
-    parameter DATA_WIDTH = 32				 ,
-    parameter ADDR_WIDTH = 32				 ,
-    parameter NO_SLAVES  = 1					
-) (
-`ifdef AMBA4
-	input [DATA_WIDTH/8 -1 : 0] 	PSTRB  	 , 
-	input [2:0]                 	PPROT  	 , 
-`endif 
+	parameter DATA_WIDTH	= 32,
+	parameter ADDR_WIDTH	= 32,
+	parameter NBYTES		= DATA_WIDTH/8
+	)(
+	// Global Signals
+	input wire						PCLK,
+	input wire						PRESETn,
 
-// Global Sinals
-    input 						 	PCLK     ,  
-    input 						 	PRESETn  ,  
+	// APB Signals
+	input wire						PSELx,
+	input wire [ADDR_WIDTH-1:0]		PADDR,
+	input wire						PWRITE,
+	input wire [NBYTES-1:0]			PSTRB,
+	input wire [DATA_WIDTH-1:0]		PWDATA,
+	input wire						PENABLE,
+	output wire [DATA_WIDTH-1:0]	PRDATA,
+	output wire						PREADY
+	);
+	
+	// Register File Signals
+	wire [ADDR_WIDTH-1:0]	addr;
+	wire					write_en;
+	wire					read_en;
+	wire [NBYTES-1:0]		byte_strobe;
+	wire [DATA_WIDTH-1:0]	wdata;
+	wire [DATA_WIDTH-1:0]	rdata;
 
-// Slave FROM Master
-    input [ADDR_WIDTH-1 : 0]     	PADDR    ,
-    input                        	PWRITE   ,
-    input [DATA_WIDTH-1 : 0]     	PWDATA   ,
-    input                        	PENABLE  ,
-    input                           PSELx    ,
+	assign PRDATA = rdata;
 
-// Slave TO Master
-    output                          PREADY   ,
-    output [DATA_WIDTH-1 : 0]    	PRDATA   ,
-    output                       	PSLVERR 	
-);
-
-// input Slave FROM RegisterFile
-    wire [DATA_WIDTH-1 : 0]     RegRDATA    ;
-    wire                        RegSLVERR   ;
-    wire                        RegREADY    ;
-
-// output Slave TO RegisterFile
-    wire [ADDR_WIDTH-1 : 0]    RegADDR      ;
-    wire [DATA_WIDTH-1 : 0]    RegWDATA     ;
-    wire                       RegWRITE     ;
-    wire                       RegENABLE    ;
-
-RegisterFile #(
-    .DATA_WIDTH(DATA_WIDTH) ,
-    .ADDR_WIDTH(ADDR_WIDTH) ,
-    .NO_SLAVES(NO_SLAVES)
-)reg_file(
-`ifdef AMBA4
-    .RegSTRB(RegSTRB)       ,
-    .RegPROT(RegPROT)       ,
-`endif 
-
-    .PCLK(PCLK)             ,
-    .PRESETn(PRESETn)       ,
-
-    .RegADDR(RegADDR)       ,
-    .RegWDATA(RegWDATA)     ,
-    .RegWRITE(RegWRITE)     ,
-    .RegENABLE(RegENABLE)   ,
-
-    .RegRDATA(RegRDATA)     ,
-    .RegSLVERR(RegSLVERR)   , 
-    .RegREADY(RegREADY)   
-);
-
-APB_Slave #(
-    .DATA_WIDTH(DATA_WIDTH) ,
-    .ADDR_WIDTH(ADDR_WIDTH) ,
-    .NO_SLAVES(NO_SLAVES)
-)apb_slave(
-    `ifdef AMBA4
-    .PSI_STRB(PSI_STRB)     ,
-    .PSI_PROT(PSI_PROT)     ,
-    .PSTRB(PSTRB)           ,
-    .PPROT(PPROT)           ,
-    `endif 
-// PSI => Previous System IN
-// PSO => Previous System OUT
-// Global Sinals
-    .PCLK(PCLK)             ,
-    .PRESETn(PRESETn)       ,
-
-// input Slave FROM Master
-    .PSELx(PSELx)           ,
-    .PADDR(PADDR)           ,
-    .PWRITE(PWRITE)         ,
-    .PWDATA(PWDATA)         ,
-    .PENABLE(PENABLE)       ,
-// input Slave FROM RegisterFile
-    .RegRDATA(RegRDATA)     ,
-    .RegSLVERR(RegSLVERR)   ,
-    .RegENABLE(RegENABLE),
-    .RegREADY(RegREADY)     ,
-
-// output Slave TO Master
-    .PREADY(PREADY)         ,
-    .PRDATA(PRDATA)         ,
-    .PSLVERR(PSLVERR)       ,
-
-// output Slave TO RegisterFile
-    .RegADDR(RegADDR)       ,
-    .RegWDATA(RegWDATA)     ,
-    .RegWRITE(RegWRITE)
-);
-dummy_dpi_initializer dummy_dpi_initializer_inst();    
+	RegisterFile #(
+		.DATA_WIDTH(DATA_WIDTH),
+		.ADDR_WIDTH(ADDR_WIDTH),
+		.NBYTES(NBYTES)
+		)RegisterFile_inst(
+		.clk(PCLK),
+		.rst_n(PRESETn),
+		.addr(addr),
+		.read_en(read_en),
+		.write_en(write_en),
+		.byte_strobe(byte_strobe),
+		.wdata(wdata),
+		.rdata(rdata)
+		);
+	
+	APB_Slave #(
+		.DATA_WIDTH(DATA_WIDTH),
+		.ADDR_WIDTH(ADDR_WIDTH),
+		.NBYTES(NBYTES)
+		)APB_Slave_inst(
+		.PCLK(PCLK),
+		.PRESETn(PRESETn),
+		.PSELx(PSELx),
+		.PADDR(PADDR),
+		.PWRITE(PWRITE),
+		.PSTRB(PSTRB),
+		.PWDATA(PWDATA),
+		.PENABLE(PENABLE),
+		.PREADY(PREADY),
+		.addr(addr),
+		.write_en(write_en),
+		.read_en(read_en),
+		.byte_strobe(byte_strobe),
+		.wdata(wdata)
+		);
+	
+	dummy_dpi_initializer dummy_dpi_initializer_inst();
 endmodule
