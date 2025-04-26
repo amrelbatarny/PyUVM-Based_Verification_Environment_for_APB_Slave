@@ -1,0 +1,2 @@
+var g_data = {"data":[{"n":"work.APB_SVA","id":8,"zf":1,"tc":70.60,"t":56.60,"a":84.61},{"n":"work.APB_Slave","id":5,"zf":1,"tc":84.79,"s":100.00,"b":91.66,"fc":50.00,"fs":100.00,"ft":100.00,"t":67.12},{"n":"work.APB_Wrapper","id":2,"zf":1,"tc":46.15,"t":46.15},{"n":"work.APB_seq_item_pkg","id":6,"zf":1,"tc":63.11,"s":95.83,"g":30.38},{"n":"work.RegisterFile","id":3,"zf":1,"tc":65.06,"s":57.89,"b":52.50,"t":84.79},{"n":"work.dummy_dpi_initializer","id":7,"zf":1,"tc":100.00,"s":100.00}]};
+processDuData(g_data);

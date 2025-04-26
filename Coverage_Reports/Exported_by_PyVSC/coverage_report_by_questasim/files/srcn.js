@@ -1,2 +1,2 @@
-var g_data = ["","<unknown>","APB_coverage.py"];
+var g_data = ["","<unknown>","Coverage.py"];
 processSrcNamesData(g_data);

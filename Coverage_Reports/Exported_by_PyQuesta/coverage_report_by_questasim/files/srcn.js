@@ -1,0 +1,2 @@
+var g_data = ["","SVA_bind.sv","../RTL/APB_Wrapper.sv","../RTL/RegisterFile.sv","../RTL/shared_pkg.sv","../RTL/APB_Slave.sv","APB_seq_item_pkg.sv","APB_seq_item.svh","dummy_dpi_initializer.sv","APB_SVA.sv"];
+processSrcNamesData(g_data);

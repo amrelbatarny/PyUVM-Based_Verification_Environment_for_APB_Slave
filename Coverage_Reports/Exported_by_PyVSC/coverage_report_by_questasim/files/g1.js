@@ -1,2 +1,2 @@
-var g_data = {"2":{"pr":"/cg_inst","ty":2,"dui":1,"dun":"du","cvgs":[{"h":["APBCoverGroup",2,1,11,3],"sc":[2,56],"cov":[60,53,96.42],"opts":{"goal":"100","comment":"NULL"}},{"h":["/cg_inst/APBCoverGroup",1,1,3],"cov":[60,53,96.42],"opts":{"goal":"100","comment":"NULL","merge_instance":"true"}}]}};
+var g_data = {"2":{"pr":"/cg_inst","ty":2,"dui":1,"dun":"du","cvgs":[{"h":["ApbCoverGroup",2,1,9,3],"sc":[2,57],"cov":[56,29,58.12],"opts":{"goal":"100","comment":"NULL"}},{"h":["/cg_inst/ApbCoverGroup",1,1,3],"cov":[56,29,58.12],"opts":{"goal":"100","comment":"NULL","merge_instance":"true"}}]}};
 processCovergroupsData(g_data);

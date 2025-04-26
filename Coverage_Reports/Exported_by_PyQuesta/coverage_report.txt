@@ -1,0 +1,1080 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /APB_Wrapper/RegisterFile_inst
+=== Design Unit: work.RegisterFile
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        40        21        19    52.50%
+
+================================Branch Details================================
+
+Branch Coverage for instance /APB_Wrapper/RegisterFile_inst
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/RegisterFile.sv
+------------------------------------IF Branch------------------------------------
+    45                                       578     Count coming in to IF
+    45              1                          1     		if(~rst_n)
+    47              1                        577     		else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    48                                       577     Count coming in to IF
+    48              1                        576     			if(write_en)
+                                               1     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    49                                       576     Count coming in to CASE
+    50              1                         23     					32'h0000_0000: SYS_STATUS_REG	<= (SYS_STATUS_REG		&	~mask) | (wdata & mask);
+    51              1                         34     					32'h0000_0004: INT_CTRL_REG		<= (INT_CTRL_REG		&	~mask) | (wdata & mask);
+    52              1                         29     					32'h0000_0008: DEV_ID_REG		<= (DEV_ID_REG			&	~mask) | (wdata & mask);
+    53              1                         37     					32'h0000_000c: MEM_CTRL_REG		<= (MEM_CTRL_REG		&	~mask) | (wdata & mask);
+    54              1                         45     					32'h0000_0010: TEMP_SENSOR_REG	<= (TEMP_SENSOR_REG		&	~mask) | (wdata & mask);
+    55              1                         46     					32'h0000_0014: ADC_CTRL_REG		<= (ADC_CTRL_REG		&	~mask) | (wdata & mask);
+    56              1                         48     					32'h0000_0018: DBG_CTRL_REG		<= (DBG_CTRL_REG		&	~mask) | (wdata & mask);
+    57              1                         41     					32'h0000_001c: GPIO_DATA_REG	<= (GPIO_DATA_REG		&	~mask) | (wdata & mask);
+    58              1                         31     					32'h0000_0020: DAC_OUTPUT_REG	<= (DAC_OUTPUT_REG		&	~mask) | (wdata & mask);
+    59              1                         36     					32'h0000_0024: VOLTAGE_CTRL_REG	<= (VOLTAGE_CTRL_REG	&	~mask) | (wdata & mask);
+    60              1                         38     					32'h0000_0028: CLK_CONFIG_REG	<= (CLK_CONFIG_REG		&	~mask) | (wdata & mask);
+    61              1                         37     					32'h0000_002c: TIMER_COUNT_REG	<= (TIMER_COUNT_REG		&	~mask) | (wdata & mask);
+    62              1                         39     					32'h0000_0030: INPUT_DATA_REG	<= (INPUT_DATA_REG		&	~mask) | (wdata & mask);
+    63              1                         32     					32'h0000_0034: OUTPUT_DATA_REG	<= (OUTPUT_DATA_REG		&	~mask) | (wdata & mask);
+    64              1                         30     					32'h0000_0038: DMA_CTRL_REG		<= (DMA_CTRL_REG		&	~mask) | (wdata & mask);
+    65              1                         30     					32'h0000_003c: SYS_CTRL_REG		<= (SYS_CTRL_REG		&	~mask) | (wdata & mask);
+                                         ***0***     All False Count
+Branch totals: 16 hits of 17 branches = 94.11%
+
+------------------------------------IF Branch------------------------------------
+    67                                       577     Count coming in to IF
+    67              1                    ***0***     			if(read_en)
+                                             577     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    68                                   ***0***     Count coming in to CASE
+    69              1                    ***0***     					32'h0000_0000: rdata <= SYS_STATUS_REG;
+    70              1                    ***0***     					32'h0000_0004: rdata <= INT_CTRL_REG;
+    71              1                    ***0***     					32'h0000_0008: rdata <= DEV_ID_REG;
+    72              1                    ***0***     					32'h0000_000c: rdata <= MEM_CTRL_REG;
+    73              1                    ***0***     					32'h0000_0010: rdata <= TEMP_SENSOR_REG;
+    74              1                    ***0***     					32'h0000_0014: rdata <= ADC_CTRL_REG;
+    75              1                    ***0***     					32'h0000_0018: rdata <= DBG_CTRL_REG;
+    76              1                    ***0***     					32'h0000_001c: rdata <= GPIO_DATA_REG;
+    77              1                    ***0***     					32'h0000_0020: rdata <= DAC_OUTPUT_REG;
+    78              1                    ***0***     					32'h0000_0024: rdata <= VOLTAGE_CTRL_REG;
+    79              1                    ***0***     					32'h0000_0028: rdata <= CLK_CONFIG_REG;
+    80              1                    ***0***     					32'h0000_002c: rdata <= TIMER_COUNT_REG;
+    81              1                    ***0***     					32'h0000_0030: rdata <= INPUT_DATA_REG;
+    82              1                    ***0***     					32'h0000_0034: rdata <= OUTPUT_DATA_REG;
+    83              1                    ***0***     					32'h0000_0038: rdata <= DMA_CTRL_REG;
+    84              1                    ***0***     					32'h0000_003c: rdata <= SYS_CTRL_REG;
+                                         ***0***     All False Count
+Branch totals: 0 hits of 17 branches = 0.00%
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      38        22        16    57.89%
+
+================================Statement Details================================
+
+Statement Coverage for instance /APB_Wrapper/RegisterFile_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/RegisterFile.sv
+    1                                                module RegisterFile #(
+    2                                                	parameter DATA_WIDTH	= 32,
+    3                                                	parameter ADDR_WIDTH	= 32,
+    4                                                	parameter NBYTES		= DATA_WIDTH/8
+    5                                                	)(
+    6                                                	input wire 							clk,
+    7                                                	input wire 							rst_n,
+    8                                                	input wire [ADDR_WIDTH-1 : 0]		addr,
+    9                                                	input wire							read_en,
+    10                                               	input wire							write_en,
+    11                                               	input wire [NBYTES-1:0]				byte_strobe,
+    12                                               	input wire [DATA_WIDTH-1 : 0]		wdata,
+    13                                               	output reg [DATA_WIDTH-1 : 0]		rdata
+    14                                               	);
+    15                                               
+    16                                               	// Registers
+    17                                               	reg [DATA_WIDTH-1:0] SYS_STATUS_REG;
+    18                                               	reg [DATA_WIDTH-1:0] INT_CTRL_REG;
+    19                                               	reg [DATA_WIDTH-1:0] DEV_ID_REG;
+    20                                               	reg [DATA_WIDTH-1:0] MEM_CTRL_REG;
+    21                                               	reg [DATA_WIDTH-1:0] TEMP_SENSOR_REG;
+    22                                               	reg [DATA_WIDTH-1:0] ADC_CTRL_REG;
+    23                                               	reg [DATA_WIDTH-1:0] DBG_CTRL_REG;
+    24                                               	reg [DATA_WIDTH-1:0] GPIO_DATA_REG;
+    25                                               	reg [DATA_WIDTH-1:0] DAC_OUTPUT_REG;
+    26                                               	reg [DATA_WIDTH-1:0] VOLTAGE_CTRL_REG;
+    27                                               	reg [DATA_WIDTH-1:0] CLK_CONFIG_REG;
+    28                                               	reg [DATA_WIDTH-1:0] TIMER_COUNT_REG;
+    29                                               	reg [DATA_WIDTH-1:0] INPUT_DATA_REG;
+    30                                               	reg [DATA_WIDTH-1:0] OUTPUT_DATA_REG;
+    31                                               	reg [DATA_WIDTH-1:0] DMA_CTRL_REG;
+    32                                               	reg [DATA_WIDTH-1:0] SYS_CTRL_REG;
+    33                                               
+    34                                               	wire [DATA_WIDTH-1:0] mask;
+    35                                               	genvar i;
+    36                                               	generate
+    37                                               		for (i = 0; i < NBYTES; i = i + 1) begin
+    38                                               			// replicate byte_strobe[i] across 8 bits
+    39       1 (GI=0)                          2     			assign mask[(i+1)*8-1 -: 8] = {8{byte_strobe[i]}};
+    39       1 (GI=1)                          2     
+    39       1 (GI=2)                          2     
+    39       1 (GI=3)                          2     
+    40                                               		end
+    41                                               	endgenerate
+    42                                               
+    43                                               
+    44              1                        578     	always @(posedge clk or negedge rst_n) begin
+    45                                               		if(~rst_n)
+    46              1                          1     			rdata <= 0;
+    47                                               		else begin
+    48                                               			if(write_en)
+    49                                               				case (addr)
+    50              1                         23     					32'h0000_0000: SYS_STATUS_REG	<= (SYS_STATUS_REG		&	~mask) | (wdata & mask);
+    51              1                         34     					32'h0000_0004: INT_CTRL_REG		<= (INT_CTRL_REG		&	~mask) | (wdata & mask);
+    52              1                         29     					32'h0000_0008: DEV_ID_REG		<= (DEV_ID_REG			&	~mask) | (wdata & mask);
+    53              1                         37     					32'h0000_000c: MEM_CTRL_REG		<= (MEM_CTRL_REG		&	~mask) | (wdata & mask);
+    54              1                         45     					32'h0000_0010: TEMP_SENSOR_REG	<= (TEMP_SENSOR_REG		&	~mask) | (wdata & mask);
+    55              1                         46     					32'h0000_0014: ADC_CTRL_REG		<= (ADC_CTRL_REG		&	~mask) | (wdata & mask);
+    56              1                         48     					32'h0000_0018: DBG_CTRL_REG		<= (DBG_CTRL_REG		&	~mask) | (wdata & mask);
+    57              1                         41     					32'h0000_001c: GPIO_DATA_REG	<= (GPIO_DATA_REG		&	~mask) | (wdata & mask);
+    58              1                         31     					32'h0000_0020: DAC_OUTPUT_REG	<= (DAC_OUTPUT_REG		&	~mask) | (wdata & mask);
+    59              1                         36     					32'h0000_0024: VOLTAGE_CTRL_REG	<= (VOLTAGE_CTRL_REG	&	~mask) | (wdata & mask);
+    60              1                         38     					32'h0000_0028: CLK_CONFIG_REG	<= (CLK_CONFIG_REG		&	~mask) | (wdata & mask);
+    61              1                         37     					32'h0000_002c: TIMER_COUNT_REG	<= (TIMER_COUNT_REG		&	~mask) | (wdata & mask);
+    62              1                         39     					32'h0000_0030: INPUT_DATA_REG	<= (INPUT_DATA_REG		&	~mask) | (wdata & mask);
+    63              1                         32     					32'h0000_0034: OUTPUT_DATA_REG	<= (OUTPUT_DATA_REG		&	~mask) | (wdata & mask);
+    64              1                         30     					32'h0000_0038: DMA_CTRL_REG		<= (DMA_CTRL_REG		&	~mask) | (wdata & mask);
+    65              1                         30     					32'h0000_003c: SYS_CTRL_REG		<= (SYS_CTRL_REG		&	~mask) | (wdata & mask);
+    66                                               				endcase
+    67                                               			if(read_en)
+    68                                               				case (addr)
+    69              1                    ***0***     					32'h0000_0000: rdata <= SYS_STATUS_REG;
+    70              1                    ***0***     					32'h0000_0004: rdata <= INT_CTRL_REG;
+    71              1                    ***0***     					32'h0000_0008: rdata <= DEV_ID_REG;
+    72              1                    ***0***     					32'h0000_000c: rdata <= MEM_CTRL_REG;
+    73              1                    ***0***     					32'h0000_0010: rdata <= TEMP_SENSOR_REG;
+    74              1                    ***0***     					32'h0000_0014: rdata <= ADC_CTRL_REG;
+    75              1                    ***0***     					32'h0000_0018: rdata <= DBG_CTRL_REG;
+    76              1                    ***0***     					32'h0000_001c: rdata <= GPIO_DATA_REG;
+    77              1                    ***0***     					32'h0000_0020: rdata <= DAC_OUTPUT_REG;
+    78              1                    ***0***     					32'h0000_0024: rdata <= VOLTAGE_CTRL_REG;
+    79              1                    ***0***     					32'h0000_0028: rdata <= CLK_CONFIG_REG;
+    80              1                    ***0***     					32'h0000_002c: rdata <= TIMER_COUNT_REG;
+    81              1                    ***0***     					32'h0000_0030: rdata <= INPUT_DATA_REG;
+    82              1                    ***0***     					32'h0000_0034: rdata <= OUTPUT_DATA_REG;
+    83              1                    ***0***     					32'h0000_0038: rdata <= DMA_CTRL_REG;
+    84              1                    ***0***     					32'h0000_003c: rdata <= SYS_CTRL_REG;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                       1296      1099       197    84.79%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /APB_Wrapper/RegisterFile_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                ADC_CTRL_REG[0-31]           1           1                              100.00 
+                              CLK_CONFIG_REG[0-31]           1           1                              100.00 
+                              DAC_OUTPUT_REG[0-31]           1           1                              100.00 
+                                DBG_CTRL_REG[0-31]           1           1                              100.00 
+                                  DEV_ID_REG[0-31]           1           1                              100.00 
+                                DMA_CTRL_REG[0-31]           1           1                              100.00 
+                               GPIO_DATA_REG[0-31]           1           1                              100.00 
+                              INPUT_DATA_REG[0-31]           1           1                              100.00 
+                                INT_CTRL_REG[0-31]           1           1                              100.00 
+                                MEM_CTRL_REG[0-31]           1           1                              100.00 
+                             OUTPUT_DATA_REG[0-31]           1           1                              100.00 
+                                SYS_CTRL_REG[0-31]           1           1                              100.00 
+                              SYS_STATUS_REG[0-19]           1           1                              100.00 
+                                SYS_STATUS_REG[20]           0           1                               50.00 
+                             SYS_STATUS_REG[21-31]           1           1                              100.00 
+                             TEMP_SENSOR_REG[0-31]           1           1                              100.00 
+                             TIMER_COUNT_REG[0-31]           1           1                              100.00 
+                            VOLTAGE_CTRL_REG[0-31]           1           1                              100.00 
+                                         addr[0-1]           0           0                                0.00 
+                                         addr[2-5]           1           1                              100.00 
+                                        addr[6-31]           0           0                                0.00 
+                                  byte_strobe[0-3]           0           0                                0.00 
+                                               clk           1           1                              100.00 
+                                        mask[0-31]           0           0                                0.00 
+                                       rdata[0-31]           0           0                                0.00 
+                                           read_en           0           0                                0.00 
+                                             rst_n           1           1                              100.00 
+                                       wdata[0-31]           1           1                              100.00 
+                                          write_en           0           0                                0.00 
+
+Total Node Count     =        648 
+Toggled Node Count   =        549 
+Untoggled Node Count =         99 
+
+Toggle Coverage      =      84.79% (1099 of 1296 bins)
+
+=================================================================================
+=== Instance: /APB_Wrapper/APB_Slave_inst
+=== Design Unit: work.APB_Slave
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        12        11         1    91.66%
+
+================================Branch Details================================
+
+Branch Coverage for instance /APB_Wrapper/APB_Slave_inst
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/APB_Slave.sv
+------------------------------------IF Branch------------------------------------
+    32                                       900     Count coming in to IF
+    32              1                          1             if (~PRESETn) begin
+    34              1                        899             end else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    41                                      1500     Count coming in to CASE
+    42              1                        900         		IDLE:
+    48              1                        599         		ACCESS:
+    51              1                          1     			default:
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    43                                       900     Count coming in to IF
+    43              1                        300         			if(PENABLE && PSELx)
+    45              1                        600         			else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    58                                       902     Count coming in to IF
+    58              1                          2     		if(~PRESETn) begin
+    60              1                        900     		end else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    61                                       900     Count coming in to IF
+    61              1                        599     			if(current_state == IDLE)
+    63              1                        301     			else if(current_state == ACCESS) begin
+                                         ***0***     All False Count
+Branch totals: 2 hits of 3 branches = 66.66%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       4         2         2    50.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /APB_Wrapper/APB_Slave_inst --
+
+  File ../RTL/APB_Slave.sv
+----------------Focused Condition View-------------------
+Line       43 Item    1  (PENABLE && PSELx)
+Condition totals: 1 of 2 input terms covered = 50.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+     PENABLE         Y
+       PSELx         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  PENABLE_0             -                             
+  Row   2:          1  PENABLE_1             PSELx                         
+  Row   3:    ***0***  PSELx_0               PENABLE                       
+  Row   4:          1  PSELx_1               PENABLE                       
+
+----------------Focused Condition View-------------------
+Line       61 Item    1  (current_state == IDLE)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+               Input Term   Covered  Reason for no coverage   Hint
+              -----------  --------  -----------------------  --------------
+  (current_state == IDLE)         Y
+
+     Rows:       Hits  FEC Target                 Non-masking condition(s)      
+ ---------  ---------  --------------------       -------------------------     
+  Row   1:          1  (current_state == IDLE)_0  -                             
+  Row   2:          1  (current_state == IDLE)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       63 Item    1  (current_state == ACCESS)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+                 Input Term   Covered  Reason for no coverage   Hint
+                -----------  --------  -----------------------  --------------
+  (current_state == ACCESS)         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target                   Non-masking condition(s)      
+ ---------  ---------  --------------------         -------------------------     
+  Row   1:    ***0***  (current_state == ACCESS)_0  -                             
+  Row   2:          1  (current_state == ACCESS)_1  -                             
+
+
+FSM Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    FSM States                       2         2         0   100.00%
+    FSM Transitions                  2         2         0   100.00%
+
+================================FSM Details================================
+
+FSM Coverage for instance /APB_Wrapper/APB_Slave_inst --
+
+FSM_ID: current_state
+    Current State Object : current_state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+  42                IDLE                   1
+  48              ACCESS                   2
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                    IDLE                 600          
+                  ACCESS                 300          
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+  44                   0                 300          IDLE -> ACCESS                
+  49                   1                 299          ACCESS -> IDLE                
+
+
+    Summary                       Bins      Hits    Misses  Coverage
+    -------                       ----      ----    ------  --------
+        FSM States                   2         2         0   100.00%
+        FSM Transitions              2         2         0   100.00%
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      17        17         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /APB_Wrapper/APB_Slave_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File ../RTL/APB_Slave.sv
+    1                                                module APB_Slave #(
+    2                                                	parameter DATA_WIDTH	= 32,
+    3                                                	parameter ADDR_WIDTH	= 32,
+    4                                                	parameter NBYTES		= DATA_WIDTH/8
+    5                                                	)(
+    6                                                	// Global Signals
+    7                                                	input wire PCLK,
+    8                                                	input wire PRESETn,
+    9                                                
+    10                                               	// APB Signals
+    11                                               	input wire						PSELx,
+    12                                               	input wire [ADDR_WIDTH-1:0]		PADDR,
+    13                                               	input wire						PWRITE,
+    14                                               	input wire [NBYTES-1:0]			PSTRB,
+    15                                               	input wire [DATA_WIDTH-1:0]		PWDATA,
+    16                                               	input wire						PENABLE,
+    17                                               	output reg						PREADY,
+    18                                               
+    19                                               	// Register File Signals
+    20                                               	output reg [ADDR_WIDTH-1:0]	addr,
+    21                                               	output reg					write_en,
+    22                                               	output reg					read_en,
+    23                                               	output reg [NBYTES-1:0]		byte_strobe,
+    24                                               	output reg [DATA_WIDTH-1:0]	wdata
+    25                                               	);
+    26                                               
+    27                                               	import shared_pkg::*;
+    28                                               	state_e current_state, next_state;
+    29                                               
+    30                                               	// State Memory
+    31              1                        900     	always @(posedge PCLK or negedge PRESETn) begin
+    32                                                       if (~PRESETn) begin
+    33              1                          1                 current_state = IDLE;
+    34                                                       end else begin
+    35              1                        899                 current_state = next_state;
+    36                                                       end
+    37                                                   end
+    38                                               
+    39                                                   // Next State Logic
+    40              1                       1500         always @* begin
+    41                                                   	case(current_state)
+    42                                                   		IDLE:
+    43                                                   			if(PENABLE && PSELx)
+    44              1                        300         				next_state = ACCESS;
+    45                                                   			else
+    46              1                        600         				next_state = IDLE;
+    47                                                   		
+    48                                                   		ACCESS:
+    49              1                        599     				next_state = IDLE;
+    50                                               
+    51                                               			default:
+    52              1                          1     				next_state = IDLE;
+    53                                                   	endcase
+    54                                                   end
+    55                                               
+    56                                                   //Output Logic
+    57              1                        902     	always @* begin
+    58                                               		if(~PRESETn) begin
+    59              1                          2     			PREADY <= 1'b0;
+    60                                               		end else begin
+    61                                               			if(current_state == IDLE)
+    62              1                        599     				PREADY <= 1'b0;
+    63                                               			else if(current_state == ACCESS) begin
+    64              1                        301     				addr 		<= PADDR;
+    65              1                        301     				write_en	<= (PWRITE == 1'b1)? 1'b1 : 1'b0;
+    66              1                        301     				read_en		<= ~write_en;
+    67              1                        301     				byte_strobe	<= PSTRB;
+    68              1                        301     				wdata		<= PWDATA;
+    69              1                        301     				PREADY		<= 1'b1;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        292       196        96    67.12%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /APB_Wrapper/APB_Slave_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                        PADDR[0-1]           1           0                               50.00 
+                                        PADDR[2-5]           1           1                              100.00 
+                                       PADDR[6-31]           1           0                               50.00 
+                                              PCLK           1           1                              100.00 
+                                           PENABLE           1           1                              100.00 
+                                            PREADY           1           1                              100.00 
+                                           PRESETn           1           1                              100.00 
+                                             PSELx           1           1                              100.00 
+                                        PSTRB[0-3]           1           1                              100.00 
+                                      PWDATA[0-31]           1           1                              100.00 
+                                            PWRITE           1           1                              100.00 
+                                        addr[31-6]           0           0                                0.00 
+                                         addr[5-2]           1           1                              100.00 
+                                         addr[1-0]           0           0                                0.00 
+                                  byte_strobe[3-0]           0           0                                0.00 
+                                     current_state               ENUM type       Value       Count 
+                                                                      IDLE           1      100.00 
+                                                                    ACCESS           1      100.00 
+                                        next_state               ENUM type       Value       Count 
+                                                                      IDLE           1      100.00 
+                                                                    ACCESS           1      100.00 
+                                           read_en           0           0                                0.00 
+                                       wdata[31-0]           1           1                              100.00 
+                                          write_en           0           0                                0.00 
+
+Total Node Count     =        148 
+Toggled Node Count   =         86 
+Untoggled Node Count =         62 
+
+Toggle Coverage      =      67.12% (196 of 292 bins)
+
+=================================================================================
+=== Instance: /APB_Wrapper/dummy_dpi_initializer_inst
+=== Design Unit: work.dummy_dpi_initializer
+=================================================================================
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                       7         7         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /APB_Wrapper/dummy_dpi_initializer_inst --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File dummy_dpi_initializer.sv
+    1                                                module dummy_dpi_initializer;
+    2                                                
+    3                                                    import APB_seq_item_pkg::*;
+    4                                                    
+    5                                                    initial begin
+    6                                                        string dummy_get;
+    7                                                        string dummy_put;
+    8               1                          1             dummy_put = "0000000100000002000000030000000400000005";
+    9                                                        
+    10                                                       // Make dummy calls to force elaboration of DPI export to trigger the DPI binding.
+    11              1                          1             $display("============================== dummy_dpi_initializer: ==============================");
+    12                                               
+    13              1                          1             dummy_get = sv_get();
+    14              1                          1             $display("Called sv_get and returned data: %s", dummy_get);
+    15                                               
+    16              1                          1             sv_put("dummy_put");
+    17              1                          1             $display("Called sv_put with sample data: %s", dummy_put);
+    18                                               
+    19              1                          1             $display("====================================================================================");
+
+
+=================================================================================
+=== Instance: /APB_Wrapper/APB_SVA_inst
+=== Design Unit: work.APB_SVA
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      13        11         2    84.61%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/APB_Wrapper/APB_SVA_inst/assert__0
+                     APB_SVA.sv(36)                     0          0
+/APB_Wrapper/APB_SVA_inst/PWRITE_never_X
+                     APB_SVA.sv(116)                    0          1
+/APB_Wrapper/APB_SVA_inst/PENABLE_never_X
+                     APB_SVA.sv(117)                    0          1
+/APB_Wrapper/APB_SVA_inst/PREADY_never_X
+                     APB_SVA.sv(118)                    0          1
+/APB_Wrapper/APB_SVA_inst/PADDR_never_X
+                     APB_SVA.sv(119)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWDATA_never_X
+                     APB_SVA.sv(120)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_never_X
+                     APB_SVA.sv(124)                    0          1
+/APB_Wrapper/APB_SVA_inst/PADDR_stable_in_transfer
+                     APB_SVA.sv(129)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWRITE_stable_in_transfer
+                     APB_SVA.sv(130)                    0          1
+/APB_Wrapper/APB_SVA_inst/PENABLE_stable_in_transfer
+                     APB_SVA.sv(131)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWDATA_stable_in_wr_transfer
+                     APB_SVA.sv(134)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_stable_in_transfer
+                     APB_SVA.sv(136)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_low_in_read_transfer
+                     APB_SVA.sv(138)                    0          0
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        212       120        92    56.60%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /APB_Wrapper/APB_SVA_inst --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                        PADDR[0-1]           1           0                               50.00 
+                                        PADDR[2-5]           1           1                              100.00 
+                                       PADDR[6-31]           1           0                               50.00 
+                                              PCLK           1           1                              100.00 
+                                           PENABLE           1           1                              100.00 
+                                      PRDATA[0-31]           0           0                                0.00 
+                                            PREADY           1           1                              100.00 
+                                           PRESETn           1           1                              100.00 
+                                             PSELx           1           1                              100.00 
+                                        PSTRB[0-3]           1           1                              100.00 
+                                      PWDATA[0-31]           1           1                              100.00 
+                                            PWRITE           1           1                              100.00 
+
+Total Node Count     =        106 
+Toggled Node Count   =         46 
+Untoggled Node Count =         60 
+
+Toggle Coverage      =      56.60% (120 of 212 bins)
+
+=================================================================================
+=== Instance: /APB_Wrapper
+=== Design Unit: work.APB_Wrapper
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        416       192       224    46.15%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /APB_Wrapper --
+
+                                              Node      1H->0L      0L->1H                          "Coverage"
+                                              ---------------------------------------------------------------
+                                        PADDR[0-1]           1           0                               50.00 
+                                        PADDR[2-5]           1           1                              100.00 
+                                       PADDR[6-31]           1           0                               50.00 
+                                              PCLK           1           1                              100.00 
+                                           PENABLE           1           1                              100.00 
+                                      PRDATA[0-31]           0           0                                0.00 
+                                            PREADY           1           1                              100.00 
+                                           PRESETn           1           1                              100.00 
+                                             PSELx           1           1                              100.00 
+                                        PSTRB[0-3]           1           1                              100.00 
+                                      PWDATA[0-31]           1           1                              100.00 
+                                            PWRITE           1           1                              100.00 
+                                         addr[0-1]           0           0                                0.00 
+                                         addr[2-5]           1           1                              100.00 
+                                        addr[6-31]           0           0                                0.00 
+                                  byte_strobe[0-3]           0           0                                0.00 
+                                       rdata[0-31]           0           0                                0.00 
+                                           read_en           0           0                                0.00 
+                                       wdata[0-31]           1           1                              100.00 
+                                          write_en           0           0                                0.00 
+
+Total Node Count     =        208 
+Toggled Node Count   =         82 
+Untoggled Node Count =        126 
+
+Toggle Coverage      =      46.15% (192 of 416 bins)
+
+=================================================================================
+=== Instance: /APB_seq_item_pkg
+=== Design Unit: work.APB_seq_item_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    30.38%
+        Coverpoints/Crosses          7        na        na        na
+            Covergroup Bins         62         7        55    11.29%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /APB_seq_item_pkg/APB_cg                         30.38%        100          -    Uncovered            
+    covered/total bins:                                     7         62          -                      
+    missing/total bins:                                    55         62          -                      
+    % Hit:                                             11.29%        100          -                      
+    Coverpoint PRESETn_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PENABLE_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PWRITE_cp                               50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PADDR_cp                                 6.25%        100          -    Uncovered            
+        covered/total bins:                                 1         16          -                      
+        missing/total bins:                                15         16          -                      
+        % Hit:                                          6.25%        100          -                      
+    Coverpoint PWDATA_cp                               33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+    Cross WRITE_x_DATA                                 20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+    Cross WRITE_x_ADDR                                  3.12%        100          -    Uncovered            
+        covered/total bins:                                 1         32          -                      
+        missing/total bins:                                31         32          -                      
+        % Hit:                                          3.12%        100          -                      
+ Covergroup instance \/APB_seq_item_pkg::cov_inst      30.38%        100          -    Uncovered            
+    covered/total bins:                                     7         62          -                      
+    missing/total bins:                                    55         62          -                      
+    % Hit:                                             11.29%        100          -                      
+    Coverpoint PRESETn_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin reset_active                                    0          1          -    ZERO                 
+        bin reset_inactive                                  1          1          -    Covered              
+    Coverpoint PENABLE_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin enabled                                         0          1          -    ZERO                 
+        bin disabled                                        1          1          -    Covered              
+    Coverpoint PWRITE_cp                               50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin write                                           0          1          -    ZERO                 
+        bin read                                            1          1          -    Covered              
+    Coverpoint PADDR_cp                                 6.25%        100          -    Uncovered            
+        covered/total bins:                                 1         16          -                      
+        missing/total bins:                                15         16          -                      
+        % Hit:                                          6.25%        100          -                      
+        bin aligned_addr[0]                                 1          1          -    Covered              
+        bin aligned_addr[4]                                 0          1          -    ZERO                 
+        bin aligned_addr[8]                                 0          1          -    ZERO                 
+        bin aligned_addr[12]                                0          1          -    ZERO                 
+        bin aligned_addr[16]                                0          1          -    ZERO                 
+        bin aligned_addr[20]                                0          1          -    ZERO                 
+        bin aligned_addr[24]                                0          1          -    ZERO                 
+        bin aligned_addr[28]                                0          1          -    ZERO                 
+        bin aligned_addr[32]                                0          1          -    ZERO                 
+        bin aligned_addr[36]                                0          1          -    ZERO                 
+        bin aligned_addr[40]                                0          1          -    ZERO                 
+        bin aligned_addr[44]                                0          1          -    ZERO                 
+        bin aligned_addr[48]                                0          1          -    ZERO                 
+        bin aligned_addr[52]                                0          1          -    ZERO                 
+        bin aligned_addr[56]                                0          1          -    ZERO                 
+        bin aligned_addr[60]                                0          1          -    ZERO                 
+    Coverpoint PWDATA_cp                               33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+        bin zero                                            1          1          -    Covered              
+        bin max                                             0          1          -    ZERO                 
+        bin typical                                         0          1          -    ZERO                 
+    Cross WRITE_x_DATA                                 20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                                 1          1          -    Covered              
+            bin <write,*>                                   0          1          3    ZERO                 
+            bin <*,typical>                                 0          1          1    ZERO                 
+            bin <*,max>                                     0          1          2    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin read_nonzero                         0                     -    ZERO                 
+    Cross WRITE_x_ADDR                                  3.12%        100          -    Uncovered            
+        covered/total bins:                                 1         32          -                      
+        missing/total bins:                                31         32          -                      
+        % Hit:                                          3.12%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,aligned_addr[0]>                      1          1          -    Covered              
+            bin <write,*>                                   0          1         16    ZERO                 
+            bin <*,aligned_addr[60]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[56]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[52]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[48]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[44]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[40]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[36]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[32]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[28]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[24]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[20]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[16]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[12]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[8]>                         0          1          2    ZERO                 
+            bin <*,aligned_addr[4]>                         0          1          2    ZERO                 
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      24        23         1    95.83%
+
+================================Statement Details================================
+
+Statement Coverage for instance /APB_seq_item_pkg --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File APB_seq_item.svh
+    1                                                // APB_seq_item.svh
+    2                                                // -----------------------------------------------------------------------------
+    3                                                // This file contains the DPI function implementations for the APB_seq_item_pkg.
+    4                                                // These functions are exported via DPI-C in the package file and provide the
+    5                                                // functionality required by pyquesta for object exchange between SystemVerilog
+    6                                                // and Python.
+    7                                                // -----------------------------------------------------------------------------
+    8                                                
+    9                                                function string sv_get;
+    10                                                   APB_seq_item obj;
+    11                                                   string obj_str;
+    12                                                   // Create a new transaction object
+    13              1                        301         obj = new();
+    14                                               
+    15                                                   // Randomize the object with constraints
+    16              1                        301         void'(obj.randomize() with {
+    17                                                       PRESETn dist { 1 :/ 90, 0 :/ 10 };
+    18                                                       PENABLE dist { 1 :/ 90, 0 :/ 10 };
+    19                                                       PWDATA dist {
+    20                                                           32'h00000000 :/ 20,
+    21                                                           [32'h00000001:32'hFFFFFFFE] :/ 60,
+    22                                                           32'hFFFFFFFF :/ 20
+    23                                                       };
+    24                                                       if (PWRITE == 0) { PWDATA == 0; }
+    25                                                       PADDR inside { [32'h00000000:32'h0000003C] };
+    26                                                       (PADDR % 4) == 0;
+    27                                                       PSTRB dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90};
+    28                                                   });
+    29                                               
+    30                                                   // Serialize the object and return the string
+    31              1                        301         obj_str = obj.serialize();
+    32              1                        301         return obj_str;
+    33                                               endfunction
+    34                                               
+    35                                               covergroup APB_cg with function sample(APB_seq_item item);
+    36                                                   PRESETn_cp: coverpoint item.PRESETn {
+    37                                                       bins reset_active   = {1};
+    38                                                       bins reset_inactive = {0};
+    39                                                   }
+    40                                                   PENABLE_cp: coverpoint item.PENABLE {
+    41                                                       bins enabled   = {1};
+    42                                                       bins disabled  = {0};
+    43                                                   }
+    44                                                   PWRITE_cp:  coverpoint item.PWRITE  {
+    45                                                       bins write = {1};
+    46                                                       bins read  = {0};
+    47                                                   }
+    48                                                   PADDR_cp:   coverpoint item.PADDR   {
+    49                                                       bins aligned_addr[] = {0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60};
+    50                                                   }
+    51                                                   PWDATA_cp:  coverpoint item.PWDATA  {
+    52                                                       bins zero     = {32'h0};
+    53                                                       bins max      = {32'hFFFFFFFF};
+    54                                                       bins typical  = {[32'h1:32'hFFFFFFFE]};
+    55                                                   }
+    56                                                   WRITE_x_DATA: cross PWRITE_cp, PWDATA_cp {
+    57                                                       ignore_bins read_nonzero = binsof(PWRITE_cp.read) && binsof(PWDATA_cp.typical); // Ensures read transactions have PWDATA=0 (as per the constraint)
+    58                                                   }
+    59                                                   WRITE_x_ADDR: cross PWRITE_cp, PADDR_cp;
+    60                                               endgroup
+    61                                               
+    62                                               // Global coverage instance
+    63              1                          1     APB_cg cov_inst = new();
+    64                                               
+    65                                               function void sv_put(input string data_buf);
+    66                                                   APB_seq_item obj;
+    67              1                          1         obj = new();
+    68              1                          1         obj.deserialize(data_buf);
+    69                                               
+    70                                                   // ===== Debug Control =====
+    71                                                   `ifdef DEBUG_SVCONDUIT
+    72                                                       $display("=============================================");
+    73                                                       $display("[SV] Received: %s", data_buf);
+    74                                                       $display("[SV] Deserialized Item:");
+    75                                                       $display("  PRESETn = %0d", obj.PRESETn);
+    76                                                       $display("  PWDATA  = 0x%8h", obj.PWDATA);
+    77                                                       $display("  PENABLE = %0d", obj.PENABLE);
+    78                                                       $display("  PWRITE  = %0d", obj.PWRITE);
+    79                                                       $display("  PADDR   = 0x%8h", obj.PADDR);
+    80                                                       $display("=============================================");
+    81                                                   `endif
+    82                                                   // ========================
+    83                                               
+    84              1                          1         cov_inst.sample(obj);
+    85                                               endfunction
+    86                                               
+    87                                               function string sv_transport(input string data_buf);
+    88                                                   // Optional implementation for transporting data.
+    89              1                    ***0***         return "";
+
+  File APB_seq_item_pkg.sv
+    1                                                package APB_seq_item_pkg;
+    2                                                export "DPI-C" function sv_get;
+    3                                                export "DPI-C" function sv_put;
+    4                                                export "DPI-C" function sv_transport;
+    5                                                
+    6                                                
+    7                                                // *** APB_seq_item ***
+    8                                                    typedef byte unsigned APB_seq_item_buf_t[24];
+    9                                                    typedef bit[0:191] APB_seq_item_packed_t;
+    10                                               
+    11                                                   class APB_seq_item;
+    12                                                      rand  int unsigned  PRESETn;
+    13                                                      rand  int unsigned  PWDATA;
+    14                                                      rand  int unsigned  PENABLE;
+    15                                                      rand  int unsigned  PWRITE;
+    16                                                      rand  int unsigned  PADDR;
+    17                                                      rand  int unsigned  PSTRB;
+    18                                               
+    19                                                       function new(APB_seq_item_buf_t buffer={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+    20                                                           APB_seq_item_packed_t packed_buf;
+    21              1                        302                 packed_buf = 192'(buffer);
+    22              1                        302                 PRESETn = packed_buf[0:31];
+    23              1                        302                 PWDATA = packed_buf[32:63];
+    24              1                        302                 PENABLE = packed_buf[64:95];
+    25              1                        302                 PWRITE = packed_buf[96:127];
+    26              1                        302                 PADDR = packed_buf[128:159];
+    27              1                        302                 PSTRB = packed_buf[160:191];
+    28                                                       endfunction
+    29                                               
+    30                                                       function string serialize();
+    31                                                           string buffer;
+    32              1                        301                 buffer = $sformatf("%08h%08h%08h%08h%08h%08h",PRESETn,PWDATA,PENABLE,PWRITE,PADDR,PSTRB);
+    33              1                        301                 return buffer;
+    34                                                       endfunction
+    35                                               
+    36                                                       // User Defined
+    37                                                       function void deserialize(string str);
+    38                                                           // Extract fields from the packed string format:
+    39                                                           // Format: PRESETn (1 char) + PWDATA (8-char hex) + PENABLE (1 char) + PWRITE (1 char) + PADDR (8-char hex)
+    40                                                           
+    41                                                           // PRESETn (1 character)
+    42              1                          1                 PRESETn = str.substr(0, 0).atoi();
+    43                                                           
+    44                                                           // PWDATA (characters 1-8, 8-digit hex)
+    45              1                          1                 PWDATA = str.substr(1, 8).atohex();
+    46                                                           
+    47                                                           // PENABLE (character 9)
+    48              1                          1                 PENABLE = str.substr(9, 9).atoi();
+    49                                                           
+    50                                                           // PWRITE (character 10)
+    51              1                          1                 PWRITE = str.substr(10, 10).atoi();
+    52                                                           
+    53                                                           // PADDR (characters 11-18, 8-digit hex)
+    54              1                          1                 PADDR = str.substr(11, 18).atohex();
+    55                                                           
+    56                                                           // PSTRB (character 19, 1-digit hex)
+    57              1                          1                 PSTRB = str.substr(19, 19).atohex();
+
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /APB_seq_item_pkg/APB_cg                         30.38%        100          -    Uncovered            
+    covered/total bins:                                     7         62          -                      
+    missing/total bins:                                    55         62          -                      
+    % Hit:                                             11.29%        100          -                      
+    Coverpoint PRESETn_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PENABLE_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PWRITE_cp                               50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint PADDR_cp                                 6.25%        100          -    Uncovered            
+        covered/total bins:                                 1         16          -                      
+        missing/total bins:                                15         16          -                      
+        % Hit:                                          6.25%        100          -                      
+    Coverpoint PWDATA_cp                               33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+    Cross WRITE_x_DATA                                 20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+    Cross WRITE_x_ADDR                                  3.12%        100          -    Uncovered            
+        covered/total bins:                                 1         32          -                      
+        missing/total bins:                                31         32          -                      
+        % Hit:                                          3.12%        100          -                      
+ Covergroup instance \/APB_seq_item_pkg::cov_inst      30.38%        100          -    Uncovered            
+    covered/total bins:                                     7         62          -                      
+    missing/total bins:                                    55         62          -                      
+    % Hit:                                             11.29%        100          -                      
+    Coverpoint PRESETn_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin reset_active                                    0          1          -    ZERO                 
+        bin reset_inactive                                  1          1          -    Covered              
+    Coverpoint PENABLE_cp                              50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin enabled                                         0          1          -    ZERO                 
+        bin disabled                                        1          1          -    Covered              
+    Coverpoint PWRITE_cp                               50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin write                                           0          1          -    ZERO                 
+        bin read                                            1          1          -    Covered              
+    Coverpoint PADDR_cp                                 6.25%        100          -    Uncovered            
+        covered/total bins:                                 1         16          -                      
+        missing/total bins:                                15         16          -                      
+        % Hit:                                          6.25%        100          -                      
+        bin aligned_addr[0]                                 1          1          -    Covered              
+        bin aligned_addr[4]                                 0          1          -    ZERO                 
+        bin aligned_addr[8]                                 0          1          -    ZERO                 
+        bin aligned_addr[12]                                0          1          -    ZERO                 
+        bin aligned_addr[16]                                0          1          -    ZERO                 
+        bin aligned_addr[20]                                0          1          -    ZERO                 
+        bin aligned_addr[24]                                0          1          -    ZERO                 
+        bin aligned_addr[28]                                0          1          -    ZERO                 
+        bin aligned_addr[32]                                0          1          -    ZERO                 
+        bin aligned_addr[36]                                0          1          -    ZERO                 
+        bin aligned_addr[40]                                0          1          -    ZERO                 
+        bin aligned_addr[44]                                0          1          -    ZERO                 
+        bin aligned_addr[48]                                0          1          -    ZERO                 
+        bin aligned_addr[52]                                0          1          -    ZERO                 
+        bin aligned_addr[56]                                0          1          -    ZERO                 
+        bin aligned_addr[60]                                0          1          -    ZERO                 
+    Coverpoint PWDATA_cp                               33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+        bin zero                                            1          1          -    Covered              
+        bin max                                             0          1          -    ZERO                 
+        bin typical                                         0          1          -    ZERO                 
+    Cross WRITE_x_DATA                                 20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,zero>                                 1          1          -    Covered              
+            bin <write,*>                                   0          1          3    ZERO                 
+            bin <*,typical>                                 0          1          1    ZERO                 
+            bin <*,max>                                     0          1          2    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin read_nonzero                         0                     -    ZERO                 
+    Cross WRITE_x_ADDR                                  3.12%        100          -    Uncovered            
+        covered/total bins:                                 1         32          -                      
+        missing/total bins:                                31         32          -                      
+        % Hit:                                          3.12%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <read,aligned_addr[0]>                      1          1          -    Covered              
+            bin <write,*>                                   0          1         16    ZERO                 
+            bin <*,aligned_addr[60]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[56]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[52]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[48]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[44]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[40]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[36]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[32]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[28]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[24]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[20]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[16]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[12]>                        0          1          2    ZERO                 
+            bin <*,aligned_addr[8]>                         0          1          2    ZERO                 
+            bin <*,aligned_addr[4]>                         0          1          2    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 30.38%  COVERGROUP TYPES: 1
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/APB_Wrapper/APB_SVA_inst/assert__0
+                     APB_SVA.sv(36)                     0          0
+/APB_Wrapper/APB_SVA_inst/PWRITE_never_X
+                     APB_SVA.sv(116)                    0          1
+/APB_Wrapper/APB_SVA_inst/PENABLE_never_X
+                     APB_SVA.sv(117)                    0          1
+/APB_Wrapper/APB_SVA_inst/PREADY_never_X
+                     APB_SVA.sv(118)                    0          1
+/APB_Wrapper/APB_SVA_inst/PADDR_never_X
+                     APB_SVA.sv(119)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWDATA_never_X
+                     APB_SVA.sv(120)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_never_X
+                     APB_SVA.sv(124)                    0          1
+/APB_Wrapper/APB_SVA_inst/PADDR_stable_in_transfer
+                     APB_SVA.sv(129)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWRITE_stable_in_transfer
+                     APB_SVA.sv(130)                    0          1
+/APB_Wrapper/APB_SVA_inst/PENABLE_stable_in_transfer
+                     APB_SVA.sv(131)                    0          1
+/APB_Wrapper/APB_SVA_inst/PWDATA_stable_in_wr_transfer
+                     APB_SVA.sv(134)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_stable_in_transfer
+                     APB_SVA.sv(136)                    0          1
+/APB_Wrapper/APB_SVA_inst/PSTRB_low_in_read_transfer
+                     APB_SVA.sv(138)                    0          0
+
+Total Coverage By Instance (filtered view): 72.77%
+

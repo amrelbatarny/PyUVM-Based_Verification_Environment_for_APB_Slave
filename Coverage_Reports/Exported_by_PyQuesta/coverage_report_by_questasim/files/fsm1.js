@@ -1,0 +1,2 @@
+var g_data = {"11":{"pr":"/APB_Wrapper/APB_Slave_inst","fsms":[["current_state",5,42,[["IDLE",0,5,42,600,"                 1"],["ACCESS",0,5,48,300,"                 2"],["IDLE -> ACCESS",1,5,44,300,0],["ACCESS -> IDLE",1,5,49,299,1]],100.00,100.00]]}};
+processFsmData(g_data);
