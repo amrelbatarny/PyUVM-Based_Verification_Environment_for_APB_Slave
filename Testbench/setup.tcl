@@ -25,16 +25,10 @@ add wave -position insertpoint  \
 
 # Assertions
 add wave -position insertpoint \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_APB_TRANSFER \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_PREADY_IDLE \
 sim:/APB_Wrapper/APB_SVA_inst/ASSERT_PREADY_ACCESS \
 sim:/APB_Wrapper/APB_SVA_inst/ASSERT_ADDR_STABLE \
 sim:/APB_Wrapper/APB_SVA_inst/ASSERT_CTRL_DATA_STABLE \
 sim:/APB_Wrapper/APB_SVA_inst/ASSERT_SINGLE_CYCLE_READY \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_WRITE_ENABLE \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_READ_ENABLE \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_BYTE_STROBE \
-sim:/APB_Wrapper/APB_SVA_inst/ASSERT_WDATA
 
 # Registers Waveform
 add wave -position insertpoint  \
