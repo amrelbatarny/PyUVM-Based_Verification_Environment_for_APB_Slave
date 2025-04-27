@@ -61,6 +61,7 @@ The RTL implements an APB slave device with standard AMBA APB interface signals,
 Assertions ensure correct timing and sequencing of APB transactions, strengthening functional correctness.
 
 The RTL is kept lightweight and simple to allow a full Python-based verification flow to focus on CRV, coverage, and RAL interaction without unnecessary complexity.
+
 ![UVM Structure](Documentation/APB_Wrapper.png)
 ---
 
