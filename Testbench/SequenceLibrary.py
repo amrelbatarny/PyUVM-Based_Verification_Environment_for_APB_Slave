@@ -1,3 +1,9 @@
+"""
+File   : SequenceLibrary.py
+Author : Amr El Batarny
+Brief  : Contains various APB sequences for generating different types of APB transactions during simulation.
+"""
+
 import cocotb
 import vsc
 from cocotb.triggers import RisingEdge, FallingEdge

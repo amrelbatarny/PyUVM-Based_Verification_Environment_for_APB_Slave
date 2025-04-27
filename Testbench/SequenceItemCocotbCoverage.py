@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : SequenceItemCocotbCoverage.py
+Brief  : Defines the APB sequence item class representing individual APB transactions and uses cocotb-coverage for CRV.
+"""
+
 from common_imports import *
 
 class APB_seq_item(uvm_sequence_item, Randomized):

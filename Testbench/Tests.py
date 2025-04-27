@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Tests.py
+Brief  : Defines test cases for verifying the functionality of the APB slave using the testbench.
+"""
+
 import vsc
 import cocotb
 import pyuvm

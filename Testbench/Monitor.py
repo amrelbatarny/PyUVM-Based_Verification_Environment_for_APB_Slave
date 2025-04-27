@@ -1,7 +1,13 @@
 import cocotb                                         # access cocotb.top and scheduler :contentReference[oaicite:3]{index=3}
 from cocotb.triggers import RisingEdge                # await clock/reset edges :contentReference[oaicite:4]{index=4}
 from pyuvm import uvm_monitor, uvm_analysis_port      # UVM monitor base & analysis port :contentReference[oaicite:5]{index=5}
-from SequenceItem import ApbSeqItem                   # your sequence item definition
+"""
+Author : Amr El Batarny
+File   : Monitor.py
+Brief  : Implements the APB monitor class that observes and records transactions from the APB interface.
+"""
+
+from SequenceItem import ApbSeqItem
 from APB_utils import APBType
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit

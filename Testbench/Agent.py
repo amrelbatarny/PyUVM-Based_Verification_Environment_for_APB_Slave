@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Agent.py
+Brief  : Implements the APB agent, integrating the driver, monitor, and sequencer components for the verification environment.
+"""
+
 from pyuvm import (
     uvm_agent,
     uvm_sequencer,

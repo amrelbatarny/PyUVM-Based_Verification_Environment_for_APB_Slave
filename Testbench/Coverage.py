@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Coverage.py
+Brief  : Coverage collector wrapping PyVSC covergroups for APB transactions.
+"""
+
 import vsc
 from vsc import (
 	covergroup,

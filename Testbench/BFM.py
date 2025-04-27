@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : BFM.py
+Brief  : Cocotb-based Bus Functional Model for driving and sampling APB signals.
+"""
+
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge

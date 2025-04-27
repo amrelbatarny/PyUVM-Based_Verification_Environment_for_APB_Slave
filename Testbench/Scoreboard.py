@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Scoreboard.py
+Brief  : Implements the scoreboard for checking the correctness of APB transactions against expected behavior.
+"""
+
 from pyuvm import uvm_subscriber
 from SequenceItem import ApbSeqItem
 from APB_utils import APBType

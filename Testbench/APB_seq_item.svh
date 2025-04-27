@@ -1,10 +1,9 @@
-// APB_seq_item.svh
-// -----------------------------------------------------------------------------
-// This file contains the DPI function implementations for the APB_seq_item_pkg.
-// These functions are exported via DPI-C in the package file and provide the
-// functionality required by pyquesta for object exchange between SystemVerilog
-// and Python.
-// -----------------------------------------------------------------------------
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : APB_seq_item.svh
+ * Brief  : DPI implementations (sv_get, sv_put, sv_transport) and
+ *          covergroup for APB_seq_item.
+ **********************************************************************/
 
 function string sv_get;
     APB_seq_item obj;

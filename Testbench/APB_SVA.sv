@@ -1,3 +1,9 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : APB_SVA.sv
+ * Brief  : SystemVerilog assertions and properties for the APB interface.
+ **********************************************************************/
+
 module APB_SVA #(
 	 parameter DATA_WIDTH = 32,
 	 parameter ADDR_WIDTH = 32,

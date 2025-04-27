@@ -1,3 +1,9 @@
+# ----------------------------------------------------------------------------
+# Author : Amr El Batarny
+# File   : setup.tcl
+# Brief  : QuestaSim waveform and simulation setup commands.
+# ----------------------------------------------------------------------------
+
 # APB Signals Waveforms
 add wave -position insertpoint  \
 sim:/APB_Wrapper/PCLK \

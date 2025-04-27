@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Environment.py
+Brief  : Top-level UVM environment composing agent, scoreboard, and coverage for APB.
+"""
+
 import sys
 # Add the RAL directory to sys.path
 directory_path = "../RAL"

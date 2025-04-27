@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : SequenceItem.py
+Brief  : Defines the APB sequence item class representing individual APB transactions and uses PyVSC for CRV.
+"""
+
 import vsc
 from vsc import (
 	randobj,

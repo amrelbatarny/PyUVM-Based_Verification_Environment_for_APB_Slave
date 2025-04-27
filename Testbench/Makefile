@@ -1,4 +1,9 @@
-# Makefile
+###############################################################################
+# Author : Makefile
+# File   : Amr El Batarny
+# Brief  : Build script for compiling sv_conduit DPI, SystemVerilog sources,
+#          and running cocotb.
+###############################################################################
 
 # Force GUI mode and export variables
 export COCOTB_RESOLVE_X = ZEROS

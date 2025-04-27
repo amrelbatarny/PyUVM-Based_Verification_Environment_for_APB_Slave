@@ -1,3 +1,7 @@
+# Author : Amr El Batarny
+# File   : APB_seq_item.yaml
+# Brief  : YAML definition of the APB_seq_item class for pyquesta code generation.
+
 APB_seq_item:
   addr:   uint   # 32-bit address
   data:   uint   # 32-bit data

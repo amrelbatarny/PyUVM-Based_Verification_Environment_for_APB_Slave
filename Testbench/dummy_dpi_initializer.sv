@@ -1,3 +1,9 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : dummy_dpi_initializer.sv
+ * Brief  : Module to force elaboration of DPI exports at simulation startup.
+ **********************************************************************/
+
 module dummy_dpi_initializer;
 
     import APB_seq_item_pkg::*;

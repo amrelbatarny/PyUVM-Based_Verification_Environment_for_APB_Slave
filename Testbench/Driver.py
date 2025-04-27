@@ -1,3 +1,9 @@
+"""
+Author : Amr El Batarny
+File   : Driver.py
+Brief  : Contains the APB driver class responsible for driving transactions onto the APB interface.
+"""
+
 import cocotb
 from cocotb.triggers import RisingEdge
 from pyuvm import uvm_driver
