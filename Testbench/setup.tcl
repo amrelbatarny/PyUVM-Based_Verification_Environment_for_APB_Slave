@@ -16,7 +16,7 @@ sim:/APB_Wrapper/RegisterFile_inst/addr \
 sim:/APB_Wrapper/RegisterFile_inst/wdata \
 sim:/APB_Wrapper/RegisterFile_inst/rdata \
 sim:/APB_Wrapper/RegisterFile_inst/byte_strobe \
-sim:/APB_Wrapper/RegisterFile_inst/mask \
+sim:/APB_Wrapper/RegisterFile_inst/mask
 
 # Current and Next States Waveforms
 add wave -position insertpoint  \
@@ -25,15 +25,16 @@ add wave -position insertpoint  \
 
 # Assertions
 add wave -position insertpoint \
-sim:/APB_Wrapper/APB_SVA_inst/PWRITE_never_X \
-sim:/APB_Wrapper/APB_SVA_inst/PENABLE_never_X \
-sim:/APB_Wrapper/APB_SVA_inst/PREADY_never_X \
-sim:/APB_Wrapper/APB_SVA_inst/PADDR_never_X \
-sim:/APB_Wrapper/APB_SVA_inst/PWDATA_never_X \
-sim:/APB_Wrapper/APB_SVA_inst/PADDR_stable_in_transfer \
-sim:/APB_Wrapper/APB_SVA_inst/PWRITE_stable_in_transfer \
-sim:/APB_Wrapper/APB_SVA_inst/PENABLE_stable_in_transfer \
-sim:/APB_Wrapper/APB_SVA_inst/PWDATA_stable_in_wr_transfer \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_APB_TRANSFER \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_PREADY_IDLE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_PREADY_ACCESS \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_ADDR_STABLE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_CTRL_DATA_STABLE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_SINGLE_CYCLE_READY \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_WRITE_ENABLE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_READ_ENABLE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_BYTE_STROBE \
+sim:/APB_Wrapper/APB_SVA_inst/ASSERT_WDATA
 
 # Registers Waveform
 add wave -position insertpoint  \
