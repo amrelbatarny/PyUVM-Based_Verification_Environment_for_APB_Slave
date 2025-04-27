@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : APB_Wrapper.sv
+ * Brief  : Top-level wrapper module connecting the APB slave to the
+ *          external environment.
+ **********************************************************************/
+
 module APB_Wrapper #(
 	parameter DATA_WIDTH	= 32,
 	parameter ADDR_WIDTH	= 32,

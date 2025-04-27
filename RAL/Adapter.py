@@ -1,3 +1,10 @@
+"""
+File   : Adapter.py
+Author : Amr El Batarny
+Brief  : Provides the adapter class interfacing between the APB bus and
+         the UVM register model.
+"""
+
 from pyuvm import uvm_reg_adapter
 from pyuvm import uvm_reg_bus_op
 from pyuvm import uvm_sequence_item

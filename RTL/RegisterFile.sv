@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : RegisterFile.sv
+ * Brief  : Defines the register file containing all APB-accessible
+ *          registers.
+ **********************************************************************/
+
 module RegisterFile #(
 	parameter DATA_WIDTH	= 32,
 	parameter ADDR_WIDTH	= 32,

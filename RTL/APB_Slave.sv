@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : APB_Slave.sv
+ * Brief  : Implements the APB slave module with register interface and
+ *          control logic.
+ **********************************************************************/
+
 module APB_Slave #(
 	parameter DATA_WIDTH	= 32,
 	parameter ADDR_WIDTH	= 32,

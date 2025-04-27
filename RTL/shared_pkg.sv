@@ -1,3 +1,10 @@
+/***********************************************************************
+ * Author : Amr El Batarny
+ * File   : shared_pkg.sv
+ * Brief  : Package containing shared definitions, types, and parameters
+ *          used across RTL modules.
+ **********************************************************************/
+
 package shared_pkg;
 	parameter DATA_WIDTH	= 32;
     parameter ADDR_WIDTH	= 32;

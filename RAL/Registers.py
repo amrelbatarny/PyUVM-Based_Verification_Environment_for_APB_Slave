@@ -1,3 +1,10 @@
+"""
+File   : Registers.py
+Author : Amr El Batarny
+Brief  : Contains individual register definitions and field configurations
+         for the APB slave device.
+"""
+
 from pyuvm import uvm_reg, uvm_reg_field, predict_t
 
 class SYS_STATUS_REG(uvm_reg):

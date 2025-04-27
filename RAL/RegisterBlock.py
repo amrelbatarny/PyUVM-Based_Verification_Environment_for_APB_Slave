@@ -1,3 +1,10 @@
+"""
+File   : RegisterBlock.py
+Author : Amr El Batarny
+Brief  : Defines the register block structure for the APB slave,
+         including register definitions and hierarchy.
+"""
+
 from pyuvm import uvm_reg_map
 from pyuvm import uvm_reg_block
 from Registers import *
