@@ -83,22 +83,20 @@ class ApbRegSequence(ApbBaseSequence):
 
 	async def body(self):
 		status = await self.ral.reg_INPUT_DATA_REG.write(0x1F2C9A0D, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		status = await self.ral.reg_MEM_CTRL_REG.write(0x87A20C05, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_DMA_CTRL_REG.write(0xF1C3422A, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_INT_CTRL_REG.write(0xABCDEF12, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_DEV_ID_REG.write(0x34578967, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_ADC_CTRL_REG.write(0x78954806, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_VOLTAGE_CTRL_REG.write(0x2347AEBC, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_TEMP_SENSOR_REG.write(0x218390FA, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		status = await self.ral.reg_GPIO_DATA_REG.write(0x9C86AB3D, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		status = await self.ral.reg_TIMER_COUNT_REG.write(0xF7D89A2C, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_DAC_OUTPUT_REG.write(0x908CD2AB, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_SYS_STATUS_REG.write(0x12345678, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_CLK_CONFIG_REG.write(0x15A4B8CD, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		status = await self.ral.reg_SYS_CTRL_REG.write(0xA560F4CB, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_DBG_CTRL_REG.write(0xEA5B7C12, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_OUTPUT_DATA_REG.write(0xC9D287A3, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 
 		await RisingEdge(cocotb.top.PCLK)
-		
-		# self.ral.reg_ADC_CTRL_REG.ADC_READY.field_set(0xAB)
-		# whole_reg_value = self.ral.reg_ADC_CTRL_REG.get_desired()
-		# status = await self.ral.reg_ADC_CTRL_REG.write(whole_reg_value, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
-
-		# status = await self.ral.reg_MEM_CTRL_REG.write(0xFD12AB45, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)

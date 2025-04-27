@@ -28,7 +28,7 @@ class ApbRegBlock(uvm_reg_block):
         self.def_map.add_reg(self.reg_DEV_ID_REG, "0x0", "RW")
 
         self.reg_MEM_CTRL_REG = MEM_CTRL_REG('reg_MEM_CTRL_REG')
-        self.reg_MEM_CTRL_REG.configure(self, "0xC", "", False, False)
+        self.reg_MEM_CTRL_REG.configure(self, "0xc", "", False, False)
         self.def_map.add_reg(self.reg_MEM_CTRL_REG, "0x0", "RW")
 
         self.reg_TEMP_SENSOR_REG = TEMP_SENSOR_REG('reg_TEMP_SENSOR_REG')
@@ -44,7 +44,7 @@ class ApbRegBlock(uvm_reg_block):
         self.def_map.add_reg(self.reg_DBG_CTRL_REG, "0x0", "RW")
 
         self.reg_GPIO_DATA_REG = GPIO_DATA_REG('reg_GPIO_DATA_REG')
-        self.reg_GPIO_DATA_REG.configure(self, "0x1C", "", False, False)
+        self.reg_GPIO_DATA_REG.configure(self, "0x1c", "", False, False)
         self.def_map.add_reg(self.reg_GPIO_DATA_REG, "0x0", "RW")
 
         self.reg_DAC_OUTPUT_REG = DAC_OUTPUT_REG('reg_DAC_OUTPUT_REG')
@@ -60,7 +60,7 @@ class ApbRegBlock(uvm_reg_block):
         self.def_map.add_reg(self.reg_CLK_CONFIG_REG, "0x0", "RW")
 
         self.reg_TIMER_COUNT_REG = TIMER_COUNT_REG('reg_TIMER_COUNT_REG')
-        self.reg_TIMER_COUNT_REG.configure(self, "0x2C", "", False, False)
+        self.reg_TIMER_COUNT_REG.configure(self, "0x2c", "", False, False)
         self.def_map.add_reg(self.reg_TIMER_COUNT_REG, "0x0", "RW")
 
         self.reg_INPUT_DATA_REG = INPUT_DATA_REG('reg_INPUT_DATA_REG')
@@ -76,5 +76,5 @@ class ApbRegBlock(uvm_reg_block):
         self.def_map.add_reg(self.reg_DMA_CTRL_REG, "0x0", "RW")
 
         self.reg_SYS_CTRL_REG = SYS_CTRL_REG('reg_SYS_CTRL_REG')
-        self.reg_SYS_CTRL_REG.configure(self, "0x3C", "", False, False)
+        self.reg_SYS_CTRL_REG.configure(self, "0x3c", "", False, False)
         self.def_map.add_reg(self.reg_SYS_CTRL_REG, "0x0", "RW")

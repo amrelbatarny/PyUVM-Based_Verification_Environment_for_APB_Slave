@@ -42,7 +42,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 # Clean target
 .PHONY: clean
 clean::
-	rm -rf __pycache__ modelsim.ini transcript vsim.wlf ../RAL/__pycache__
+	rm -rf __pycache__ results.xml modelsim.ini transcript vsim.wlf ../RAL/__pycache__
 
 # PyUCIS-Viewer target
 .PHONY: pyucis

@@ -21,6 +21,7 @@ class ApbRegAdapter(uvm_reg_adapter):
 			item.type = APBType.READ if rw.kind == access_e.UVM_READ else APBType.WRITE
 			item.data = rw.data
 			item.addr = int(rw.addr, 16)  # Convert '0x14' to integer 20
+			item.strobe = 15
 			return item
 		
 		def bus2reg(self, bus_item: uvm_sequence_item, rw: uvm_reg_bus_op):
