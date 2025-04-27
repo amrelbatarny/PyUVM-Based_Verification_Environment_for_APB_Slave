@@ -1,4 +1,4 @@
-# Python-based_Verification_Environment_for_APB_Slave
+# Python-based Verification Environment for APB Slave
 
 ## Table of Contents
 
