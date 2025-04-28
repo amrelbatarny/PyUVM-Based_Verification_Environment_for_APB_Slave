@@ -1,22 +1,23 @@
 # Python-based Verification Environment for APB Slave
-
 ## Table of Contents
 
-1. [Introduction](#introduction)  
-2. [Key Features](#key-features)  
-3. [Repository Structure](#repository-structure)  
-4. [Installation & Setup](#installation--setup)  
-5. [Simulation Flow (Makefile)](#simulation-flow-makefile)  
-6. [Python Testbench Architecture](#python-testbench-architecture)  
-7. [Register Abstraction Layer (RAL)](#register-abstraction-layer-ral)  
-8. [Coverage Strategy](#coverage-strategy)  
-9. [Randomization Strategy](#randomization-strategy)  
-10. [Trade-offs: SV vs. Python Testbenches](#trade-offs-sv-vs-python-testbenches)  
-11. [Future Migration Possibilities](#future-migration-possibilities)  
-12. [Running the Tests](#running-the-tests)  
-13. [Contributing](#contributing)  
-14. [License](#license) 
-15. [Contact](#contact) 
+1. [Introduction](#introduction)
+2. [UVM Structure](#uvm-structure)  
+3. [Key Features](#key-features)
+4. [RTL Overview](#rtl-overview)  
+5. [Repository Structure](#repository-structure)  
+6. [Installation & Setup](#installation--setup)  
+7. [Simulation Flow (Makefile)](#simulation-flow-makefile)  
+8. [Python Testbench Architecture](#python-testbench-architecture)  
+9. [Register Abstraction Layer (RAL)](#register-abstraction-layer-ral)  
+10. [Coverage Strategy](#coverage-strategy)  
+11. [Randomization Strategy](#randomization-strategy)  
+12. [Trade-offs: SV vs. Python Testbenches](#trade-offs-sv-vs-python-testbenches)  
+13. [Future Migration Possibilities](#future-migration-possibilities)  
+14. [Running the Tests](#running-the-tests)  
+15. [Contributing](#contributing)  
+16. [License](#license) 
+17. [Contact](#contact) 
 
 ---
 
@@ -27,6 +28,12 @@ As Python rises in functional verification, it lacks some of SystemVerilog’s m
 - A standard APB slave design in SystemVerilog.  
 - A Python-centric testbench using Cocotb + PyUVM for structure, PyVSC for Python-native CRV/coverage, and PyQuesta’s **SVConduit** to borrow SV’s randomization and coverage engines.  
 - A Python Register Abstraction Layer (RAL) for front-door register access.  
+
+---
+
+## UVM Structure
+
+![UVM Structure](Documentation/RAL-UVM_Structure_NoBG.png)
 
 ---
 
@@ -56,6 +63,7 @@ Assertions ensure correct timing and sequencing of APB transactions, strengtheni
 
 The RTL is kept lightweight and simple to allow a full Python-based verification flow to focus on CRV, coverage, and RAL interaction without unnecessary complexity.
 
+![UVM Structure](Documentation/APB_Wrapper.png)
 ---
 
 ## Repository Structure
