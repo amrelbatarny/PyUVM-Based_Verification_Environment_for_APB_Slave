@@ -1,6 +1,0 @@
-Folder PATH listing for volume Windows
-Volume serial number is 0EE2-83DE
-C:\VLSI\PROJECTS\PYUVM-BASED_VERIFICATION_ENVIRONMENT_FOR_APB_SLAVE\-
-Invalid path - \VLSI\PROJECTS\PYUVM-BASED_VERIFICATION_ENVIRONMENT_FOR_APB_SLAVE\-
-No subfolders exist 
-
