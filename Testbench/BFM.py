@@ -44,6 +44,7 @@ class ApbBfm(metaclass=utility_classes.Singleton):
 		self.dut.PADDR.value	= addr
 		self.dut.PWRITE.value	= 0
 		self.dut.PSELx.value	= 1
+		self.dut.PSTRB.value	= 0
 		await RisingEdge(self.dut.PCLK)
 		self.dut.PENABLE.value	= 1
 		await RisingEdge(self.dut.PCLK)
