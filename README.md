@@ -72,7 +72,7 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 ├───Documentation/
 │   └───APB_Wrapper.png
 │
-├───RAL/											# Python register-model API
+├───RAL/				# Python register-model API
 │   ├──Adapter.py
 │   ├──RegisterBlock.py
 │   └───Registers.py
@@ -101,14 +101,14 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 │   ├──Scoreboard.py
 │   ├──SequenceItem.py
 │   ├──SequenceItemCocotbCoverage.py	# cocotb-coverage example (unused)
-│   ├──SequenceLibrary.py					# PyUVM sequences
+│   ├──SequenceLibrary.py		# PyUVM sequences
 │   ├──setup.tcl
 │   ├──SVA_bind.sv
-│   └───Tests.py								# @pyuvm.test tests
+│   └───Tests.py			# @pyuvm.test tests
 │
 ├───LICENSE
 │
-├───Coverage_Reports/						# UCIS/XML, HTML exports
+├───Coverage_Reports/			# UCIS/XML, HTML exports
 │   ├───Exported_by_cocotb-coverage/
 │   │
 │   ├───Exported_by_PyQuesta/
