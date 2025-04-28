@@ -70,45 +70,45 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 
 ```
 ├───Documentation/
-│    ├── APB_Wrapper.png
+│   └───APB_Wrapper.png
 │
-├───RAL/                                  # Python register-model API
-│    ├── Adapter.py
-│    ├── RegisterBlock.py
-│    ├── Registers.py
+├───RAL/											# Python register-model API
+│   ├──Adapter.py
+│   ├──RegisterBlock.py
+│   └───Registers.py
 │
 ├───RTL/
-│    ├── APB_Slave.sv
-│    ├── APB_Wrapper.sv
-│    ├── RegisterFile.sv
-│    ├── shared_pkg.sv
+│   ├──APB_Slave.sv
+│   ├──APB_Wrapper.sv
+│   ├──RegisterFile.sv
+│   └───shared_pkg.sv
 │
 ├───Testbench/
-│    ├── Agent.py
-│    ├── APB_seq_item.svh
-│    ├── APB_seq_item.yaml
-│    ├── APB_seq_itemMod.py
-│    ├── APB_seq_item_pkg.sv
-│    ├── APB_SVA.sv
-│    ├── APB_utils.py
-│    ├── BFM.py
-│    ├── Coverage.py
-│    ├── Driver.py
-│    ├── dummy_dpi_initializer.sv
-│    ├── Environment.py
-│    ├── Makefile
-│    ├── Monitor.py
-│    ├── Scoreboard.py
-│    ├── SequenceItem.py
-│    ├── SequenceItemCocotbCoverage.py     # cocotb-coverage example (unused)
-│    ├── SequenceLibrary.py                # PyUVM sequences
-│    ├── setup.tcl
-│    ├── SVA_bind.sv
-│    ├── Tests.py                          # @pyuvm.test tests
+│   ├──Agent.py
+│   ├──APB_seq_item.svh
+│   ├──APB_seq_item.yaml
+│   ├──APB_seq_itemMod.py
+│   ├──APB_seq_item_pkg.sv
+│   ├──APB_SVA.sv
+│   ├──APB_utils.py
+│   ├──BFM.py
+│   ├──Coverage.py
+│   ├──Driver.py
+│   ├──dummy_dpi_initializer.sv
+│   ├──Environment.py
+│   ├──Makefile
+│   ├──Monitor.py
+│   ├──Scoreboard.py
+│   ├──SequenceItem.py
+│   ├──SequenceItemCocotbCoverage.py	# cocotb-coverage example (unused)
+│   ├──SequenceLibrary.py					# PyUVM sequences
+│   ├──setup.tcl
+│   ├──SVA_bind.sv
+│   └───Tests.py								# @pyuvm.test tests
 │
 ├───LICENSE
 │
-├───Coverage_Reports/                      # UCIS/XML, HTML exports
+├───Coverage_Reports/						# UCIS/XML, HTML exports
 │   ├───Exported_by_cocotb-coverage/
 │   │
 │   ├───Exported_by_PyQuesta/
@@ -123,21 +123,21 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 ## Installation & Setup
 
 1. **Prerequisites**  
-   - Python 3.6+ with `pip`  
-   - Mentor QuestaSim (for DPI and SV coverage)  
-   - `cocotb`, `pyuvm`, `pyvsc`, `pyquesta` installed in your Python venv  
+	- Python 3.6+ with `pip`  
+	- Mentor QuestaSim (for DPI and SV coverage)  
+	- `cocotb`, `pyuvm`, `pyvsc`, `pyquesta` installed in your Python venv  
 
 2. **Install Python Packages**  
-   ```bash
-   pip install cocotb pyuvm pyvsc pyquesta
-   ```
+	```bash
+	pip install cocotb pyuvm pyvsc pyquesta
+	```
 
 3. **Generate and Build DPI Shim**  
-   ```bash
-   cd $VIRTUAL_ENV/lib/python3.9/site-packages/pyquesta/makefiles
-   make -f pyquesta.mk
-   ```
-   This produces `sv_conduit.so`.
+	```bash
+	cd $VIRTUAL_ENV/lib/python3.9/site-packages/pyquesta/makefiles
+	make -f pyquesta.mk
+	```
+	This produces `sv_conduit.so`.
 
 ---
 
@@ -184,18 +184,18 @@ make clean && make
 **Three methods** are available (two active):
 
 1. **PyVSC Coverage**  
-   - Python covergroups on `SequenceItem` fields.  
-   - `.sample(...)` called in the monitor.  
-   - Exportable to JSON/HTML/UCIS.  
+	- Python covergroups on `SequenceItem` fields.  
+	- `.sample(...)` called in the monitor.  
+	- Exportable to JSON/HTML/UCIS.  
 
 2. **PyQuesta Coverage**  
-   - `SVConduit.put(item)` ships transactions to SV.  
-   - SV-side `sv_put()` deserializes and calls an SV covergroup.  
-   - Uses QuestaSim’s native coverage engines (UCIS/XML).  
+	- `SVConduit.put(item)` ships transactions to SV.  
+	- SV-side `sv_put()` deserializes and calls an SV covergroup.  
+	- Uses QuestaSim’s native coverage engines (UCIS/XML).  
 
 3. **cocotb-coverage** (Example Stub)  
-   - Defined in `SequenceItemCocotbCoverage.py` with `@covergroup`, but not wired in.  
-   - Could be activated for pure-Python coverage if desired.
+	- Defined in `SequenceItemCocotbCoverage.py` with `@covergroup`, but not wired in.  
+	- Could be activated for pure-Python coverage if desired.
 
 ---
 
@@ -204,17 +204,17 @@ make clean && make
 **Three methods** exist (two active):
 
 1. **PyVSC Randomization**  
-   - `@vsc.randobj` + `@vsc.constraint` objects.  
-   - `randomize()` or `with randomize_with(): dist {…}` in sequences.  
+	- `@vsc.randobj` + `@vsc.constraint` objects.  
+	- `randomize()` or `with randomize_with(): dist {…}` in sequences.  
 
 2. **PyQuesta Randomization**  
-   - `item_sv = SVConduit.get(APB_seq_item)` → calls SV `sv_get()`.  
-   - SV randomizes via `randomize() with { … }`, serializes to string.  
-   - Python deserializes into a Python object.  
+	- `item_sv = SVConduit.get(APB_seq_item)` → calls SV `sv_get()`.  
+	- SV randomizes via `randomize() with { … }`, serializes to string.  
+	- Python deserializes into a Python object.  
 
 3. **cocotb-coverage CRV** (Implemented Stub)  
-   - Example in `SequenceItemCocotbCoverage.py` using cocotb-coverage’s `CoverPoint`.  
-   - Not used in active flow.
+	- Example in `SequenceItemCocotbCoverage.py` using cocotb-coverage’s `CoverPoint`.  
+	- Not used in active flow.
 
 ---
 
