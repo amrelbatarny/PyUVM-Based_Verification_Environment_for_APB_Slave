@@ -70,18 +70,18 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 
 ```
 ├───Documentation/
-│       APB_Wrapper.png
+│    ├── APB_Wrapper.png
 │
 ├───RAL/                                  # Python register-model API
-│       Adapter.py
-│       RegisterBlock.py
-│       Registers.py
+│    ├── Adapter.py
+│    ├── RegisterBlock.py
+│    ├── Registers.py
 │
 ├───RTL/
-│       APB_Slave.sv
-│       APB_Wrapper.sv
-│       RegisterFile.sv
-│       shared_pkg.sv
+│    ├── APB_Slave.sv
+│    ├── APB_Wrapper.sv
+│    ├── RegisterFile.sv
+│    ├── shared_pkg.sv
 │
 ├───Testbench/
 │    ├── Agent.py
