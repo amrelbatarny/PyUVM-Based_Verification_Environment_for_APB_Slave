@@ -29,7 +29,6 @@ function string sv_get;
         addr inside { [32'h00000000:32'h0000003C] };
         (addr % 4) == 0;
     });
-    $display("%h",obj.type_sv);
     // Serialize the object and return the string
     obj_str = obj.serialize();
     return obj_str;
