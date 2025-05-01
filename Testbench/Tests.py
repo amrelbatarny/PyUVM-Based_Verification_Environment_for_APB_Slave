@@ -15,7 +15,6 @@ from SequenceLibrary	import (
     ApbWriteSequence,
     ApbReadSequence,
     ApbTestAllSequence,
-    ApbPyquestaSequence,
     ApbRegSequence,
 )
 from BFM				import ApbBfm
@@ -70,7 +69,7 @@ class ApbTestAllTest(ApbBaseTest):
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbTestAllSequence)
 		ConfigDB().set(None, "*", "ENABLE_SV_RANDOMIZATION", True)
-		ConfigDB().set(None, "*", "ENABLE_SV_Coverage", True)
+		ConfigDB().set(None, "*", "ENABLE_SV_COVERAGE", True)
 		ConfigDB().set(None, "*", "NUM_TRANSACTIONS", 300)
 		super().build_phase()
 	
@@ -80,22 +79,3 @@ class ApbRegTest(ApbBaseTest):
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbRegSequence)
 		super().build_phase()
-
-
-# Cocotb entry point coroutine
-# @cocotb.test()
-# async def run_uvm_test(dut):
-#     test_name = cocotb.plusargs["UVM_TEST"]
-#     await uvm_root().run_test(test_name)
-#     # Add coverage save after test completes
-#     await Timer(100, units="ns")  # Allow final operations
-#     dut._log.info("Saving coverage...")
-#     await cocotb.decorators.RunningTask.await_tasks()
-
-# # Pytest parameterized test function
-# @pytest.mark.parametrize("uvm_test", [
-#     "APB_write_test",
-#     "APB_read_test", 
-#     "APB_TestAll_test"
-# ])
-# APB_test.py (revised)
