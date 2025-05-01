@@ -4,7 +4,9 @@ File   : Coverage.py
 Brief  : Coverage collector wrapping PyVSC covergroups for APB transactions.
 """
 
+import os
 import vsc
+import logging
 from vsc import (
 	covergroup,
 	uint32_t,
@@ -57,6 +59,7 @@ class ApbCoverGroup(object):
 
 class ApbCoverage(uvm_subscriber):
 	def build_phase(self):
+		logging.getLogger("vsc.coverage").setLevel(logging.WARNING)
 		self.cg = ApbCoverGroup()
 
 	def write(self, item):
@@ -70,7 +73,31 @@ class ApbCoverage(uvm_subscriber):
 		self.logger.debug(f"Instance Coverage = {self.cg.get_inst_coverage()}")
 
 	def report_phase(self):
-		self.logger.info("cg total coverage=%f" % (self.cg.get_coverage()))
+		# Print summary
+		cov = self.cg.get_coverage()
+		self.logger.info(f"{self.get_type_name()}: Total coverage = {cov}%")
+
+		# Report Python-side coverage
 		vsc.report_coverage(details=False)
-		vsc.write_coverage_db(filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.xml",  fmt='xml',      libucis=None)
-		vsc.write_coverage_db(filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.ucdb", fmt='libucis',  libucis="/home/amrelbatarny/QuestaSim/questasim/linux_x86_64/libucis.so")
+
+		# Determine UCIS library path from environment
+		libucis = os.getenv("UCIS_LIB_PATH")
+		if not libucis:
+			raise RuntimeError(
+				"Coverage.py: UCIS_LIB_PATH not set in environment. "
+				"Please configure your Makefile."
+			)
+
+		# Write out XML summary
+		write_coverage_db(
+			filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.xml",
+			fmt="xml",
+			libucis=None
+		)
+
+		# Write out UCDB for QuestaSim
+		write_coverage_db(
+			filename="../Coverage_Reports/Exported_by_PyVSC/apb_coverage.ucdb",
+			fmt="libucis",
+			libucis=libucis
+		)
