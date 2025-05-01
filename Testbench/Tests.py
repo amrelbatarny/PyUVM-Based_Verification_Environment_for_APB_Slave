@@ -63,7 +63,7 @@ class ApbReadTest(ApbBaseTest):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbReadSequence)
 		super().build_phase()
 
-@pyuvm.test()
+# @pyuvm.test()
 class ApbTestAllTest(ApbBaseTest):
 
 	def build_phase(self):
@@ -73,9 +73,10 @@ class ApbTestAllTest(ApbBaseTest):
 		ConfigDB().set(None, "*", "NUM_TRANSACTIONS", 300)
 		super().build_phase()
 	
-# @pyuvm.test(stage=1)
+@pyuvm.test(stage=1)
 class ApbRegTest(ApbBaseTest):
 	
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbRegSequence)
+		ConfigDB().set(None, "*", "ENABLE_SV_COVERAGE", True)
 		super().build_phase()
