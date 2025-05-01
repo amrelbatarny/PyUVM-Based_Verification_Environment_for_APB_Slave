@@ -33,6 +33,7 @@ class ApbEnv(uvm_env):
 
 		# Only create the PyVSC coverage component when SV-based coverage is disabled
 		if self.sv_coverage_en == False:
+			self.logger.info("Building coverage component")
 			self.cvg = ApbCoverage.create("cvg", self)
 
 		self.sb = ApbScoreboard.create("sb", self)
