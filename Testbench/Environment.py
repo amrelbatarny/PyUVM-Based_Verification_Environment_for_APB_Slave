@@ -40,6 +40,9 @@ class ApbEnv(uvm_env):
 		self.adapter = ApbRegAdapter("adapter")
 		self.block = ApbRegBlock("block")
 
+		# Share RAL across the TB if needed
+		ConfigDB().set(None, "*", "REGISTER_MODEL", self.block)
+
 	def connect_phase(self):
 		# self.agt.agt_ap.connect(self.cvg.cov_export)
 		self.agt.agt_ap.connect(self.sb.analysis_export)
@@ -47,6 +50,4 @@ class ApbEnv(uvm_env):
 			self.agt.agt_ap.connect(self.cvg.analysis_export)
 		self.block.def_map.set_sequencer(self.agt.sqr)
 		self.block.def_map.set_adapter(self.adapter)
-		self.sb.ral = self.block
-		ConfigDB().set(None, "*", "SQR", self.agt.sqr) # share SEQR and RAL across the TB if needed
-		ConfigDB().set(None, "*", "regsiter_model", self.block)
+		# self.sb.ral = self.block
