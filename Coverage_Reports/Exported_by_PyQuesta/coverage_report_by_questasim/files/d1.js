@@ -1,0 +1,2 @@
+var g_data = {"13":{"pr":"/APB_Wrapper/APB_SVA_inst","ty":2,"dui":8,"dun":"work.APB_SVA","direct":[{"n":["COVER_PREADY_ACCESS",9,51],"h":0},{"n":["COVER_ADDR_STABLE",9,62],"h":299},{"n":["COVER_CTRL_DATA_STABLE",9,70],"h":299},{"n":["COVER_SINGLE_CYCLE_READY",9,81],"h":0}]}};
+processDirectivesData(g_data);

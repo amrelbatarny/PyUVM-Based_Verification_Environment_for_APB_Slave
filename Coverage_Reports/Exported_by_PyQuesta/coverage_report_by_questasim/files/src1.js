@@ -1,2 +1,2 @@
-var g_data = {"name":"SVA_bind.sv","src":"bind APB_Wrapper APB_SVA APB_SVA_inst (.*);","lang":"verilog"};
+var g_data = {"name":"SVA_bind.sv","src":"/***********************************************************************\n * Author : Amr El Batarny\n * File   : SVA_bind.sv\n * Brief  : Bindings for SystemVerilog assertions into the APB design.\n **********************************************************************/\n\nbind APB_Wrapper APB_SVA APB_SVA_inst (.*);","lang":"verilog"};
 processSrcData(g_data);

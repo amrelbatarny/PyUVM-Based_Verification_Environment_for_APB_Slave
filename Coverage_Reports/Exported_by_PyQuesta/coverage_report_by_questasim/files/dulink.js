@@ -1,2 +1,2 @@
-var g_data = {"8":["work.APB_SVA",70.60,1],"5":["work.APB_Slave",84.79,1],"2":["work.APB_Wrapper",46.15,1],"6":["work.APB_seq_item_pkg",63.11,1],"3":["work.RegisterFile",65.06,1],"7":["work.dummy_dpi_initializer",100.00,1]};
+var g_data = {"8":["work.APB_SVA",62.26,1],"5":["work.APB_Slave",85.25,1],"2":["work.APB_Wrapper",78.84,1],"6":["work.APB_seq_item_pkg",88.16,1],"3":["work.RegisterFile",95.86,1],"7":["work.dummy_dpi_initializer",100.00,1]};
 processDuLinks(g_data);
