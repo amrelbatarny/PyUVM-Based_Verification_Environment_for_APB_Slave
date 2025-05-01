@@ -5,8 +5,19 @@
 #          and running cocotb.
 ###############################################################################
 
-# Force GUI mode and export variables
+# Resolve unknown bits (X/Z) as zeros in cocotb
+# use ':=' and no spaces around '=' for Makefile export :contentReference[oaicite:1]{index=1}
 export COCOTB_RESOLVE_X = ZEROS
+
+# Path to QuestaSim’s UCIS library for coverage database generation
+# Users should update this to their local QuestaSim installation
+UCIS_LIB_PATH ?= /home/amrelbatarny/QuestaSim/questasim/linux_x86_64/libucis.so
+
+# ensure UCIS_LIB_PATH is visible to all recipe commands :contentReference[oaicite:0]{index=0}
+export UCIS_LIB_PATH      
+
+
+# Force GUI mode and export variables
 GUI = 1
 WAVES = 1
 SIM ?= questa
