@@ -8,6 +8,7 @@ import vsc
 import cocotb
 import pyuvm
 from pyuvm import uvm_test, uvm_factory
+from pyuvm import ConfigDB
 from Environment		import ApbEnv
 from SequenceLibrary	import (
     ApbBaseSequence,
@@ -63,21 +64,17 @@ class ApbReadTest(ApbBaseTest):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbReadSequence)
 		super().build_phase()
 
-# @pyuvm.test()
+@pyuvm.test()
 class ApbTestAllTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbTestAllSequence)
+		ConfigDB().set(None, "*", "ENABLE_SV_RANDOMIZATION", True)
+		ConfigDB().set(None, "*", "ENABLE_SV_Coverage", True)
+		ConfigDB().set(None, "*", "NUM_TRANSACTIONS", 300)
 		super().build_phase()
-
-@pyuvm.test(stage=2)
-class ApbPyquestaTest(ApbBaseTest):
-
-	def build_phase(self):
-		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbPyquestaSequence)
-		super().build_phase()
-
-@pyuvm.test(stage=1)
+	
+# @pyuvm.test(stage=1)
 class ApbRegTest(ApbBaseTest):
 	
 	def build_phase(self):
