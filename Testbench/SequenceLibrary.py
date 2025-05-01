@@ -7,7 +7,7 @@ Brief  : Contains various APB sequences for generating different types of APB tr
 import cocotb
 import vsc
 from cocotb.triggers import RisingEdge, FallingEdge
-from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, check_t
+from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, check_t, access_e
 from pyuvm import UVMConfigItemNotFound
 from SequenceItem import ApbSeqItem
 from APB_seq_itemMod import APB_seq_item
@@ -18,16 +18,19 @@ class ApbBaseSequence(uvm_sequence, uvm_report_object):
 	
 	def seq_print(self, msg: str):
 		uvm_root().logger.info(msg)
-
-	def __init__(self, name="ApbBaseSequence"):
-		super().__init__(name)
-		self.ral = ConfigDB().get(None, "", "regsiter_model")
-		self.map = self.ral.def_map
 	
 	async def pre_body(self):
 		self.seq_print("Entered sequence pre_body")
 		
-		self.txn_num = ConfigDB().get(None, "", "NUM_TRANSACTIONS")
+		# Get the number of transactions value from ConfigDB
+		try:
+			self.txn_num = ConfigDB().get(None, "", "NUM_TRANSACTIONS")
+		except UVMConfigItemNotFound:
+			self.txn_num = 300 # default value for number of transactions
+
+		# Get the register model handle from ConfigDB
+		self.ral = ConfigDB().get(None, "", "REGISTER_MODEL")
+		self.map = self.ral.def_map
 		
 		# Read the coverage-mode flag from the ConfigDB (default to False)
 		try:
@@ -95,6 +98,7 @@ class ApbReadSequence(ApbBaseSequence):
 class ApbRegSequence(ApbBaseSequence):
 
 	async def body(self):
+		# Write Operations:
 		status = await self.ral.reg_INPUT_DATA_REG.write(0x1F2C9A0D, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_MEM_CTRL_REG.write(0x87A20C05, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_DMA_CTRL_REG.write(0xF1C3422A, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
@@ -112,4 +116,20 @@ class ApbRegSequence(ApbBaseSequence):
 		status = await self.ral.reg_DBG_CTRL_REG.write(0xEA5B7C12, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 		status = await self.ral.reg_OUTPUT_DATA_REG.write(0xC9D287A3, self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
 
-		await RisingEdge(cocotb.top.PCLK)
+		# Read Operations:
+		(status, rdata) = await self.ral.reg_INPUT_DATA_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_MEM_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_DMA_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_INT_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_DEV_ID_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_ADC_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_VOLTAGE_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_TEMP_SENSOR_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_GPIO_DATA_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_TIMER_COUNT_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_DAC_OUTPUT_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_SYS_STATUS_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_CLK_CONFIG_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_SYS_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_DBG_CTRL_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
+		(status, rdata) = await self.ral.reg_OUTPUT_DATA_REG.read(self.map, path_t.FRONTDOOR, check_t.NO_CHECK)
