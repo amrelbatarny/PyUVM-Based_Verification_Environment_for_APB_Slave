@@ -8,6 +8,7 @@ import cocotb
 import vsc
 from cocotb.triggers import RisingEdge, FallingEdge
 from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, check_t
+from pyuvm import UVMConfigItemNotFound
 from SequenceItem import ApbSeqItem
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit
@@ -15,7 +16,7 @@ from APB_utils import APBType
 
 class ApbBaseSequence(uvm_sequence, uvm_report_object):
 	
-	def seq_print(msg: str):
+	def seq_print(self, msg: str):
 		uvm_root().logger.info(msg)
 
 	def __init__(self, name="ApbBaseSequence"):
@@ -24,7 +25,16 @@ class ApbBaseSequence(uvm_sequence, uvm_report_object):
 		self.map = self.ral.def_map
 	
 	async def pre_body(self):
-		print("Entered pre_body")
+		self.seq_print("Entered sequence pre_body")
+		
+		self.txn_num = ConfigDB().get(None, "", "NUM_TRANSACTIONS")
+		
+		# Read the coverage-mode flag from the ConfigDB (default to False)
+		try:
+			self.sv_rand_en = ConfigDB().get(None, "", "ENABLE_SV_RANDOMIZATION")
+		except UVMConfigItemNotFound:
+			self.sv_rand_en = False
+		
 		self.item = ApbSeqItem.create("item")
 
 	async def body(self):
@@ -38,15 +48,30 @@ class ApbBaseSequence(uvm_sequence, uvm_report_object):
 class ApbTestAllSequence(ApbBaseSequence):
 
 	async def body(self):
-		for _ in range(100):
-			await self.start_item(self.item)
-			self.item.randomize()
-			await self.finish_item(self.item)
+		# Receive transactions from the chosen randomization backend:
+		# - If SV randomization is disabled, randomize PyVSC-based item
+		# - Otherwise, get a randomized item from SystemVerilog via SVConduit.get()
+		if self.sv_rand_en == False:
+			self.seq_print("Sending txn_num PyVSC transactions")
+			for _ in range(self.txn_num):
+				await self.start_item(self.item)
+				self.item.randomize()
+				await self.finish_item(self.item)
+		else:
+			self.seq_print("Sending txn_num SVConduit transactions")
+			for _ in range(self.txn_num):
+				await self.start_item(self.item)
+				item_sv = SVConduit.get(APB_seq_item)
+				self.item.data = item_sv.data
+				self.item.type = APBType.WRITE if item_sv.type_sv else APBType.READ
+				self.item.addr = item_sv.addr
+				self.item.strobe = item_sv.strobe
+				await self.finish_item(self.item)
 
 class ApbWriteSequence(ApbBaseSequence):
 
 	async def body(self):
-		for _ in range(100):
+		for _ in range(self.txn_num):
 			await self.start_item(self.item)
 			with self.item.randomize_with() as it:
 				vsc.dist(it.type, [
@@ -58,25 +83,13 @@ class ApbWriteSequence(ApbBaseSequence):
 class ApbReadSequence(ApbBaseSequence):
 
 	async def body(self):
-		for _ in range(100):
+		for _ in range(self.txn_num):
 			await self.start_item(self.item)
 			with self.item.randomize_with() as it:
 				vsc.dist(it.type, [
 					vsc.weight(APBType.WRITE, 5),
 					vsc.weight(APBType.READ, 95)
 					])
-			await self.finish_item(self.item)
-
-class ApbPyquestaSequence(ApbBaseSequence):
-
-	async def body(self):
-		for _ in range(300):
-			item_sv = SVConduit.get(APB_seq_item)
-			await self.start_item(self.item)
-			self.item.data = item_sv.data
-			self.item.type = APBType.WRITE if item_sv.type_sv else APBType.READ
-			self.item.addr = item_sv.addr
-			self.item.strobe = item_sv.strobe
 			await self.finish_item(self.item)
 
 class ApbRegSequence(ApbBaseSequence):
