@@ -50,6 +50,14 @@ class ApbSeqItem(uvm_sequence_item):
 		self.addr.inside(vsc.rangelist(vsc.rng(0x00000000, 0x0000003C + 1)))
 		self.addr % 4 == 0
 
+	def do_copy(self, rhs):
+		super().do_copy(rhs)
+		self.addr   = rhs.addr
+		self.data   = rhs.data
+		self.strobe = rhs.strobe
+		self.type   = rhs.type
+
+
 	def __str__(self):
 		return (
 			f"\nName: {self.get_full_name()}"
