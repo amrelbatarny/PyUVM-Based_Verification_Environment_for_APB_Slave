@@ -24,9 +24,11 @@ function string sv_get;
 		else
 			(data % 12345) == 0; // data is a multiple of 12345
 
-		// Original strobe & addr constraints
+		// Build a dict mapping each value → weight
+		// On WRITE: pick strobe from weighted dict
+		// On READ: strobe must be 0
 		if (type_sv)
-			strobe dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90}; // WRITE: random byte-enable pattern as before
+			strobe dist {[1:5]:/10, [6:10]:/20, [11:14]:/70, 15:/90};
 		else
 			strobe == 0; // READ
 
