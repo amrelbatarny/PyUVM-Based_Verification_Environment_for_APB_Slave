@@ -9,7 +9,8 @@ from pyuvm import uvm_reg_adapter
 from pyuvm import uvm_reg_bus_op
 from pyuvm import uvm_sequence_item
 from pyuvm.s24_uvm_reg_includes import access_e
-from SequenceItem import ApbSeqItem
+from SequenceItemVSC import ApbSeqItemVSC
+from SequenceItemCR import ApbSeqItemCR
 from APB_utils import APBType
 
 class ApbRegAdapter(uvm_reg_adapter):
@@ -17,7 +18,7 @@ class ApbRegAdapter(uvm_reg_adapter):
 			super().__init__(name)
 
 		def reg2bus(self, rw: uvm_reg_bus_op) -> uvm_sequence_item:
-			item = ApbSeqItem("item")
+			item = ApbSeqItemVSC("item")
 			item.type = APBType.READ if rw.kind == access_e.UVM_READ else APBType.WRITE
 			item.data = rw.data
 			item.addr = int(rw.addr, 16)  # Convert '0x14' to integer 20
