@@ -61,7 +61,7 @@ add wave -position insertpoint  \
 # coverage save -onexit ../Coverage_Reports/Exported_by_PyVSC/apb_coverage.ucdb
 
 # Saving coverage database in UCDB file for PyQuesta
-coverage save -onexit ../Coverage_Reports/Exported_by_PyQuesta/apb_coverage.ucdb
+# coverage save -onexit ../Coverage_Reports/Exported_by_PyQuesta/apb_coverage.ucdb
 
 run -all
 
