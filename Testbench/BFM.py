@@ -42,6 +42,7 @@ class ApbBfm(metaclass=utility_classes.Singleton):
 
 	async def read(self, addr):
 		self.dut.PADDR.value	= addr
+		self.dut.PWDATA.value	= 0
 		self.dut.PWRITE.value	= 0
 		self.dut.PSELx.value	= 1
 		self.dut.PSTRB.value	= 0
