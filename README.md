@@ -99,7 +99,7 @@ The RTL is kept lightweight and simple to allow a full Python-based verification
 │   ├──Makefile
 │   ├──Monitor.py
 │   ├──Scoreboard.py
-│   ├──SequenceItem.py
+│   ├──SequenceItemVSC.py
 │   ├──SequenceItemCocotbCoverage.py	# cocotb-coverage example (unused)
 │   ├──SequenceLibrary.py		# PyUVM sequences
 │   ├──setup.tcl
@@ -161,7 +161,7 @@ make clean && make
 - **ApbBfm** generates clocks and drives low-level signals.  
 - **ApbAgent** instantiates driver & monitor and connects to the sequencer.  
 - **Driver** translates `uvm_sequence_item` into bus pokes.  
-- **Monitor** samples bus signals each cycle into a PyVSC `SequenceItem` and forwards to:  
+- **Monitor** samples bus signals each cycle into a PyVSC `SequenceItemVSC` and forwards to:  
   1. **PyVSC covergroup** (`.sample()`)  
   2. **SVConduit.put()** → SV coverage (`sv_put`)  
 - **Sequences** defined in `SequenceLibrary.py` extend `ApbBaseSequence` and apply stimulus:  
@@ -184,7 +184,7 @@ make clean && make
 **Three methods** are available (two active):
 
 1. **PyVSC Coverage**  
-	- Python covergroups on `SequenceItem` fields.  
+	- Python covergroups on `SequenceItemVSC` fields.  
 	- `.sample(...)` called in the monitor.  
 	- Exportable to JSON/HTML/UCIS.  
 
