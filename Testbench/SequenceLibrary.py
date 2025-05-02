@@ -9,7 +9,8 @@ import vsc
 from cocotb.triggers import RisingEdge, FallingEdge
 from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, check_t, access_e
 from pyuvm import UVMConfigItemNotFound
-from SequenceItem import ApbSeqItem
+from SequenceItemVSC import ApbSeqItemVSC
+from SequenceItemCR import ApbSeqItemCR
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit
 from APB_utils import APBType
@@ -38,7 +39,8 @@ class ApbBaseSequence(uvm_sequence, uvm_report_object):
 		except UVMConfigItemNotFound:
 			self.sv_rand_en = False
 		
-		self.item = ApbSeqItem.create("item")
+		self.item = ApbSeqItemVSC.create("item")
+
 
 	async def body(self):
 		raise UVMNotImplemented  
@@ -55,7 +57,7 @@ class ApbTestAllSequence(ApbBaseSequence):
 		# - If SV randomization is disabled, randomize PyVSC-based item
 		# - Otherwise, get a randomized item from SystemVerilog via SVConduit.get()
 		if self.sv_rand_en == False:
-			self.seq_print("Sending txn_num PyVSC transactions")
+			self.seq_print(f"Sending txn_num {self.item.get_type_name()} transactions")
 			for _ in range(self.txn_num):
 				await self.start_item(self.item)
 				self.item.randomize()
