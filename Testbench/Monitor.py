@@ -29,6 +29,11 @@ class ApbMonitor(uvm_monitor):
 		except UVMConfigItemNotFound:
 			self.sv_coverage_en = False
 
+		try:
+			self.vsc_coverage_en = ConfigDB().get(self, "", "ENABLE_VSC_COVERAGE")
+		except UVMConfigItemNotFound:
+			self.vsc_coverage_en = False
+
 	async def run_phase(self):
 		# Wait until reset is deasserted before sampling begins
 		await RisingEdge(self.dut.PRESETn)
@@ -57,6 +62,7 @@ class ApbMonitor(uvm_monitor):
 				item.type = APBType.WRITE
 				item.data = self.dut.PWDATA.value
 			else:
+				item.type = APBType.READ
 				# For reads, wait until PREADY asserts, then capture PRDATA on next cycle
 				while not (self.dut.PREADY.value):
 					await FallingEdge(self.dut.PCLK)
@@ -70,17 +76,18 @@ class ApbMonitor(uvm_monitor):
 			# Route transactions to the chosen coverage backend:
 			# - If SV coverage is enabled, serialize and send to SystemVerilog via SVConduit.put()
 			if self.sv_coverage_en == True:
-				# SystemVerilog coverage via SVConduit
-				item_sv = APB_seq_item()
+				if self.vsc_coverage_en == False:
+					# SystemVerilog coverage via SVConduit
+					item_sv = APB_seq_item()
 
-				# Populating SystemVerilog's item
-				item_sv.addr		=	item.addr
-				item_sv.data		=	item.data
-				item_sv.strobe		=	item.strobe
-				item_sv.type_sv		=	1 if item.type == APBType.WRITE else 0
+					# Populating SystemVerilog's item
+					item_sv.addr		=	item.addr
+					item_sv.data		=	item.data
+					item_sv.strobe		=	item.strobe
+					item_sv.type_sv		=	1 if item.type == APBType.WRITE else 0
 
-				SVConduit.put(item_sv)
-				self.logger.debug(f"{self.get_type_name()}: Monitor sent to SVConduit's put: {item_sv}")
+					SVConduit.put(item_sv)
+					self.logger.debug(f"{self.get_type_name()}: Monitor sent to SVConduit's put: {item_sv}")
 			
 			self.monitor_count += 1
 

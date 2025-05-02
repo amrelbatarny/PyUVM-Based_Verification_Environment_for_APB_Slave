@@ -29,12 +29,18 @@ class ApbEnv(uvm_env):
 		except UVMConfigItemNotFound:
 			self.sv_coverage_en = False
 
+		try:
+			self.vsc_coverage_en = ConfigDB().get(self, "", "ENABLE_VSC_COVERAGE")
+		except UVMConfigItemNotFound:
+			self.vsc_coverage_en = False
+
 		self.agt = ApbAgent.create("agt", self)
 
 		# Only create the PyVSC coverage component when SV-based coverage is disabled
 		if self.sv_coverage_en == False:
-			self.logger.info("Building coverage component")
-			self.cvg = ApbCoverage.create("cvg", self)
+			if self.vsc_coverage_en == True:
+				self.logger.info("Building coverage component")
+				self.cvg = ApbCoverage.create("cvg", self)
 
 		self.sb = ApbScoreboard.create("sb", self)
 		self.adapter = ApbRegAdapter("adapter")
@@ -47,7 +53,8 @@ class ApbEnv(uvm_env):
 		# self.agt.agt_ap.connect(self.cvg.cov_export)
 		self.agt.agt_ap.connect(self.sb.analysis_export)
 		if self.sv_coverage_en == False:
-			self.agt.agt_ap.connect(self.cvg.analysis_export)
+			if self.vsc_coverage_en == True:
+				self.agt.agt_ap.connect(self.cvg.analysis_export)
 		self.block.def_map.set_sequencer(self.agt.sqr)
 		self.block.def_map.set_adapter(self.adapter)
 		# self.sb.ral = self.block

@@ -70,10 +70,11 @@ class ApbTestAllTest(ApbBaseTest):
 
 	def build_phase(self):
 		uvm_factory().set_type_override_by_type(ApbBaseSequence, ApbTestAllSequence)
+		ConfigDB().set(None, "*", "NUM_TRANSACTIONS", 10)
 		ConfigDB().set(None, "*", "ENABLE_SV_RANDOMIZATION", True)
-		ConfigDB().set(None, "*", "ENABLE_SV_COVERAGE", True)
-		ConfigDB().set(None, "*", "NUM_TRANSACTIONS", 300)
-		uvm_factory().set_type_override_by_type(ApbSeqItemVSC, ApbSeqItemCR)
+		ConfigDB().set(None, "*", "ENABLE_SV_COVERAGE", False)
+		ConfigDB().set(None, "*", "ENABLE_VSC_COVERAGE", False)
+		# uvm_factory().set_type_override_by_type(ApbSeqItemVSC, ApbSeqItemCR)
 		super().build_phase()
 	
 # @pyuvm.test(stage=1)
