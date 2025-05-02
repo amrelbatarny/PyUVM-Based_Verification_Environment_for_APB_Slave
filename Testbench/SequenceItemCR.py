@@ -36,16 +36,6 @@ class ApbSeqItemCR(uvm_sequence_item, RandObj):
 		self.add_rand_var('sq',   bits=16)
 		self.add_rand_var('root', bits=16)
 
-		# data==0 when READ, else no constraint
-		def data_for_reads(txn_type, data):
-			return data == 0 if txn_type == APBType.READ else True
-		self.add_constraint(data_for_reads, ('type', 'data'))
-
-		# strobe==0 when READ, else no constraint (random on WRITE)
-		def strobe_for_reads(txn_type, strobe):
-			return strobe == 0 if txn_type == APBType.READ else True
-		self.add_constraint(strobe_for_reads, ('type', 'strobe'))
-
 		def complex_c(data, tmp, sq, root):
 			A, B = 0x1000, 0x8000
 			if data < A:
@@ -55,6 +45,24 @@ class ApbSeqItemCR(uvm_sequence_item, RandObj):
 			else:
 				return data % 12345 == 0
 		self.add_constraint(complex_c, ('data','tmp','sq','root'))
+
+		# strobe: 4-bit
+		# Build a dict mapping each value → weight
+		dist_map = {}
+		for v in range(1, 6):	dist_map[v] = 10	# 1–5 @10
+		for v in range(6, 11):	dist_map[v] = 20	# 6–10 @20
+		for v in range(11, 15):	dist_map[v] = 70	# 11–14 @70
+		dist_map[15] = 90							# 15 @90
+
+		# On WRITE: pick strobe from weighted dict
+		# On READ: strobe must be 0
+		def strobe_constraint(type, strobe):
+			if type == APBType.WRITE:
+				# weighted choice: strobe in dist_map
+				return strobe in dist_map
+			else:
+				return strobe == 0
+		self.add_constraint(strobe_constraint, ('type', 'strobe'))
 
 
 	# Override do_copy() to perform deep copying
