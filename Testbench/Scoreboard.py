@@ -6,7 +6,8 @@ Brief  : Implements the scoreboard for checking the correctness of APB transacti
 
 from pyuvm import uvm_subscriber
 from pyuvm import ConfigDB
-from SequenceItem import ApbSeqItem
+from SequenceItemVSC import ApbSeqItemVSC
+from SequenceItemCR import ApbSeqItemCR
 from APB_utils import APBType
 
 class ApbScoreboard(uvm_subscriber):
@@ -19,7 +20,7 @@ class ApbScoreboard(uvm_subscriber):
 		self.mismatch_count = 0
 
 	def write(self, item):
-		item_in = ApbSeqItem.create("item_in")
+		item_in = ApbSeqItemVSC.create("item_in")
 		item_in.copy(item)
 		if item_in.type == APBType.READ:
 			addr = item_in.addr
