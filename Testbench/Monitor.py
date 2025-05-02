@@ -9,7 +9,8 @@ from pyuvm import uvm_monitor, uvm_analysis_port
 from pyuvm import ConfigDB
 from pyuvm import UVMConfigItemNotFound
 
-from SequenceItem import ApbSeqItem
+from SequenceItemVSC import ApbSeqItemVSC
+from SequenceItemCR import ApbSeqItemCR
 from APB_utils import APBType
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit
@@ -34,11 +35,11 @@ class ApbMonitor(uvm_monitor):
 
 		while True:
 			# Create a new sequence item for each transaction
-			item = ApbSeqItem.create("item")
+			item = ApbSeqItemVSC.create("item")
 
 			# Align to start of a new APB cycle
 			await FallingEdge(self.dut.PCLK)
-			
+
 			# Wait until setup phase: PSELx, PENABLE, PRESETn all high
 			while not (
 				int(self.dut.PSELx.value)   == 1 and
@@ -49,21 +50,22 @@ class ApbMonitor(uvm_monitor):
 			
 			self.logger.debug("Now, it's the setup phase, we can sample addr, type and data(for write)")
 
-			item.addr = self.dut.PADDR
+			item.addr	= self.dut.PADDR.value
+			item.strobe	= self.dut.PSTRB.value
 
 			if (self.dut.PWRITE.value):
 				item.type = APBType.WRITE
 				item.data = self.dut.PWDATA.value
 			else:
 				# For reads, wait until PREADY asserts, then capture PRDATA on next cycle
-				while not (self.dut.PREADY):
+				while not (self.dut.PREADY.value):
 					await FallingEdge(self.dut.PCLK)
 				self.logger.debug("PREADY is asserted, now we can sample PRDATA")
 				await FallingEdge(self.dut.PCLK)
 				item.data = self.dut.PRDATA.value
 
-				self.mon_ap.write(item)
-				self.logger.debug(f"{self.get_type_name()}: MONITORED PyVSC's item {item}")
+			self.mon_ap.write(item)
+			self.logger.debug(f"{self.get_type_name()}: MONITORED PyVSC's item {item}")
 			
 			# Route transactions to the chosen coverage backend:
 			# - If SV coverage is enabled, serialize and send to SystemVerilog via SVConduit.put()

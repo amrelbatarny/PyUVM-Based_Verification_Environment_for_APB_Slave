@@ -40,6 +40,7 @@ class ApbDriver(uvm_driver):
 			self.predict_regs(item.addr, item.data, item.strobe)
 		else:
 			item.data = await self.bfm.read(item.addr)
+		self.logger.debug(f"{self.get_type_name()}: DRIVED {item.get_type_name()} item {item}")
 
 	def predict_regs(self, addr, val, strobe):
 		# Compute byte‐enable mask (32-bit value)
