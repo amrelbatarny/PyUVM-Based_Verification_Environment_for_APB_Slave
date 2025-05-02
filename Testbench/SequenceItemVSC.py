@@ -62,14 +62,20 @@ class ApbSeqItemVSC(uvm_sequence_item):
 	@vsc.constraint
 	def strobe_behavior(self):
 		# On READ transactions, force strobe to 0
-		with vsc.if_then(self.type == APBType.READ):
-			self.strobe == 0
+		with vsc.if_then(self.type == APBType.WRITE):
+			vsc.dist(self.strobe, [
+				vsc.weight(1,  10), vsc.weight(2,  10), vsc.weight(3,  10),
+				vsc.weight(4,  10), vsc.weight(5,  10),  # 1–5 @10
+				vsc.weight(6,  20), vsc.weight(7,  20), vsc.weight(8,  20),
+				vsc.weight(9,  20), vsc.weight(10, 20),  # 6–10 @20
+				vsc.weight(11, 70), vsc.weight(12, 70), vsc.weight(13, 70), vsc.weight(14, 70),  # 11–14 @70
+				vsc.weight(15, 90)  # 15 @90
+			])
 
 		# On WRITE transactions, apply the distribution
 		with vsc.else_then:
-			self.strobe == 15
-
-
+			self.strobe == 0
+			
 	@vsc.constraint
 	def addr_constraints(self):
 		# Address aligned to 4 and within the allowed range
