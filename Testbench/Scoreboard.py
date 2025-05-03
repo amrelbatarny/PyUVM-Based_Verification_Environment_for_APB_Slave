@@ -8,6 +8,7 @@ from pyuvm import uvm_subscriber
 from pyuvm import ConfigDB
 from SequenceItemVSC import ApbSeqItemVSC
 from SequenceItemCR import ApbSeqItemCR
+from SequenceItemCCVG import ApbSeqItemCCVG
 from APB_utils import APBType
 
 class ApbScoreboard(uvm_subscriber):
