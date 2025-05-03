@@ -41,6 +41,7 @@ VLOG_ARGS += +cover
 # VLOG_ARGS += +define+DEBUG_SVCONDUIT
 
 # Use setup.tcl for waveform configuration
+VSIM_ARGS += -sv_seed random
 VSIM_ARGS += -do setup.tcl
 VSIM_ARGS += -dpioutoftheblue 1
 VSIM_ARGS += -classdebug
