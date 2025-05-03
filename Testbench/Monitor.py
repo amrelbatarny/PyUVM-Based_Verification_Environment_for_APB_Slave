@@ -11,6 +11,7 @@ from pyuvm import UVMConfigItemNotFound
 
 from SequenceItemVSC import ApbSeqItemVSC
 from SequenceItemCR import ApbSeqItemCR
+from SequenceItemCCVG import ApbSeqItemCCVG
 from APB_utils import APBType
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit
