@@ -11,6 +11,7 @@ from pyuvm import uvm_sequence_item
 from pyuvm.s24_uvm_reg_includes import access_e
 from SequenceItemVSC import ApbSeqItemVSC
 from SequenceItemCR import ApbSeqItemCR
+from SequenceItemCCVG import ApbSeqItemCCVG
 from APB_utils import APBType
 
 class ApbRegAdapter(uvm_reg_adapter):
