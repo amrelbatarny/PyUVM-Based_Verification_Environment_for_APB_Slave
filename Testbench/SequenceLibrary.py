@@ -11,6 +11,7 @@ from pyuvm import uvm_sequence, uvm_report_object, ConfigDB, uvm_root, path_t, c
 from pyuvm import UVMConfigItemNotFound
 from SequenceItemVSC import ApbSeqItemVSC
 from SequenceItemCR import ApbSeqItemCR
+from SequenceItemCCVG import ApbSeqItemCCVG
 from APB_seq_itemMod import APB_seq_item
 from pyquesta import SVConduit
 from APB_utils import APBType
@@ -57,13 +58,19 @@ class ApbTestAllSequence(ApbBaseSequence):
 		# - If SV randomization is disabled, randomize PyVSC-based item
 		# - Otherwise, get a randomized item from SystemVerilog via SVConduit.get()
 		if self.sv_rand_en == False:
-			self.seq_print(f"Sending txn_num {self.item.get_type_name()} transactions")
+			self.seq_print("=====================================================================================================")
+			self.seq_print(f"{self.get_type_name()}: Sending {self.txn_num} {self.item.get_type_name()} transactions ...")
+			self.seq_print("=====================================================================================================")
+
 			for _ in range(self.txn_num):
 				await self.start_item(self.item)
 				self.item.randomize()
 				await self.finish_item(self.item)
 		else:
-			self.seq_print("Sending txn_num SVConduit transactions")
+			self.seq_print("=====================================================================================================")
+			self.seq_print(f"{self.get_type_name()}: Sending {self.txn_num} SVConduit transactions")
+			self.seq_print("=====================================================================================================")
+
 			for _ in range(self.txn_num):
 				await self.start_item(self.item)
 				item_sv = SVConduit.get(APB_seq_item)
