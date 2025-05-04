@@ -1,6 +1,6 @@
 ## Python-based Verification Environment for APB Slave
 
-This repository provides a fully Python-centric verification environment for an APB Slave design, leveraging Cocotb, PyUVM, PyVSC, and PyQuesta to combine the best of both worlds: Python's productivity and SystemVerilog's mature CRV and coverage engines.
+This repository provides a fully Python-centric verification environment for an APB Slave design, leveraging Cocotb, PyUVM, PyVSC, constrainedrandom, cocotb-coverage and PyQuesta to combine the best of both worlds: Python's productivity and SystemVerilog's mature CRV and coverage engines.
 
 ---
 
