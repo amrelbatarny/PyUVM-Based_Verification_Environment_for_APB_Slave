@@ -30,7 +30,7 @@ This repository provides a fully Python-centric verification environment for an 
 As Python gains momentum in functional verification, it still lacks some of SystemVerilog’s mature features for constrained random and coverage-driven methodologies. This project demonstrates a hybrid approach where a standard APB Slave in SystemVerilog is verified entirely from Python using:
 
 * **Cocotb + PyUVM** for testbench structure and orchestration.
-* **PyVSC** for native Python constrained-random verification (CRV) and functional coverage.
+* **PyVSC**, **constrainedrandom** and **cocotb-coverage** for native Python constrained-random verification (CRV) and functional coverage.
 * **PyQuesta** (SVConduit) to invoke SystemVerilog’s randomization (`sv_get`) and coverage (`sv_put`) engines via DPI.
 * **Python RAL** for front-door register read/write operations.
 
@@ -46,8 +46,9 @@ As Python gains momentum in functional verification, it still lacks some of Syst
 * **Hybrid CRV & Coverage** via multiple methods:
 
   * **PyVSC**: pure-Python randomization and coverage.
+  * **constrainedrandom**
+  * **cocotb-coverage**
   * **PyQuesta**: borrow SystemVerilog’s EDA solver and coverage via DPI.
-  * **cocotb-coverage**: example implementation (unused by default).
 * **PyUVM Factory & Sequences** for modular, reusable stimulus.
 * **SVConduit DPI Shim** auto-built to connect Python and SystemVerilog.
 * **ConfigDB-based Test Configuration** to toggle features at runtime.
@@ -214,7 +215,7 @@ We support three active coverage backends; one is selected via ConfigDB flags:
    * Monitor calls `SVConduit.put(item)` to invoke SystemVerilog's `sv_put()`.
    * SV-side covergroup `APB_cg` samples fields, leveraging QuestaSim’s native UCIS engine.
 
-> **Note:** Coverage flags are mutually exclusive: select either `ENABLE_SV_COVERAGE`, `ENABLE_VSC_COVERAGE`.
+> **Note:** Coverage flags are mutually exclusive: select either `ENABLE_SV_COVERAGE` or `ENABLE_VSC_COVERAGE`.
 
 ---
 ## Randomization Strategy
@@ -285,9 +286,4 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 
 ---
 
-## Contact
-
-For questions or feedback, reach out via GitHub Discussions or:
-
-* **Amr El Batarny** — [beacons.ai/amrelbatarny](https://beacons.ai/amrelbatarny)
-
+**cocotb-coverage**
