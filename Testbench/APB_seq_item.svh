@@ -20,7 +20,7 @@ function string sv_get;
 		if (data < A)
 			data == 3*x + 5;
 		else if (data < B)
-			(data + 7) == root * root; // data + 7 is a perfect square
+			(data + 7) == root * root && sq * sq - 7 == data;
 		else
 			(data % 12345) == 0; // data is a multiple of 12345
 

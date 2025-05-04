@@ -20,6 +20,7 @@ export "DPI-C" function sv_transport;
         
         rand bit [28:0] x;
         rand bit [15:0] root;
+        rand bit [15:0] sq;
 
         function new(APB_seq_item_buf_t buffer={0,0,0,0,0,0,0,0,0,0});
             APB_seq_item_packed_t packed_buf;

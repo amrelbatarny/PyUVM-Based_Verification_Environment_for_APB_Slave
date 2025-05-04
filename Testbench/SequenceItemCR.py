@@ -51,11 +51,19 @@ class ApbSeqItemCR(uvm_sequence_item, RandObj):
 		self.add_rand_var('root', bits=16)
 
 		def complex_c(data, tmp, sq, root):
-			A, B = 0x1000, 0x8000
+			# Choose two thresholds
+			A = 0x1000
+			B = 0x8000
+			
+			# Branch 1: data < A → use tmp
 			if data < A:
-				return data == 3*tmp + 5
+				return data == 3 * tmp + 5
+			
+			# Branch 2: A ≤ data < B
 			elif data < B:
-				return sq*sq - 7 == data and root*root == data+7
+				return sq * sq - 7 == data and root * root == data + 7
+			
+			# Branch 3: data ≥ B
 			else:
 				return data % 12345 == 0
 		self.add_constraint(complex_c, ('data','tmp','sq','root'))

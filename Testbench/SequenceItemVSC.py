@@ -38,6 +38,7 @@ class ApbSeqItemVSC(uvm_sequence_item):
 
 		self.tmp	= vsc.rand_bit_t(29)
 		self.sq		= vsc.rand_bit_t(16)
+		self.root	= vsc.rand_bit_t(16)
 
 	@vsc.constraint
 	def complex_c(self):
@@ -51,12 +52,10 @@ class ApbSeqItemVSC(uvm_sequence_item):
 
 		# Branch 2: A ≤ data < B
 		with vsc.else_if(self.data < B):
-			# data must be a square minus 7
-			self.data == self.sq * self.sq - 7
+			self.sq * self.sq - 7 == self.data and self.root * self.root == self.data + 7
 
 		# Branch 3: data ≥ B
 		with vsc.else_then:
-			# data must be a multiple of 12345
 			self.data % 12345 == 0
 
 	@vsc.constraint
